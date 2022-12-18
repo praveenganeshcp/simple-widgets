@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "ngx-simple-widgets": {
+      "projectType": "library",
+      "root": "projects/ngx-simple-widgets",
+      "sourceRoot": "projects/ngx-simple-widgets/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-simple-widgets/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-simple-widgets/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-simple-widgets/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-simple-widgets/src/test.ts",
+            "tsConfig": "projects/ngx-simple-widgets/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-simple-widgets/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "simple-widgets"
