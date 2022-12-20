@@ -26,4 +26,6 @@ jobs:
         with:
           node-version: '16'
       - run: npm ci
-      - run: npx chromatic --project-token=${{ secrets.CHROMATIC }}
+      - uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC }}
