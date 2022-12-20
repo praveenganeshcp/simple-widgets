@@ -3,7 +3,7 @@ on:
   push:
     branches: ["main"]
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
@@ -11,4 +11,5 @@ jobs:
           node-version: '16'
       - uses: actions/checkout@v3
       - run: npm ci
-      - run: npx cypress run --component
+      - run: npx cypress verify
+      - run: npx cypress run --component --browser=chromium
