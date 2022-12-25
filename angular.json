@@ -110,7 +110,7 @@
       "projectType": "library",
       "root": "projects/ngx-simple-widgets",
       "sourceRoot": "projects/ngx-simple-widgets/src",
-      "prefix": "ngx",
+      "prefix": "sw",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
