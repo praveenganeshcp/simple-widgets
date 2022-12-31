@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: '16'
       - uses: actions/checkout@v3
-      - run: npm ci
+      - uses: praveenganeshcp/simple-widgets/.github/workflows/install-dependencies.yml@main
       - run: npm run build:lib
       - uses: actions/upload-artifact@v2
         with:
