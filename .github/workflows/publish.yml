@@ -20,9 +20,11 @@ jobs:
           node-version: '16'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
+      - run: mkdir dist && cd ./dist
       - uses: actions/download-artifact@v2
         with:
           name: lib-build-artifacts
+      - run: ls && cd ..
       - run: ls
       - run: cd ./dist && ls && cd ..
       - run: ls
