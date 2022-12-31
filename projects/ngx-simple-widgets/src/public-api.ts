@@ -8,7 +8,7 @@ export { SwIconComponent } from "./modules/sw-icon/component/sw-icon/sw-icon.com
 
 
 // accordion module
-export { SwAccordionModule } from "./modules/sw-accordion/sw-accordion.module";
-export { SwAccordionComponent } from "./modules/sw-accordion/components/sw-accordion/sw-accordion.component";
-export { SwAccordionTitleComponent } from "./modules/sw-accordion/components/sw-accordion-title/sw-accordion-title.component";
-export { SwAccordionBodyComponent } from "./modules/sw-accordion/components/sw-accordion-body/sw-accordion-body.component";
+export { SwAccordionModule } from "./modules/accordion/sw-accordion.module";
+export { SwAccordionComponent } from "./modules/accordion/components/sw-accordion/sw-accordion.component";
+export { SwAccordionTitleComponent } from "./modules/accordion/components/sw-accordion-title/sw-accordion-title.component";
+export { SwAccordionBodyComponent } from "./modules/accordion/components/sw-accordion-body/sw-accordion-body.component";
