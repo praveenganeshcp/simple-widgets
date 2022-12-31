@@ -1,0 +1,15 @@
+.sw-switch {
+    height: 15px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.sw-switch-thumb {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: blue;
+}
