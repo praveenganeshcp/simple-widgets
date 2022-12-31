@@ -71,6 +71,6 @@
     "url": "git+https://github.com/praveenganeshcp/simple-widgets.git"
   },
   "release": {
-    "pkgRoot": "./dist/ngx-simple-widgets/"
+    "pkgRoot": "./ngx-simple-widgets/"
   }
 }
