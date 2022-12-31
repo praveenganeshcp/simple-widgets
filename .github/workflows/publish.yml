@@ -3,8 +3,12 @@ on:
   push:
     branches: ["main"]
 jobs:
+  build:
+    uses: praveenganeshcp/simple-widgets/.github/workflows/build.yml@main
+    
   publish:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
