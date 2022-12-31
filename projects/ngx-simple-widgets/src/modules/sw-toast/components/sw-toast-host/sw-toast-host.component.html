@@ -1,0 +1,8 @@
+<div class="sw-toast"
+    [class.success]="status === toastStatus.SUCCESS"
+    [class.warn]="status === toastStatus.WARNING"
+    [class.error]="status === toastStatus.ERROR"
+>
+    <h4 *ngIf="title">{{ title }}</h4>
+    <span>{{ message }}</span>
+</div>
