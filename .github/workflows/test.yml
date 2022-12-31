@@ -9,6 +9,16 @@ jobs:
         with:
           node-version: '16'
       - uses: actions/checkout@v3
-      - run: npm ci
+      - name: cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-dependencies
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: install dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: npm ci
       - run: npx cypress verify
       - run: npx cypress run --component --browser=chromium
