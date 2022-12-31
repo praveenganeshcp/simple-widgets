@@ -20,5 +20,6 @@ jobs:
       - name: install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
+      - run: npx cypress install
       - run: npx cypress verify
       - run: npx cypress run --component --browser=chromium
