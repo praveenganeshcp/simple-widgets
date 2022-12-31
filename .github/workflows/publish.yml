@@ -6,9 +6,13 @@ jobs:
   build:
     uses: praveenganeshcp/simple-widgets/.github/workflows/build.yml@main
     
+  test:
+    needs: build
+    uses: praveenganeshcp/simple-widgets/.github/workflows/test.yml@main
+    
   publish:
     runs-on: ubuntu-latest
-    needs: build
+    needs: test
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -24,6 +28,7 @@ jobs:
 
   deploy-storybook:
     runs-on: ubuntu-latest
+    needs: publish
     steps:
       - uses: actions/checkout@v3
         with:
