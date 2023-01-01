@@ -5,11 +5,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v3
+      - name: Setup node environment
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
-      - uses: actions/checkout@v3
-      - name: cache dependencies
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Pull cached dependencies
         id: cache-dependencies
         uses: actions/cache@v2
         env:
@@ -17,11 +19,13 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-      - name: install dependencies
+      - name: Install dependencies if cache hit does not happen
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
-      - run: npm run build:lib
-      - uses: actions/upload-artifact@v2
+      - name: Build library
+        run: npm run build:lib
+      - name: Upload library build artifacts
+        uses: actions/upload-artifact@v2
         with:
           name: lib-build-artifacts
           path: ./dist
