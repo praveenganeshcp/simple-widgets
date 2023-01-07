@@ -1,0 +1,44 @@
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.month-name {
+    padding: 0.5rem 0;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.week-day-names {
+    margin-bottom: 0.5rem;
+}
+
+.date-cell {
+    text-align: center;
+    width: 13%;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+}
+
+.empty-date-cell {
+    width: 13%;
+}
+
+.date-cell:hover {
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.week-cell {
+    text-align: center;
+    width: 13%;
+    padding: 0rem 0.6rem;
+}
+
+.selected-date {
+    background-color: lightgray;
+    border-radius: 5px;
+}

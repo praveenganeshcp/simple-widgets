@@ -1,0 +1,26 @@
+<div class="flex flex-column" style="width: 100%;">
+    <p *ngIf="currentMonthStartDate" class="month-name">
+        {{ currentMonthStartDate | date: 'MMMM' }}
+    </p>
+    <div class="flex flex-column" style="width: 100%; padding: 0.5rem;">
+        <div class="flex week-day-names" style="width: 100%;">
+            <span class="week-cell" *ngFor="let day of weekDays">{{ day }}</span>
+        </div>
+        <div class="flex" style="width:100%;" *ngFor="let weeks of calendar">
+            <ng-container *ngFor="let dateInWeek of weeks">
+                <ng-container *ngIf="dateInWeek !== null; else emptyDateCell">
+                    <span 
+                        (click)="onSelectDate(dateInWeek)" 
+                        [class.selected-date]="isSelectedDate(dateInWeek)" 
+                        class="date-cell"
+                    >
+                        {{ dateInWeek }}
+                    </span>
+                </ng-container>
+                <ng-template #emptyDateCell>
+                    <span class="empty-date-cell"></span>
+                </ng-template>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="sw-calendar-host">
+    <div class="sw-month-calendar-host">
+        <sw-month-calendar-header
+            [year]="calendarState.getFullYear()"
+            (moveNextMonth)="onMoveNextMonth()"
+            (movePreviousMonth)="onMovePreviousMonth()"
+        >
+        </sw-month-calendar-header>
+    </div>
+    <sw-month-calendar
+        [selectedDate]="selectedDate"
+        [month]="calendarState.getMonth()"
+        [year]="calendarState.getFullYear()"
+        (dateChange)="onDateChange($event)"
+    ></sw-month-calendar>
+</div>

@@ -1,0 +1,17 @@
+.sw-month-calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgray;
+    width: 100%;
+    padding: 0.3rem 0.6rem;
+}
+
+.sw-month-arrow-actions {
+    cursor: pointer;
+}
+
+.sw-month-arrow-actions:hover {
+    background-color: gray;
+    border-radius: 50%;
+}
