@@ -19,3 +19,8 @@ export { SwToastService } from './modules/sw-toast/services/sw-toast.service';
 // datepicker module
 export { SwDatePickerModule } from "./modules/sw-datepicker/sw-datepicker.module";
 export { SwCalendarComponent } from "./modules/sw-datepicker/components/sw-calendar/sw-calendar.component";
+
+// tooltip module
+export { SwTooltipModule } from "./modules/sw-tooltip/sw-tooltip.module";
+export { SwTooltipComponent } from "./modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component";
+export { SW_TOOLTIP_POSITION } from "./modules/sw-tooltip/sw-tooltip.constants";

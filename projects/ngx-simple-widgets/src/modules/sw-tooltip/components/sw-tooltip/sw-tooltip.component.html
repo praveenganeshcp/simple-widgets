@@ -1,0 +1,17 @@
+<span 
+    (mouseleave)="isOpen = false" 
+    (mouseenter)="isOpen = true" 
+    cdkOverlayOrigin 
+    #swTooltipOrigin="cdkOverlayOrigin"
+>
+    <ng-content></ng-content>
+</span>
+
+<ng-template 
+    cdkConnectedOverlay 
+    [cdkConnectedOverlayOrigin]="swTooltipOrigin" 
+    [cdkConnectedOverlayOpen]="isOpen"
+    [cdkConnectedOverlayPositions]="[connectedPositionStrategy]"
+>
+    <span *ngIf="text" class="sw-tooltip">{{ text }}</span>
+</ng-template>
