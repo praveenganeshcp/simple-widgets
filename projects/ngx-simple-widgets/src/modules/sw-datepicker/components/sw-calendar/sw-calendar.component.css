@@ -1,0 +1,11 @@
+.sw-calendar-host {
+    border: 1px solid lightgray;
+    display: inline-block;
+    width: 20vw;
+    background-color: whitesmoke;
+    border-radius: 8px;
+}
+
+.sw-month-calendar-host {
+    width: 100%;
+}

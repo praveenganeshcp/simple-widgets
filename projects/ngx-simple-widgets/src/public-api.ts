@@ -15,3 +15,7 @@ export { SwSwitchComponent } from "./modules/sw-switch/components/sw-switch/sw-s
 // toast module
 export { SwToastModule } from "./modules/sw-toast/sw-toast.module";
 export { SwToastService } from './modules/sw-toast/services/sw-toast.service';
+
+// datepicker module
+export { SwDatePickerModule } from "./modules/sw-datepicker/sw-datepicker.module";
+export { SwCalendarComponent } from "./modules/sw-datepicker/components/sw-calendar/sw-calendar.component";
