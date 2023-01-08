@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter } from "@angular/core";
 @Component({
     selector: 'sw-month-calendar-header',
     templateUrl: './sw-month-calendar-header.component.html',
-    styleUrls: ['./sw-month-calendar-header.component.css']
+    styleUrls: ['./sw-month-calendar-header.component.scss']
 })
 export class SwMonthCalendarHeaderComponent {
 

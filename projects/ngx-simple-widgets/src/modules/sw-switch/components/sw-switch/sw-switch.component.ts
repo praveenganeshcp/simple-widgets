@@ -5,7 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 @Component({
     selector: 'sw-switch',
     templateUrl: './sw-switch.component.html',
-    styleUrls: ['./sw-switch.component.css'],
+    styleUrls: ['./sw-switch.component.scss'],
     animations: [
         trigger('switch-state', [
             state('on', style({

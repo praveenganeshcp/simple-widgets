@@ -5,7 +5,7 @@ import { SW_TOAST_DATA } from '../../sw-toast.constants';
 @Component({
   selector: 'sw-sw-toast-host',
   templateUrl: './sw-toast-host.component.html',
-  styleUrls: ['./sw-toast-host.component.css']
+  styleUrls: ['./sw-toast-host.component.scss']
 })
 export class SwToastHostComponent {
 

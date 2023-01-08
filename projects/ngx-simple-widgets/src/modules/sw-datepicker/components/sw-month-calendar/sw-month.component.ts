@@ -3,7 +3,7 @@ import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from "@angu
 @Component({
     selector: 'sw-month-calendar',
     templateUrl: './sw-month.component.html',
-    styleUrls: ['./sw-month.component.css'],
+    styleUrls: ['./sw-month.component.scss'],
 })
 export class SwMonthCalendarComponent implements OnInit, OnChanges {
 
