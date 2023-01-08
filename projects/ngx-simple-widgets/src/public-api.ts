@@ -24,3 +24,10 @@ export { SwCalendarComponent } from "./modules/sw-datepicker/components/sw-calen
 export { SwTooltipModule } from "./modules/sw-tooltip/sw-tooltip.module";
 export { SwTooltipComponent } from "./modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component";
 export { SW_TOOLTIP_POSITION } from "./modules/sw-tooltip/sw-tooltip.constants";
+
+// modal module
+export { SwDialogModule } from "./modules/sw-dialog/sw.dialog.module";
+export { SwDialogService } from "./modules/sw-dialog/services/sw-dialog.service";
+export { SwDialogRef } from "./modules/sw-dialog/models/dialog.ref";
+export { SW_DIALOG_DATA } from "./modules/sw-dialog/sw-dialog.constant";
+export { SwDialogConfig } from "./modules/sw-dialog/models/dialog.config";
