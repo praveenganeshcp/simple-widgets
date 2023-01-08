@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 @Component({
   selector: 'sw-accordion',
   templateUrl: './sw-accordion.component.html',
-  styleUrls: ['./sw-accordion.component.css'],
+  styleUrls: ['./sw-accordion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwAccordionComponent {

@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
     selector: 'sw-calendar',
-    styleUrls: ['./sw-calendar.component.css'],
+    styleUrls: ['./sw-calendar.component.scss'],
     templateUrl: './sw-calendar.component.html',
     providers: [
         {

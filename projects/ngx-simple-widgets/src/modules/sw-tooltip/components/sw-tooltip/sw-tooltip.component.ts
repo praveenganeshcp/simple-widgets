@@ -5,7 +5,7 @@ import { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from '../../sw-to
 @Component({
   selector: 'sw-tooltip',
   templateUrl: './sw-tooltip.component.html',
-  styleUrls: ['./sw-tooltip.component.css']
+  styleUrls: ['./sw-tooltip.component.scss']
 })
 export class SwTooltipComponent {
 
