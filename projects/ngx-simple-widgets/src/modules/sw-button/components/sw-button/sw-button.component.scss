@@ -1,0 +1,21 @@
+
+:host-context(button[sw-primary-button]) {
+    background-color: rgb(51, 51, 161);
+    color: white;
+}
+
+:host-context(button[sw-bordered-button]) {
+    background: none;
+    border: 1px solid black;
+}
+
+:host-context(button[sw-warning-button]) {
+    background-color: rgb(196, 55, 55);
+    color: white;
+}
+
+:host {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+}
