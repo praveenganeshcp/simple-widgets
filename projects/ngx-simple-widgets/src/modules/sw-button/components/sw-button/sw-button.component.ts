@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: ` 
@@ -11,5 +12,28 @@ import { Component } from '@angular/core';
 })
 export class SwButtonComponent {
 
-  constructor() { }
+    showLoader: boolean = false;
+
+    @Input() 
+    set showLoaderUntil(subscription: Subscription | null) {
+        if(subscription !== null) {
+            this.showLoader = true;
+            subscription.add(() => {
+                this.showLoader = false;
+            })
+        }
+    }
+
+    constructor() { }
+
+    @HostBinding('disabled')
+    get disabled() {
+        return this.showLoader;
+    }
+
+    @HostBinding('attr.is-loading') 
+    get isLoading() {
+        return this.showLoader;
+    }
+
 }
