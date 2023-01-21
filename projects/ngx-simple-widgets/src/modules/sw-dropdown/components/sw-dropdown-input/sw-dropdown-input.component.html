@@ -21,7 +21,7 @@
     [cdkConnectedOverlayBackdropClass]="'sw-dropdown-backdrop'"
 >
     <div cdkListbox
-        [cdkListboxValue]="selectedValue"
+        [cdkListboxValue]="selectedValues"
     (cdkListboxValueChange)="onValueChange($event)">
         <ng-container *ngFor="let item of items">
             <div [cdkOption]="item.value">
