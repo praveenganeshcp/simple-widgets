@@ -1,0 +1,37 @@
+.sw-dropdown-input {
+    width: 15vw;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.sw-dropdown-placeholder {
+    color: gray;
+}
+
+.sw-dropdown-backdrop {
+    background-color: none;
+}
+
+.cdk-listbox {
+    margin-top: 0.3rem;
+    background-color: white;
+    border: 1px solid gray;
+    width: 15vw;
+    border-radius: 5px;
+}
+
+.cdk-option {
+    background-color: white;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid gray;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.cdk-option-active, .cdk-option[aria-selected=true] {
+    background-color: lightgray;
+}
