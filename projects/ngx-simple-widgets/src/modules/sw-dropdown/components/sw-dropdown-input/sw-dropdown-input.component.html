@@ -3,6 +3,7 @@
     (click)="isOpen = true"
     cdkOverlayOrigin 
     #swDropdownPanelOrigin="cdkOverlayOrigin"
+    [class.sw-dropdown-active]="isOpen"
 >
     <ng-container *ngIf="selectedValueVM; else placeholderTemplate">
         {{ selectedValueVM }}
@@ -21,6 +22,7 @@
     [cdkConnectedOverlayBackdropClass]="'sw-dropdown-backdrop'"
 >
     <div cdkListbox
+        [class.sw-dropdown-active]="true"
         [cdkListboxValue]="selectedValues"
     (cdkListboxValueChange)="onValueChange($event)">
         <ng-container *ngFor="let item of items">
