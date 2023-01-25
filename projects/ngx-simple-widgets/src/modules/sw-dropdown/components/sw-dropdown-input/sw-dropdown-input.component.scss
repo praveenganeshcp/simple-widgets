@@ -40,6 +40,12 @@ $sw-dropdown-active-color: blue;
     overflow-y: auto;
 }
 
+.sw-dropdown-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .cdk-option {
     padding: 0.5rem 0.75rem;
     border-bottom: 1px solid $sw-dropdown-border-color;
