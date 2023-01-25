@@ -1,38 +1,78 @@
 
-$disable-bg-color: gray;
-$disable-text-color: white;
+$sw-button-disable-bg-color: gray;
+$sw-button-disable-text-color: white;
+
+$sw-button-primary-button-bg-color: blue;
+$sw-button-danger-button-bg-color: red;
+$sw-button-bordered-button-border-color: rgb(206, 176, 176);
+$sw-button-icon-bg-color: yellow;
+
+$sw-button-small-size: 12px;
+$sw-button-medium-size: 14px;
+$sw-button-large-size: 16px;
+
 
 :host-context(button[sw-primary-button]) {
-    background-color: rgb(51, 51, 161);
+    background-color: $sw-button-primary-button-bg-color;
     color: white;
+
+    &:hover {
+        opacity: 0.7;
+        outline: none !important;
+    }
+}
+
+:host-context(button[sw-icon-button]) {
+    background-color: $sw-button-icon-bg-color !important;
+    border: 1px solid yellow;
 }
 
 :host-context(button[sw-bordered-button]) {
     background: none;
-    border: 1px solid black;
+    border: 1px solid $sw-button-bordered-button-border-color;
+    font-weight: 400 !important;
 }
 
-:host-context(button[sw-warning-button]) {
-    background-color: rgb(196, 55, 55);
+:host-context(button[sw-danger-button]) {
+    background-color: $sw-button-danger-button-bg-color;
     color: white;
 }
 
 :host {
-    padding: 0.75rem 1.5rem;
     border-radius: 5px;
     border: none;
-}
-
-:host[is-loading=true] {    
-    background-color: $disable-bg-color !important;
-    color: $disable-text-color !important;
+    font-weight: bold;
 
     &:hover {
-        cursor: progress;
+        outline: 1px solid blue;
     }
-}
 
-:host[disabled] {
-    background-color: $disable-bg-color !important;
-    color: $disable-text-color !important;
+    &[is-loading=true] {
+        background-color: $sw-button-disable-bg-color !important;
+        color: $sw-button-disable-text-color !important;
+    
+        &:hover {
+            cursor: progress;
+        }
+    }
+
+    &[disabled] {
+        background-color: $sw-button-disable-bg-color !important;
+        color: $sw-button-disable-text-color !important;
+    }
+
+    &.sw-button-small {
+        font-size: $sw-button-small-size;
+        padding: 0.37rem 0.75rem;
+    }
+
+    &.sw-button-medium {
+        font-size: $sw-button-medium-size;
+        padding: 0.5rem 1rem;
+    }
+
+    &.sw-button-large {
+        font-size: $sw-button-large-size;
+        padding: 0.65rem 1.3rem;
+    }
 }
