@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DEFAULT_SW_BUTTON_SIZE, SwButtonSizes } from '../../sw-button.constants';
 
@@ -6,11 +6,14 @@ import { DEFAULT_SW_BUTTON_SIZE, SwButtonSizes } from '../../sw-button.constants
   selector: ` 
     button[sw-primary-button],
     button[sw-danger-button],
-    button[sw-bordered-button]
-    button[sw-icon-button]
+    button[sw-bordered-button],
+    button[sw-text-button],
+    button[sw-bordered-icon-button],
+    button[sw-icon-button],
   `,
   templateUrl: './sw-button.component.html',
-  styleUrls: ['./sw-button.component.scss']
+  styleUrls: ['./sw-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwButtonComponent {
 
@@ -18,7 +21,11 @@ export class SwButtonComponent {
 
     showLoader: boolean = false;
 
-    private buttonSizeCSSClassMap = new Map<SwButtonSizes, string>();
+    private buttonSizeCSSClasses: Record<SwButtonSizes, string> = {
+        [SwButtonSizes.small]: 'sw-button-small',
+        [SwButtonSizes.medium]: 'sw-button-medium',
+        [SwButtonSizes.large]: 'sw-button-large'
+    }
 
     @Input() 
     set showLoaderUntil(subscription: Subscription | null) {
@@ -30,11 +37,7 @@ export class SwButtonComponent {
         }
     }
 
-    constructor() { 
-        this.buttonSizeCSSClassMap.set(SwButtonSizes.small, 'sw-button-small');
-        this.buttonSizeCSSClassMap.set(SwButtonSizes.medium, 'sw-button-medium');
-        this.buttonSizeCSSClassMap.set(SwButtonSizes.large, 'sw-button-large');
-    }
+    constructor() { }
 
     @HostBinding('disabled')
     get disabled() {
@@ -48,7 +51,7 @@ export class SwButtonComponent {
 
     @HostBinding('class')
     get buttonClass() {
-        return this.buttonSizeCSSClassMap.get(this.size);
+        return this.buttonSizeCSSClasses[this.size];
     }
 
 }

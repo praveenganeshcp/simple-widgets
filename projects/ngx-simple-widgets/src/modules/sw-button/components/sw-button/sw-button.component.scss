@@ -5,11 +5,14 @@ $sw-button-disable-text-color: white;
 $sw-button-primary-button-bg-color: blue;
 $sw-button-danger-button-bg-color: red;
 $sw-button-bordered-button-border-color: rgb(206, 176, 176);
-$sw-button-icon-bg-color: yellow;
+$sw-button-icon-bg-color: white;
+$sw-button-plain-button-background-color: lightgray;
 
 $sw-button-small-size: 12px;
 $sw-button-medium-size: 14px;
 $sw-button-large-size: 16px;
+
+$sw-button-hover-opacity: 0.7;
 
 
 :host-context(button[sw-primary-button]) {
@@ -17,31 +20,43 @@ $sw-button-large-size: 16px;
     color: white;
 
     &:hover {
-        opacity: 0.7;
+        opacity: $sw-button-hover-opacity;
         outline: none !important;
     }
 }
 
-:host-context(button[sw-icon-button]) {
+:host-context(button[sw-bordered-icon-button]) {
     background-color: $sw-button-icon-bg-color !important;
-    border: 1px solid yellow;
+    border: 1px solid $sw-button-bordered-button-border-color;
 }
 
 :host-context(button[sw-bordered-button]) {
     background: none;
     border: 1px solid $sw-button-bordered-button-border-color;
-    font-weight: 400 !important;
 }
 
 :host-context(button[sw-danger-button]) {
     background-color: $sw-button-danger-button-bg-color;
     color: white;
+
+    &:hover {
+        opacity: $sw-button-hover-opacity;
+        outline: none !important;
+    }
+}
+
+:host-context(button[sw-text-button], button[sw-icon-button]) {
+    background: none;
+
+    &:hover {
+        background-color: $sw-button-plain-button-background-color;
+        outline: none;
+    }
 }
 
 :host {
     border-radius: 5px;
     border: none;
-    font-weight: bold;
 
     &:hover {
         outline: 1px solid blue;
