@@ -3,10 +3,12 @@
     (click)="isOpen = true"
     cdkOverlayOrigin 
     #swDropdownPanelOrigin="cdkOverlayOrigin"
+    [class.sw-dropdown-active]="isOpen"
 >
-    <ng-container *ngIf="selectedValueVM; else placeholderTemplate">
-        {{ selectedValueVM }}
-    </ng-container>
+    <div class="sw-dropdown-value" *ngIf="selectedValueVM; else placeholderTemplate">
+        <span>{{ selectedValueVM }}</span>
+        <sw-icon name="close"></sw-icon>
+    </div>
     <ng-template #placeholderTemplate>
         <span class="sw-dropdown-placeholder">{{ placeholder }}</span>
     </ng-template>
@@ -21,6 +23,7 @@
     [cdkConnectedOverlayBackdropClass]="'sw-dropdown-backdrop'"
 >
     <div cdkListbox
+        [class.sw-dropdown-active]="true"
         [cdkListboxValue]="selectedValues"
     (cdkListboxValueChange)="onValueChange($event)">
         <ng-container *ngFor="let item of items">

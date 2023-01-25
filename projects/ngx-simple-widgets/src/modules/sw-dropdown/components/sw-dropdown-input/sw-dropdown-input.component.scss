@@ -1,9 +1,24 @@
+$sw-dropdown-input-width: 20vw;
+$sw-dropdown-max-height: 50vh;
+$sw-dropdown-border-color: rgb(185, 159, 159);
+$sw-dropdown-border-radius: 4px;
+$sw-dropdown-option-selected-and-hover-bg-color: lightgray;
+$sw-dropdown-active-color: blue;
+
 .sw-dropdown-input {
-    width: 15vw;
+    width: $sw-dropdown-input-width;
     padding: 0.5rem;
-    border: 1px solid gray;
+    border: 1px solid $sw-dropdown-border-color;
     background-color: whitesmoke;
-    border-radius: 5px;
+    border-radius: $sw-dropdown-border-radius;
+
+    &:hover {
+        border-color: $sw-dropdown-active-color;
+    }
+}
+
+.sw-dropdown-active {
+    border-color: $sw-dropdown-active-color !important;
 }
 
 .sw-dropdown-placeholder {
@@ -15,23 +30,35 @@
 }
 
 .cdk-listbox {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
     background-color: white;
-    border: 1px solid gray;
-    width: 15vw;
-    border-radius: 5px;
+    border: 1px solid $sw-dropdown-border-color;
+    width: $sw-dropdown-input-width;
+    box-shadow: 3px 3px 6px 2px lightgray;
+    border-radius: $sw-dropdown-border-radius;
+    max-height: $sw-dropdown-max-height;
+    overflow-y: auto;
+}
+
+.sw-dropdown-value {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .cdk-option {
-    background-color: white;
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $sw-dropdown-border-color;
 
     &:last-child {
         border-bottom: none;
     }
+
+    &:hover {
+        background-color: $sw-dropdown-option-selected-and-hover-bg-color;
+    }
 }
 
 .cdk-option-active, .cdk-option[aria-selected=true] {
-    background-color: lightgray;
+    background-color: $sw-dropdown-option-selected-and-hover-bg-color;
 }
