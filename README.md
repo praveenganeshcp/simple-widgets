@@ -5,3 +5,6 @@
 A  minimal component library for Angular
 
 > NOTE: This project is built for learning purpose and not recommended for production use
+
+## Storybook
+https://63a11b6320c4ef99cb67aa93-anlsigkotj.chromatic.com/
