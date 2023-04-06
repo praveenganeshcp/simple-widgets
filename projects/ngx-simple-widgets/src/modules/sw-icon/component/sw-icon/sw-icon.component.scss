@@ -1,0 +1,21 @@
+$sw-icon-small-size: 16px;
+$sw-icon-medium-size: 20px;
+$sw-icon-large-size: 24px;
+
+.sw-icon-small {
+    height: $sw-icon-small-size;
+    width: $sw-icon-small-size;
+    font-size: $sw-icon-small-size;
+}
+
+.sw-icon-medium {
+    height: $sw-icon-medium-size;
+    width: $sw-icon-medium-size;
+    font-size: $sw-icon-medium-size;
+}
+
+.sw-icon-large {
+    height: $sw-icon-large-size;
+    width: $sw-icon-large-size;
+    font-size: $sw-icon-large-size;
+}
