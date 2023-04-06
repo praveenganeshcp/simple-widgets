@@ -2,10 +2,10 @@
   "name": "ngx-simple-widgets",
   "version": "1.0.5",
   "peerDependencies": {
-    "@angular/common": "^14.2.13",
-    "@angular/core": "^14.2.13",
-    "@angular/cdk": "^14.2.7",
-    "@angular/material": "^14.2.7"
+    "@angular/common": "^15.2.5",
+    "@angular/core": "^15.2.6",
+    "@angular/cdk": "^15.2.6",
+    "@angular/material": "^15.2.6"
   },
   "dependencies": {
     "tslib": "^2.3.0"
