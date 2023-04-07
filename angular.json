@@ -134,42 +134,9 @@
             "tsConfig": "projects/ngx-simple-widgets/tsconfig.spec.json",
             "karmaConfig": "projects/ngx-simple-widgets/karma.conf.js"
           }
-        },
-        "storybook": {
-          "builder": "@storybook/angular:start-storybook",
-          "options": {
-            "configDir": ".storybook",
-            "browserTarget": "ngx-simple-widgets:build",
-            "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "."
-            ],
-            "port": 6006
-          }
-        },
-        "build-storybook": {
-          "builder": "@storybook/angular:build-storybook",
-          "options": {
-            "configDir": ".storybook",
-            "browserTarget": "ngx-simple-widgets:build",
-            "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "."
-            ],
-            "outputDir": "dist/storybook/ngx-simple-widgets"
-          }
         }
       }
     }
   },
-  "defaultProject": "simple-widgets",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "simple-widgets"
 }
