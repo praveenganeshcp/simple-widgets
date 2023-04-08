@@ -1,0 +1,31 @@
+$flex-directions: row, column;
+
+$flex-alignment-values: "center";
+
+$flex-justify-content-values: "space-evenly", "space-between", "space-around";
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+@each $flex-direction in $flex-directions {
+    #{'.flex-'+ $flex-direction } {
+        flex-direction: $flex-direction;
+    }
+}
+
+@each $alignment in $flex-alignment-values {
+    .align-items-#{$alignment} {
+        align-items: #{$alignment};
+    }
+}
+
+@each $justify-content in $flex-justify-content-values {
+    .justify-#{$justify-content} {
+        justify-content: #{$justify-content};
+    }
+}

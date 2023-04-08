@@ -1,5 +1,37 @@
-.sdk-pb {
-    padding: 2rem;
-}
+$allowed-spacing-values: (
+    "1": 0.5rem,
+    "2": 1rem,
+    "3": 1.5rem,
+    "4": 2rem,
+    "5": 2.5rem
+);
 
-$value1: yellow;
+$spacing-methods: "padding", "margin";
+
+@each $method in $spacing-methods {
+    @each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+        #{'.'+ $method}-#{$allowed-spacing-key} {
+            #{$method}: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-vertical-#{$allowed-spacing-key} {
+            #{$method}-top: $allowed-spacing-value;
+            #{$method}-bottom: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-horizontal-#{$allowed-spacing-key} {
+            #{$method}-left: $allowed-spacing-value;
+            #{$method}-right: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-top-#{$allowed-spacing-key} {
+            #{$method}-top: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-bottom-#{$allowed-spacing-key} {
+            #{$method}-bottom: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-left-#{$allowed-spacing-key} {
+            #{$method}-left: $allowed-spacing-value;
+        }
+        #{'.'+ $method}-right-#{$allowed-spacing-key} {
+            #{$method}-right: $allowed-spacing-value;
+        }
+    }   
+}
