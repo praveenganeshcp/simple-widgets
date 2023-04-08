@@ -1,24 +1,6 @@
+@import "../../../../assets/styles/styles.scss";
+
 .sw-toast {
-    padding: 1rem;
-    border-radius: 5px;
-    color: white;
+    color: $white-color;
     width: 20vw;
-    min-height: 8vh;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.success {
-    background-color: lightgreen;
-    color: black;
-}
-
-.warn {
-    background-color: orange;
-}
-
-.error {
-    background-color: red;
 }

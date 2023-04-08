@@ -7,7 +7,7 @@ export interface SwToastConfig {
 export enum SwToastStatus {
     SUCCESS = "SUCCESS",
     ERROR = "ERROR",
-    WARNING = "WARNING"
+    WARN = "WARN"
 }
 
 export interface SwToastOverlayConfig extends SwToastConfig {
