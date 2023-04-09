@@ -14,6 +14,8 @@ export class SwTooltipComponent {
 
   @Input() text: string = '';
 
+  @Input() show: boolean = true;
+
   private _position: ConnectionPositionPair = SW_TOOLTIP_CONNECTED_POSITIONS[
     SW_TOOLTIP_POSITION.TOP
   ]
