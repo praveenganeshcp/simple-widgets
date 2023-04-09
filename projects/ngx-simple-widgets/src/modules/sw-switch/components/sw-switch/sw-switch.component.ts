@@ -1,4 +1,4 @@
-import { Component, forwardRef } from "@angular/core";
+import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
 import { state, style, transition, animate, trigger } from "@angular/animations";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
@@ -9,7 +9,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
     animations: [
         trigger('switch-state', [
             state('on', style({
-                transform: 'translate(20px, 0px)'
+                transform: 'translate(25px, 0px)'
             })),
             state('off', style({
                 transform: 'translate(0px, 0px)'
@@ -25,7 +25,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
             useExisting: forwardRef(() => SwSwitchComponent),
             multi: true     
         }   
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwSwitchComponent implements ControlValueAccessor {
 
