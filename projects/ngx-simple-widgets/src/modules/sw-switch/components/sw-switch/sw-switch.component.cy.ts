@@ -23,7 +23,7 @@ describe('Switch component', () => {
     it('should move to on state when clicked in off state', () => {
         mountComponent();
         cy.get('.sw-switch-thumb').click();
-        cy.get('.sw-switch-thumb').should('have.attr', 'style').should('contains', 'transform: translate(20px, 0px)')
+        cy.get('.sw-switch-thumb').should('have.attr', 'style').should('contains', 'transform: translate(25px, 0px)')
     })
     
     it('should move to off state when clicked in on state', () => {
