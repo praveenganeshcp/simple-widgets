@@ -10,8 +10,13 @@
 <ng-template 
     cdkConnectedOverlay 
     [cdkConnectedOverlayOrigin]="swTooltipOrigin" 
-    [cdkConnectedOverlayOpen]="isOpen"
+    [cdkConnectedOverlayOpen]="isOpen && show"
     [cdkConnectedOverlayPositions]="[connectedPositionStrategy]"
 >
-    <span *ngIf="text" class="sw-tooltip">{{ text }}</span>
+    <span 
+        *ngIf="text" 
+        class="sw-tooltip padding-1 border-radius-1"
+    >
+        {{ text }}
+    </span>
 </ng-template>

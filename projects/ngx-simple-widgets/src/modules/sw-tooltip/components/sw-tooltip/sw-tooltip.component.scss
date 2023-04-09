@@ -1,6 +1,7 @@
+@import "../../../../assets//styles/styles.scss";
+
 .sw-tooltip {
-    padding: 0.5rem 0.7rem;
-    background-color: black;
-    color: rgb(212, 211, 211);
-    border-radius: 5px;
+    background-color: $black-color;
+    color: $white-color;
+    max-width: 12rem;
 }

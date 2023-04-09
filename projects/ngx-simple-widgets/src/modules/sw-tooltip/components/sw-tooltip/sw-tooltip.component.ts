@@ -1,17 +1,20 @@
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from '../../sw-tooltip.constants';
 
 @Component({
   selector: 'sw-tooltip',
   templateUrl: './sw-tooltip.component.html',
-  styleUrls: ['./sw-tooltip.component.scss']
+  styleUrls: ['./sw-tooltip.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwTooltipComponent {
 
   isOpen: boolean = false;
 
   @Input() text: string = '';
+
+  @Input() show: boolean = true;
 
   private _position: ConnectionPositionPair = SW_TOOLTIP_CONNECTED_POSITIONS[
     SW_TOOLTIP_POSITION.TOP
