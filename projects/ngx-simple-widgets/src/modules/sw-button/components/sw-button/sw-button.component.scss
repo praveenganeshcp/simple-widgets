@@ -1,93 +1,51 @@
-
-$sw-button-disable-bg-color: gray;
-$sw-button-disable-text-color: white;
-
-$sw-button-primary-button-bg-color: blue;
-$sw-button-danger-button-bg-color: red;
-$sw-button-bordered-button-border-color: rgb(206, 176, 176);
-$sw-button-icon-bg-color: white;
-$sw-button-plain-button-background-color: lightgray;
-
-$sw-button-small-size: 12px;
-$sw-button-medium-size: 14px;
-$sw-button-large-size: 16px;
-
-$sw-button-hover-opacity: 0.7;
-
-
-:host-context(button[sw-primary-button]) {
-    background-color: $sw-button-primary-button-bg-color;
-    color: white;
-
-    &:hover {
-        opacity: $sw-button-hover-opacity;
-        outline: none !important;
-    }
-}
-
-:host-context(button[sw-bordered-icon-button]) {
-    background-color: $sw-button-icon-bg-color !important;
-    border: 1px solid $sw-button-bordered-button-border-color;
-}
-
-:host-context(button[sw-bordered-button]) {
-    background: none;
-    border: 1px solid $sw-button-bordered-button-border-color;
-}
-
-:host-context(button[sw-danger-button]) {
-    background-color: $sw-button-danger-button-bg-color;
-    color: white;
-
-    &:hover {
-        opacity: $sw-button-hover-opacity;
-        outline: none !important;
-    }
-}
-
-:host-context(button[sw-text-button], button[sw-icon-button]) {
-    background: none;
-
-    &:hover {
-        background-color: $sw-button-plain-button-background-color;
-        outline: none;
-    }
-}
+@import "../../../../assets/styles/styles.scss";
 
 :host {
-    border-radius: 5px;
-    border: none;
 
-    &:hover {
-        outline: 1px solid blue;
+    @extend .border-radius-1;
+    @extend .border-none;
+    @extend .padding-1;
+    @extend .font-weight-bold;
+    outline: none;
+
+    &[sw-primary-button] {
+        background-color: $primary-color;
+        color: $white-color
     }
 
-    &[is-loading=true] {
-        background-color: $sw-button-disable-bg-color !important;
-        color: $sw-button-disable-text-color !important;
-    
-        &:hover {
-            cursor: progress;
-        }
+    &[sw-danger-button] {
+        color: $white-color;
+        @extend .info-error-bg;
     }
 
-    &[disabled] {
-        background-color: $sw-button-disable-bg-color !important;
-        color: $sw-button-disable-text-color !important;
+    &[sw-bordered-button] {
+        background: none;
+        border: 1px solid $primary-color;
     }
 
-    &.sw-button-small {
-        font-size: $sw-button-small-size;
-        padding: 0.37rem 0.75rem;
+    &[sw-text-button] {
+        background: none;
     }
 
-    &.sw-button-medium {
-        font-size: $sw-button-medium-size;
-        padding: 0.5rem 1rem;
+    &[sw-bordered-icon-button] {
+        background: none;
+        border: 1px solid $primary-color;
+    }
+
+    &[sw-icon-button] {
+        background: none;
     }
 
     &.sw-button-large {
-        font-size: $sw-button-large-size;
-        padding: 0.65rem 1.3rem;
+        font-size: 1.25rem;
     }
+
+    &.sw-button-medium {
+        font-size: 1rem;
+    }
+    
+    &.sw-button-small {
+        font-size: 0.75rem
+    }
+
 }
