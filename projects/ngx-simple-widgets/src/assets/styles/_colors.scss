@@ -4,8 +4,21 @@ $secondary-color1: #aaafb1;
 $secondary-color2: #D6DADB;
 $secondary-color3: #F5F5F5;
 
-$error-color: red;
-$warning-color: darkorange;
-
 $white-color: white;
 $black-color: black;
+
+$info-color-map: (
+    "success": green,
+    "error": red,
+    "warn": darkorange
+);
+
+@each $level, $color in $info-color-map {
+    .info-#{$level} {
+        color: $color;
+    }
+
+    .info-#{$level}-bg {
+        background-color: $color;
+    }
+}

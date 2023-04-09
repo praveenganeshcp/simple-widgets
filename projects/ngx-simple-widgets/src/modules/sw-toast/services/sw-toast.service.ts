@@ -14,7 +14,7 @@ export class SwToastService {
     ) {}
 
     private createToastMessage(status: SwToastStatus, config: SwToastConfig): OverlayRef {
-        const positionStrategy = this.overlay.position().global().top('85vh').left('75vw');
+        const positionStrategy = this.overlay.position().global().top('80vh').left('75vw');
         const overlayRef = this.overlay.create({
             positionStrategy
         })
@@ -25,17 +25,27 @@ export class SwToastService {
         const toastPortalInjector = new PortalInjector(this.injector, injectionTokens);
         const componentPortal = new ComponentPortal(SwToastHostComponent, null, toastPortalInjector);
         overlayRef.attach(componentPortal);
-        this.clearToastMessage(overlayRef, config.closeAfter);
+        this.initateClearToast(overlayRef, config.closeAfter);
         return overlayRef;
     }
 
     success(config: SwToastConfig) {
-        const ref = this.createToastMessage(SwToastStatus.SUCCESS, config);
+        this.createToastMessage(SwToastStatus.SUCCESS, config);
     }
 
-    private clearToastMessage(ref: OverlayRef, closeAfter?: number) {
+    warn(config: SwToastConfig) {
+        this.createToastMessage(SwToastStatus.WARN, config);
+    }
+
+    error(config: SwToastConfig) {
+        this.createToastMessage(SwToastStatus.ERROR, config);
+    }
+
+    
+
+    private initateClearToast(ref: OverlayRef, closeAfter?: number) {
         setTimeout(() => {
             ref.dispose();
-        }, closeAfter || 2000);
+        }, closeAfter || 3000);
     }
 }

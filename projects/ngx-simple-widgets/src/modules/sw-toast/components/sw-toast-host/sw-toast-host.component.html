@@ -1,8 +1,10 @@
-<div class="sw-toast"
-    [class.success]="status === toastStatus.SUCCESS"
-    [class.warn]="status === toastStatus.WARNING"
-    [class.error]="status === toastStatus.ERROR"
+<div 
+    class="sw-toast border-radius-1 padding-1 flex"
+    [ngClass]="toastCssClass"
 >
-    <h4 *ngIf="title">{{ title }}</h4>
-    <span>{{ message }}</span>
+    <sw-icon [name]="iconName"></sw-icon>
+    <div class="flex flex-column margin-left-1">
+        <span class="padding-bottom-1" *ngIf="title">{{ title }}</span>
+        <span>{{ message }}</span>
+    </div>
 </div>
