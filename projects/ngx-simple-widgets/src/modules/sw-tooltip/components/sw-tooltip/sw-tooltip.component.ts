@@ -2,6 +2,10 @@ import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from '../../sw-tooltip.constants';
 
+export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_CONNECTED_POSITIONS[
+  SW_TOOLTIP_POSITION.TOP
+];
+
 @Component({
   selector: 'sw-tooltip',
   templateUrl: './sw-tooltip.component.html',
@@ -16,9 +20,7 @@ export class SwTooltipComponent {
 
   @Input() show: boolean = true;
 
-  private _position: ConnectionPositionPair = SW_TOOLTIP_CONNECTED_POSITIONS[
-    SW_TOOLTIP_POSITION.TOP
-  ]
+  private _position: ConnectionPositionPair = DEFAULT_TOOLTIP_POSITION;
 
   @Input()
   set position(position: SW_TOOLTIP_POSITION) {
