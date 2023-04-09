@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs';
+import SwPrimaryButtonOutput from "./assets/sw-primary-button-output.png";
+
+<Meta title="Introduction" />
+
+# Simple Widgets  
+
+
+Simple Widgets is a UI component library built using [**Angular**](https://angular.io) and it is available as a [**NPM package**](https://www.npmjs.com/package/ngx-simple-widgets) to download. This storybook serves as a playground to interact with the palette of components and as documentation to learn about their usage.  
+
+Currently the library has a palette of 6 components and few more will be added in the future. All the components encapsulates the core logic and provides a simple API for the consumer to work with it.
+
+> ##### NOTE : This library is built for learning purpose and not recommended to use in production.
+
+<br />
+<br />
+
+## Usage
+
+#### Import the module  
+
+To use a particular component or a service, the respective module needs to be imported into your module, because all the components and the services in the library is tied to a module.
+
+```js
+import { SwButtonModule } from "ngx-simple-widgets"; 
+```
+
+#### Use the component
+
+```html
+<button sw-primary-button>Click me!</button>
+```
+
+#### Output
+<img src={SwPrimaryButtonOutput} />
