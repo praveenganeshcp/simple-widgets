@@ -1,21 +1,13 @@
-$sw-icon-small-size: 16px;
-$sw-icon-medium-size: 20px;
-$sw-icon-large-size: 24px;
+$sw-icon-sizes: (
+    "small": 16px,
+    "medium": 20px,
+    "large": 24px
+);
 
-.sw-icon-small {
-    height: $sw-icon-small-size;
-    width: $sw-icon-small-size;
-    font-size: $sw-icon-small-size;
-}
-
-.sw-icon-medium {
-    height: $sw-icon-medium-size;
-    width: $sw-icon-medium-size;
-    font-size: $sw-icon-medium-size;
-}
-
-.sw-icon-large {
-    height: $sw-icon-large-size;
-    width: $sw-icon-large-size;
-    font-size: $sw-icon-large-size;
+@each $icon-size, $icon-size-value in $sw-icon-sizes {
+    .sw-icon-#{$icon-size} {
+        height: $icon-size-value;
+        width: $icon-size-value;
+        font-size: $icon-size-value;
+    }
 }
