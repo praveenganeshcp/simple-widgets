@@ -8,4 +8,5 @@ export default defineConfig({
     },
     specPattern: "**/*.cy.ts",
   },
+  video: false
 });
