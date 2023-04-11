@@ -19,10 +19,13 @@ npm install ngx-simple-widgets
 
 #### Import the module  
 
-To use a particular component or a service, the respective module needs to be imported into the working module, because all the components and the services in the library is tied to a module.
+To use a particular component or a service, the respective module needs to be imported into the working module.
 
 ```js
 import { SwButtonModule } from "ngx-simple-widgets"; 
+imports: [
+  SwButtonModule
+]
 ```
 
 #### Use the component
@@ -30,3 +33,6 @@ import { SwButtonModule } from "ngx-simple-widgets";
 ```html
 <button sw-primary-button>Click me!</button>
 ```
+
+#### Output
+![Primary button output](https://github.com/praveenganeshcp/simple-widgets/blob/main/projects/ngx-simple-widgets/src/stories/assets/sw-primary-button-output.png)
