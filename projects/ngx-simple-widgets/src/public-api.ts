@@ -35,7 +35,6 @@ export { SwDialogConfig } from "./modules/sw-dialog/models/dialog.config";
 // button module
 export { SwButtonModule } from "./modules/sw-button/sw-button.module";
 export { SwButtonComponent } from "./modules/sw-button/components/sw-button/sw-button.component";
-export { SwButtonSizes } from "./modules/sw-button/sw-button.constants";
 
 // dropdown module
 export { SwDropDownModule } from "./modules/sw-dropdown/sw-dropdown.module";

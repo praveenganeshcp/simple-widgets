@@ -1,5 +1,4 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
-import { DEFAULT_SW_BUTTON_SIZE } from "../../sw-button.constants";
 import { SwButtonModule } from "../../sw-button.module";
 import { SwIconModule } from "../../../sw-icon/sw-icon.module";
 import { SwButtonComponent } from "./sw-button.component";
@@ -15,7 +14,7 @@ export default {
     argTypes: {
         size: {
             control: 'inline-radio',
-            options: ['small', 'medium', 'large'],
+            options: ['sm', 'md', 'lg'],
             name: 'Size',
             description: 'Size of the button'
         },
@@ -39,7 +38,7 @@ const PrimaryButtonTemplate: Story = (args) => ({
 
 export const Primary = PrimaryButtonTemplate.bind({});
 Primary.args = {
-    size: DEFAULT_SW_BUTTON_SIZE
+    size: 'md'
 };
 
 const BorderedButtonTemplate: Story = (args) => ({
