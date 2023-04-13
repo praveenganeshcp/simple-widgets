@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { SwAllowedSizes } from '../../../../shared/constants';
 import { Subscription } from 'rxjs';
-import { DEFAULT_SW_BUTTON_SIZE, SwButtonSizes } from '../../sw-button.constants';
 
 @Component({
   selector: ` 
@@ -17,14 +17,14 @@ import { DEFAULT_SW_BUTTON_SIZE, SwButtonSizes } from '../../sw-button.constants
 })
 export class SwButtonComponent {
 
-    @Input() size: SwButtonSizes = DEFAULT_SW_BUTTON_SIZE;
+    @Input() size: SwAllowedSizes = 'md';
 
     showLoader: boolean = false;
 
-    private buttonSizeCSSClasses: Record<SwButtonSizes, string> = {
-        [SwButtonSizes.small]: 'sw-button-small',
-        [SwButtonSizes.medium]: 'sw-button-medium',
-        [SwButtonSizes.large]: 'sw-button-large'
+    private buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
+        'sm': 'sw-small-button',
+        'md': 'sw-medium-button',
+        'lg': 'sw-large-button'
     }
 
     @Input() 
