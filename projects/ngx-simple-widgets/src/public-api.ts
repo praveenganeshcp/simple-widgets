@@ -50,3 +50,6 @@ export {
 export {
     SwInputModule
 } from "./modules/sw-input/sw-input.module";
+export {
+    SwInputComponent
+} from "./modules/sw-input/components/sw-input/sw-input.component";
