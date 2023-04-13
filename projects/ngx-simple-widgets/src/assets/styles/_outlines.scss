@@ -1,0 +1,11 @@
+@import "./borders";
+@import "./colors";
+
+@mixin add-focus-outline() {
+    @extend .border-none;
+    outline: 2px solid $primary-color;
+}
+
+@mixin remove-focus-outline() {
+    outline: none;
+}

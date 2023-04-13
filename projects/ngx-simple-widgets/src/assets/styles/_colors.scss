@@ -7,10 +7,14 @@ $secondary-color3: #F5F5F5;
 $white-color: white;
 $black-color: black;
 
+$success-info-color: green;
+$error-info-color: red;
+$warn-info-color: orange;
+
 $info-color-map: (
-    "success": green,
-    "error": red,
-    "warn": darkorange
+    "success": $success-info-color,
+    "error": $error-info-color,
+    "warn": $warn-info-color
 );
 
 @each $level, $color in $info-color-map {

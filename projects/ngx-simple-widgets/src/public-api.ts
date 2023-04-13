@@ -45,3 +45,8 @@ export {
 export {
     KeyValuePair
 } from "./modules/sw-dropdown/sw-dropdown.types";
+
+// input module
+export {
+    SwInputModule
+} from "./modules/sw-input/sw-input.module";
