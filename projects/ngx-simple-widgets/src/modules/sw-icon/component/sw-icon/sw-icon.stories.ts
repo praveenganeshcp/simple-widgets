@@ -1,7 +1,6 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
 import { MatIconModule } from "@angular/material/icon";
 import { SwIconComponent } from "./sw-icon.component";
-import { DEFAULT_SW_ICON_SIZE } from "../../sw-icon.constants";
 
 export default {
     title: 'Simple Widgets/Icon',
@@ -14,11 +13,11 @@ export default {
     argTypes: {
         size: {
             control: 'inline-radio',
-            options: ['small', 'medium', 'large'],
+            options: ['sm', 'md', 'lg'],
             name: 'Size',
             description: 'Size of the icon',
             table: {
-                defaultValue: { summary: DEFAULT_SW_ICON_SIZE }
+                defaultValue: { summary: 'md' }
             },
         },
         name: {
@@ -29,15 +28,9 @@ export default {
     },
 } as Meta;
 
-const IconTemplate: Story = (args) => ({
+export const Icon: Story = (args) => ({
     props: {
-        ...args
+        name: 'home',
+        size: 'md'
     }
 })
-
-export const HomeIcon = IconTemplate.bind({});
-
-HomeIcon.args = {
-    name: 'home',
-    size: DEFAULT_SW_ICON_SIZE
-}

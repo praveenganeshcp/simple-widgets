@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { DEFAULT_SW_ICON_SIZE, SwIconSize } from '../../sw-icon.constants';
+import { SwAllowedSizes } from '../../../../shared/constants';
 
 @Component({
   selector: 'sw-icon',
@@ -11,18 +11,18 @@ export class SwIconComponent {
 
     @Input() name: string = '';
 
-    @Input() size: SwIconSize = DEFAULT_SW_ICON_SIZE;
+    @Input() size: SwAllowedSizes = 'md';
 
-    private iconSizeAndCssClassMap = new Map<SwIconSize, string>();
-
-    constructor() {
-      this.iconSizeAndCssClassMap.set(SwIconSize.small, 'sw-icon-small');
-      this.iconSizeAndCssClassMap.set(SwIconSize.medium, 'sw-icon-medium');
-      this.iconSizeAndCssClassMap.set(SwIconSize.large, 'sw-icon-large');
+    private iconSizeAndCssClassMap: Record<SwAllowedSizes, string> = {
+        'sm': 'sw-small-icon',
+        'md': 'sw-medium-icon',
+        'lg': 'sw-large-icon'
     }
 
-    get iconSizeClass() {
-      return this.iconSizeAndCssClassMap.get(this.size);
+    constructor() {}
+
+    get iconSizeClass(): string {
+      return this.iconSizeAndCssClassMap[this.size];
     }
 
 }

@@ -5,7 +5,7 @@ $sw-icon-sizes: (
 );
 
 @each $icon-size, $icon-size-value in $sw-icon-sizes {
-    .sw-icon-#{$icon-size} {
+    .sw-#{$icon-size}-icon {
         height: $icon-size-value;
         width: $icon-size-value;
         font-size: $icon-size-value;
