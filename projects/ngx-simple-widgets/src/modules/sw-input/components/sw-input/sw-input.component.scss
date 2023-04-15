@@ -3,7 +3,8 @@
 :host {
     @include add-border(1px, $black-color);
     @extend .border-radius-1;
-    @extend .padding-1;
+    @extend .padding-horizontal-1;
+    @extend .padding-vertical-2;
 
     &::placeholder {
         color: $secondary-color1;
