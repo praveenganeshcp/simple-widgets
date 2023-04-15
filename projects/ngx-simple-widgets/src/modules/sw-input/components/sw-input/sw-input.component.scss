@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/styles.scss";
 
 :host {
-    @include add-border(1px, $black-color);
+    @include add-border(2px, $secondary-color1);
     @extend .border-radius-1;
     @extend .padding-horizontal-1;
     @extend .padding-vertical-2;
@@ -10,7 +10,7 @@
         color: $secondary-color1;
     }
 
-    &:focus {
+    &:focus-visible {
         @include add-focus-outline();
     }
 
@@ -18,7 +18,7 @@
         @include add-border(2px, $error-info-color);
     }
 
-    &:focus.ng-invalid {
+    &:focus-visible.ng-invalid {
         @include remove-focus-outline();
     }
 

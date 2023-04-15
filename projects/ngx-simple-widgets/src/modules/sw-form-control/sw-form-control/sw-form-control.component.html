@@ -1,11 +1,13 @@
-<div class="flex flex-column" style="position: relative;">
+<div class="flex flex-column form-control">
     <label 
         [for]="forId" 
-        [@label-state]="labelState$ | async" 
-        class="form-control-label"
+        class="form-control-label padding-horizontal-1 small-font"
         *ngIf="label"
     >
         {{ label }}
     </label>
     <ng-content></ng-content>
+    <span *ngIf="error" class="info-error small-font padding-top-1">
+        {{ error }}
+    </span>
 </div>
