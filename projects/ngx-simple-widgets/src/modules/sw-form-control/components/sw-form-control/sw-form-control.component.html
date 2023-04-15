@@ -6,7 +6,7 @@
     >
         {{ label }}
     </label>
-    <ng-content></ng-content>
+    <ng-content select="input[sw-input]"></ng-content>
     <span *ngIf="error" class="info-error small-font padding-top-1">
         {{ error }}
     </span>

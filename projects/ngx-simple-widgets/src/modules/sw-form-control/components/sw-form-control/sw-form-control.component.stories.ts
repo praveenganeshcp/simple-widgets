@@ -1,6 +1,6 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
 import { SwFormControlComponent } from "./sw-form-control.component";
-import { SwInputModule } from "../../sw-input/sw-input.module";
+import { SwInputModule } from "../../../sw-input/sw-input.module";
 
 export default {
     title: 'Simple Widgets/Form Control',

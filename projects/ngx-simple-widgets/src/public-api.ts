@@ -52,3 +52,7 @@ export {
 export {
     SwInputComponent
 } from "./modules/sw-input/components/sw-input/sw-input.component";
+
+// form control module
+export { SwFormControlModule } from "./modules/sw-form-control/sw-form-control.module";
+export { SwFormControlComponent } from "./modules/sw-form-control/components/sw-form-control/sw-form-control.component";
