@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ContentChild, Input, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 import { SwColumnDef, SwPagination } from '../../types';
 
 @Component({
@@ -17,8 +17,12 @@ export class SwTableComponent {
 
   @Input() pagination: SwPagination | null = null;
 
-  @ContentChild(TemplateRef) swTableCellTemplate!: TemplateRef<any>;
+  @Input() customCellTemplate: TemplateRef<unknown> | null = null;
 
   constructor() { }
+
+  trackByIndex(index: number) {
+    return index;
+  }
 
 }

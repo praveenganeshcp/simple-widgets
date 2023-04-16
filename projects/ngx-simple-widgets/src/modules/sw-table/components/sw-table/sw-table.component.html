@@ -1,29 +1,40 @@
 <table>
     <thead>
         <tr class="flex">
-            <td *ngFor="let column of activeColumns" [style.--sw-table-cell-flex]="column.flex">
+            <td 
+                *ngFor="let column of activeColumns; trackBy: trackByIndex" 
+                [style.--sw-table-cell-flex]="column.flex"
+            >
                 {{ column.label }}
             </td>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of rows" class="flex">
-            <td *ngFor="let column of activeColumns" [style.--sw-table-cell-flex]="column.flex">
+        <tr 
+            *ngFor="let row of rows; trackBy: trackByIndex" 
+            class="flex">
+            <td 
+                *ngFor="let column of activeColumns; trackBy: trackByIndex" 
+                [style.--sw-table-cell-flex]="column.flex"
+            >
                 <ng-container *ngIf="isLoading; else cellContent">
                     Loading ...
                 </ng-container>
                 <ng-template #cellContent>
-                    <ng-container *ngIf="column.renderTemplate; else colValue">
+                    <ng-container 
+                        *ngIf="column.renderTemplate && customCellTemplate; else defaultTemplate"
+                    >
                         <ng-container
-                            [ngTemplateOutlet]="swTableCellTemplate"
+                            [ngTemplateOutlet]="customCellTemplate"
                             [ngTemplateOutletContext]="{
                                 'row': row,
-                                'column': column
+                                'column': column,
+                                'value': row[column.fieldName]
                             }"
                         >
                         </ng-container>
                     </ng-container>
-                    <ng-template #colValue>
+                    <ng-template #defaultTemplate>
                         {{ row[column.fieldName] }}
                     </ng-template>
                 </ng-template>
