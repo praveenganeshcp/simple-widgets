@@ -27,16 +27,16 @@ tbody {
         &:nth-child(odd) {
             td {
                 &:first-child {
-                    border-left: 1px solid $secondary-color2;
+                    @include add-left-border(1px, $secondary-color2);
                 }
                 &:last-child {
-                    border-right: 1px solid $secondary-color2;
+                    @include add-right-border(1px, $secondary-color2);
                 }
             }
 
             &:last-child {
                 td {
-                    border-bottom: 1px solid $secondary-color2;
+                    @include add-bottom-border(1px, $secondary-color2);
                 }
             }
         }
@@ -59,7 +59,7 @@ thead {
         color: $white-color;
     }
     td {
-        font-weight: bolder;
+        @extend .font-weight-bold;
         background-color: $primary-color;
         flex: var(--sw-table-cell-flex);
 

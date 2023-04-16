@@ -29,3 +29,19 @@ $allowed-border-radius: ("1": 4px, "2": 8px, "3": 12px, "4": 16px, "5": 20px);
 @mixin add-border($width, $color) {
     border: $width solid $color;
 }
+
+@mixin add-bottom-border($width, $color) {
+    border-bottom: $width solid $color;
+}
+
+@mixin add-left-border($width, $color) {
+    border-left: $width solid $color;
+}
+
+@mixin add-right-border($width, $color) {
+    border-right: $width solid $color;
+}
+
+@mixin add-top-border($width, $color) {
+    border-top: $width solid $color;
+}
