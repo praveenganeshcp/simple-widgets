@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/styles.scss";
+
 .sw-accordion {
     width: 100%;
 }
@@ -6,19 +8,27 @@
     width: 100%;
 }
 
+.remove-bottom-borders {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .sw-accordion-title {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 3%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include add-border(1px, $primary-color);
+    @extend .border-radius-2;
     width: 100%;
+    @extend .padding-vertical-1;
+    @extend .padding-horizontal-2;
+    background-color: $primary-color;
+    color: $white-color;
 }
 
 .sw-accordion-body {
     width: 100%;
-    padding: 3%;
     display: var(--sw-accordion-body-display);
-    border-top: none;
+    @include add-border(1px, $primary-color);
+    @extend .padding-vertical-1;
+    @extend .padding-horizontal-2;
+    @extend .border-bottom-left-radius-2;
+    @extend .border-bottom-right-radius-2;
 }
