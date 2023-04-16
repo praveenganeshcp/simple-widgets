@@ -54,8 +54,7 @@ export class SwDropdownInputComponent implements ControlValueAccessor {
     this.onTouchFn = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
-  }
+  setDisabledState?(isDisabled: boolean): void { }
 
   onValueChange(event: ListboxValueChangeEvent<string>) {
     this.onUpdateValue(event.value as string[]);

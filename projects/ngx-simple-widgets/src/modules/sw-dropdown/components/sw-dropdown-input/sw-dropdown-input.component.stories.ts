@@ -1,20 +1,22 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
 import { SwDropDownModule } from "../../sw-dropdown.module";
+import { FormsModule } from "@angular/forms";
 
 export default {
+    title: 'Simple Widgets/Dropdown',
     decorators: [
         moduleMetadata({
             imports: [
-                SwDropDownModule
+                SwDropDownModule,
+                FormsModule
             ]
         })
     ],
-    title: 'Example/Dropdown'
 } as Meta;
 
-export const Simple: Story = () => ({
+export const Dropdown: Story = () => ({
     template: `
-        <sw-dropdown-input placeholder='select' [items]='items'></sw-dropdown-input>
+        <sw-dropdown-input [(ngModel)]="selectedValues" placeholder='Select' [items]='items'></sw-dropdown-input>
     `,
     props: {
         items: [
@@ -22,6 +24,7 @@ export const Simple: Story = () => ({
             { key: 'Option 2', value: 'value 2' },
             { key: 'Option 3', value: 'value 3' },
             { key: 'Option 4', value: 'value 4' },
-        ]
+        ],
+        selectedValues: ['value 3']
     }
 })
