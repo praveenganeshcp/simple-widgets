@@ -1,0 +1,34 @@
+<table>
+    <thead>
+        <tr class="flex">
+            <td *ngFor="let column of activeColumns" [style.--sw-table-cell-flex]="column.flex">
+                {{ column.label }}
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows" class="flex">
+            <td *ngFor="let column of activeColumns" [style.--sw-table-cell-flex]="column.flex">
+                <ng-container *ngIf="isLoading; else cellContent">
+                    Loading ...
+                </ng-container>
+                <ng-template #cellContent>
+                    <ng-container *ngIf="column.renderTemplate; else colValue">
+                        <ng-container
+                            [ngTemplateOutlet]="swTableCellTemplate"
+                            [ngTemplateOutletContext]="{
+                                'row': row,
+                                'column': column
+                            }"
+                        >
+                        </ng-container>
+                    </ng-container>
+                    <ng-template #colValue>
+                        {{ row[column.fieldName] }}
+                    </ng-template>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

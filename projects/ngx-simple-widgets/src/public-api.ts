@@ -56,3 +56,10 @@ export {
 // form control module
 export { SwFormControlModule } from "./modules/sw-form-control/sw-form-control.module";
 export { SwFormControlComponent } from "./modules/sw-form-control/components/sw-form-control/sw-form-control.component";
+
+// table module
+export { SwTableModule } from "./modules/sw-table/sw-table.module";
+export { SwTableComponent } from "./modules/sw-table/components/sw-table/sw-table.component";
+export {
+    SwColumnDef, SwPagination
+} from "./modules/sw-table/types";

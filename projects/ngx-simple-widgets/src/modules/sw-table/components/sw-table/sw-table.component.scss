@@ -1,0 +1,74 @@
+@import "../../../../assets/styles/styles.scss";
+
+table {
+    @extend .border-radius-3;
+    text-align: left;
+    width: 100%;
+}
+
+td {
+    @extend .padding-vertical-1;
+    @extend .padding-horizontal-2;
+}
+
+tbody {
+    tr {
+        
+        td {
+            flex: var(--sw-table-cell-flex);
+        }
+
+        &:nth-child(even) {
+            td {
+                background-color: $secondary-color2;
+            }
+        }
+
+        &:nth-child(odd) {
+            td {
+                &:first-child {
+                    border-left: 1px solid $secondary-color2;
+                }
+                &:last-child {
+                    border-right: 1px solid $secondary-color2;
+                }
+            }
+
+            &:last-child {
+                td {
+                    border-bottom: 1px solid $secondary-color2;
+                }
+            }
+        }
+
+        &:last-child td {
+            &:nth-child(1) {
+                @extend .border-bottom-left-radius-2;
+            }
+
+            &:last-child {
+                @extend .border-bottom-right-radius-2;
+            }
+        }
+    }
+}
+
+
+thead {
+    tr {
+        color: $white-color;
+    }
+    td {
+        font-weight: bolder;
+        background-color: $primary-color;
+        flex: var(--sw-table-cell-flex);
+
+        &:nth-child(1) {
+            @extend .border-top-left-radius-2;
+        }
+
+        &:last-child {
+            @extend .border-top-right-radius-2;
+        }
+    }
+}
