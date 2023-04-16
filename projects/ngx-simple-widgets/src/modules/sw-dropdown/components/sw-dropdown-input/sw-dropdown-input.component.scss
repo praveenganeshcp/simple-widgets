@@ -1,13 +1,26 @@
+@import "../../../../assets/styles/styles.scss";
+
+$sw-dropdown-input-width: 20vw;
+$sw-dropdown-max-height: 50vh;
+
 .sw-dropdown-input {
-    width: 15vw;
-    padding: 0.5rem;
-    border: 1px solid gray;
-    background-color: whitesmoke;
-    border-radius: 5px;
+    width: 20vw;
+    @extend .padding-horizontal-2;
+    @extend .padding-vertical-1;
+    @include add-border(2px, $secondary-color1);
+    @extend .border-radius-1;
+
+    &:hover {
+        @include add-focus-outline();
+    }
+
+    &:focus {
+        @include add-focus-outline();
+    }
 }
 
 .sw-dropdown-placeholder {
-    color: gray;
+    color: $secondary-color1;
 }
 
 .sw-dropdown-backdrop {
@@ -15,23 +28,30 @@
 }
 
 .cdk-listbox {
-    margin-top: 0.3rem;
-    background-color: white;
-    border: 1px solid gray;
-    width: 15vw;
-    border-radius: 5px;
+    margin-top: 0.2rem;
+    background-color: $white-color;
+    @include add-border(3px, $primary-color);
+    width: $sw-dropdown-input-width;
+    box-shadow: 3px 3px 6px 2px $secondary-color1;
+    @extend .border-radius-1;
+    max-height: $sw-dropdown-max-height;
+    overflow-y: auto;
 }
 
 .cdk-option {
-    background-color: white;
-    padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid gray;
+    @extend .padding-vertical-1;
+    @extend .padding-horizontal-1;
+    @include add-bottom-border(2px, $secondary-color1);
 
     &:last-child {
         border-bottom: none;
     }
+
+    &:hover {
+        background-color: $secondary-color2;
+    }
 }
 
 .cdk-option-active, .cdk-option[aria-selected=true] {
-    background-color: lightgray;
+    background-color: $secondary-color2;
 }

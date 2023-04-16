@@ -2,14 +2,20 @@
     class="sw-dropdown-input"
     (click)="isOpen = true"
     cdkOverlayOrigin 
+    tabindex="0"
     #swDropdownPanelOrigin="cdkOverlayOrigin"
 >
-    <ng-container *ngIf="selectedValueVM; else placeholderTemplate">
-        {{ selectedValueVM }}
-    </ng-container>
-    <ng-template #placeholderTemplate>
-        <span class="sw-dropdown-placeholder">{{ placeholder }}</span>
-    </ng-template>
+    <div class="flex align-items-center justify-space-between">
+        <span 
+            [class.sw-dropdown-placeholder]="!selectedValueVM"
+        >
+            {{ selectedValueVM ? selectedValueVM : placeholder }}
+        </span>
+        <sw-icon 
+            [name]="isOpen ? 'expand_less' : 'expand_more'"
+        >
+        </sw-icon>
+    </div>
 </div>
 
 <ng-template
@@ -22,7 +28,8 @@
 >
     <div cdkListbox
         [cdkListboxValue]="selectedValues"
-    (cdkListboxValueChange)="onValueChange($event)">
+        (cdkListboxValueChange)="onValueChange($event)"
+    >
         <ng-container *ngFor="let item of items">
             <div [cdkOption]="item.value">
                 {{ item.key }}
