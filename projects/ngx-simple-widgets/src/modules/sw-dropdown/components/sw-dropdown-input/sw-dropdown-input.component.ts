@@ -17,7 +17,19 @@ import { KeyValuePair } from '../../sw-dropdown.types';
 })
 export class SwDropdownInputComponent implements ControlValueAccessor {
 
-  @Input() items: KeyValuePair[] = [];
+  private _options: KeyValuePair[] = [];
+  
+  private _valueLabelMap: Map<string, string> = new Map();
+
+  @Input() 
+  set options(options: KeyValuePair[]) {
+    this._options = options;
+    this._valueLabelMap = new Map(options.map(option => [option.value, option.key]));
+  }
+  
+  get options() {
+  	return this._options;
+  }
 
   @Input() placeholder: string = '';
 
@@ -30,7 +42,7 @@ export class SwDropdownInputComponent implements ControlValueAccessor {
   onTouchFn: Function | null = null;
 
   get selectedValueVM() {
-    return this.selectedValues ? this.selectedValues.join(', ') : '';
+    return this.selectedValues ? (this.selectedValues.map(selectedValue => this._valueLabelMap.get(selectedValue)).join(', ')) : '';
   }
 
   constructor() { }
