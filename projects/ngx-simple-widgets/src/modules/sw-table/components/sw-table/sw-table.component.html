@@ -22,7 +22,7 @@
                 </ng-container>
                 <ng-template #cellContent>
                     <ng-container 
-                        *ngIf="column.renderTemplate && customCellTemplate; else defaultTemplate"
+                        *ngIf="column.renderTemplate && customCellTemplate; else defaultCellTemplate"
                     >
                         <ng-container
                             [ngTemplateOutlet]="customCellTemplate"
@@ -34,7 +34,7 @@
                         >
                         </ng-container>
                     </ng-container>
-                    <ng-template #defaultTemplate>
+                    <ng-template #defaultCellTemplate>
                         {{ row[column.fieldName] }}
                     </ng-template>
                 </ng-template>
