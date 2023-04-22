@@ -37,6 +37,7 @@
     "@angular/compiler-cli": "^14.2.12",
     "@babel/core": "^7.20.5",
     "@compodoc/compodoc": "^1.1.19",
+    "@cypress/code-coverage": "^3.10.4",
     "@storybook/addon-actions": "^6.5.14",
     "@storybook/addon-essentials": "^6.5.14",
     "@storybook/addon-interactions": "^6.5.14",
