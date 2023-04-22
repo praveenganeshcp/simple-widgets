@@ -3,7 +3,7 @@ import { SwToastOverlayConfig, SwToastStatus } from '../../models/sw-toast.confi
 import { SW_TOAST_DATA } from '../../sw-toast.constants';
 
 @Component({
-  selector: 'sw-sw-toast-host',
+  selector: 'sw-toast-host',
   templateUrl: './sw-toast-host.component.html',
   styleUrls: ['./sw-toast-host.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

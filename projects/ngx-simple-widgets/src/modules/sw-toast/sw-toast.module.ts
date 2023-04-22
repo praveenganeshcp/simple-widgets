@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { SwToastHostComponent } from './components/sw-toast-host/sw-toast-host.component';
+import { SwToastHostDemoComponent } from "./components/sw-toast-host/sw-toast-host-demo.component";
 import { OverlayModule } from "@angular/cdk/overlay";
 import { SwToastService } from "./services/sw-toast.service";
 import { SwIconModule } from "../sw-icon/sw-icon.module";
@@ -12,8 +13,10 @@ import { CommonModule } from "@angular/common";
     SwIconModule
   ],
   declarations: [
-    SwToastHostComponent
+    SwToastHostComponent,
+    SwToastHostDemoComponent,
   ],
-  providers: [SwToastService]
+  providers: [SwToastService],
+  exports: [SwToastHostDemoComponent]
 })
 export class SwToastModule {}
