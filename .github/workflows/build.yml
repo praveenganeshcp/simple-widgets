@@ -22,6 +22,8 @@ jobs:
       - name: Install dependencies if cache hit does not happen
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Build SCSS
+        run: cd ./projects/ngx-simple-widgets && npm run build:sass
       - name: Build library
         run: npm run build:lib
       - name: Upload library build artifacts
