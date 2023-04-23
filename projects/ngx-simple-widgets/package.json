@@ -15,7 +15,7 @@
   },
   "exports": {
     "./styles": {
-        "sass" : "./src/assets/styles/styles.scss"
+        "css" : "./styles.scss"
     }
   }
 }
