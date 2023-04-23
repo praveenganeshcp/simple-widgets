@@ -1,6 +1,9 @@
 {
   "name": "ngx-simple-widgets",
   "version": "1.0.5",
+  "scripts": {
+    "build:sass": "sass ./src/assets/styles/styles.scss ./styles.css"
+  },
   "peerDependencies": {
     "@angular/common": "^15.0.1",
     "@angular/core": "^15.0.1",

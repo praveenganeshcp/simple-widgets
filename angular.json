@@ -138,5 +138,8 @@
       }
     }
   },
-  "defaultProject": "simple-widgets"
+  "defaultProject": "simple-widgets",
+  "cli": {
+    "analytics": false
+  }
 }
