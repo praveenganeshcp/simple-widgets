@@ -2346,9 +2346,9 @@
         },
         {
             "name": "SwSideTabsHostComponent",
-            "id": "component-SwSideTabsHostComponent-9b7ccca23393ccac1dfe5afa5cd0c5e242cc1407a69e6deec2760d04364414639cc4f826162590997c30fd5d9be0d8303dade037f215551342bd8daa0960f3b6",
+            "id": "component-SwSideTabsHostComponent-5474e8075fb7fea76595b42860d098599bf508ce5ebc711da14570f7f656e07f7ec55990321bcfd87533cdfa1bbbdbce3d9f95c456b5285305ac144b1c40ee73",
             "file": "projects/ngx-simple-widgets/src/modules/sw-side-tabs/components/sw-side-tabs-host/sw-side-tabs-host.component.ts",
-            "changeDetection": "ChangeDetectionStrategy.Default",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
@@ -2356,31 +2356,26 @@
             "providers": [],
             "selector": "sw-side-tabs-host",
             "styleUrls": [
-                "./sw-side-tabs-host.component.css"
+                "./sw-side-tabs-host.component.scss"
             ],
             "styles": [],
             "templateUrl": [
                 "./sw-side-tabs-host.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [
+            "inputsClass": [
                 {
-                    "name": "sample",
+                    "name": "activeTabIndex",
+                    "defaultValue": "0",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "TemplateRef<any>",
-                    "optional": false,
-                    "description": "",
-                    "line": 14,
-                    "decorators": [
-                        {
-                            "name": "ViewChildren",
-                            "stringifiedArguments": "'sample', {read: TemplateRef}"
-                        }
-                    ]
-                },
+                    "line": 20,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
                     "name": "swSideTabComponents",
                     "deprecated": false,
@@ -2394,6 +2389,48 @@
                             "name": "ContentChildren",
                             "stringifiedArguments": "SwSideTabComponent"
                         }
+                    ],
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "swSideTabContentTemplates",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<>[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "swSideTabTitleTemplates",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<>[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "tabClick",
+                    "defaultValue": "new EventEmitter<number>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "modifierKind": [
+                        123
                     ]
                 }
             ],
@@ -2404,16 +2441,16 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
-                    "name": "show",
+                    "name": "onTabClick",
                     "args": [
                         {
-                            "name": "a",
-                            "type": "any",
+                            "name": "tabIndex",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -2421,13 +2458,44 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 39,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "name": "a",
-                            "type": "any",
+                            "name": "tabIndex",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "trackTitleTemplatesByIndex",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 35,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "index",
+                            "type": "number",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -2444,12 +2512,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit, ContentChildren, ChangeDetectionStrategy, TemplateRef, ViewChildren, QueryList } from '@angular/core';\nimport { SwSideTabComponent } from \"../sw-side-tab/sw-side-tab.component\";\n\n@Component({\n  selector: 'sw-side-tabs-host',\n  templateUrl: './sw-side-tabs-host.component.html',\n  styleUrls: ['./sw-side-tabs-host.component.css'],\n  changeDetection: ChangeDetectionStrategy.Default\n})\nexport class SwSideTabsHostComponent {\n\n  @ContentChildren(SwSideTabComponent) swSideTabComponents!: QueryList<SwSideTabComponent>;\n  \n  @ViewChildren(\"sample\", {read: TemplateRef}) sample!: TemplateRef<any>;\n\n  constructor() { }\n\n  ngAfterViewInit() {\n\tthis.swSideTabComponents.forEach(sideTab => {\n\t\tconsole.log(sideTab.swSideTabTitleComponent.swSideTabTitle instanceof TemplateRef);\n\t})\n  }\n  \n  show(a: any) {\n  \tconsole.log(a);\n  }\n \n\n}\n",
+            "sourceCode": "import { Component, OnInit, ContentChildren, AfterViewInit, EventEmitter, ChangeDetectionStrategy, TemplateRef, ViewChildren, QueryList, Input } from '@angular/core';\nimport { SwSideTabComponent } from \"../sw-side-tab/sw-side-tab.component\";\n\n@Component({\n  selector: 'sw-side-tabs-host',\n  templateUrl: './sw-side-tabs-host.component.html',\n  styleUrls: ['./sw-side-tabs-host.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SwSideTabsHostComponent implements AfterViewInit {\n\n  @ContentChildren(SwSideTabComponent) private swSideTabComponents!: QueryList<SwSideTabComponent>;\n  \n  public swSideTabTitleTemplates: TemplateRef<unknown>[] = [];\n  \n  private swSideTabContentTemplates: TemplateRef<unknown>[] = [];\n  \n  public tabClick = new EventEmitter<number>();\n  \n  @Input() activeTabIndex: number = 0;\n\n  constructor() { }\n  \n  ngAfterViewInit() {\n  \tthis.swSideTabComponents.toArray().forEach((sideTab) => {\n  \t\tthis.swSideTabTitleTemplates.push(sideTab.swSideTabTitleComponent.swSideTabTitle);\n  \t\tthis.swSideTabContentTemplates.push(sideTab.swSideTabContentComponent.swTabContentTemplate);\n  \t});\n  }\n  \n  get activeTabContentTemplate(): TemplateRef<unknown> {\n  \treturn this.swSideTabContentTemplates[this.activeTabIndex];\n  }\n  \n  public trackTitleTemplatesByIndex(index: number): number {\n  \treturn index;\n  }\n  \n  onTabClick(tabIndex: number) {\n  \tthis.tabClick.emit(tabIndex);\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
-                    "styleUrl": "./sw-side-tabs-host.component.css"
+                    "data": "@import \"../../../../assets/styles/styles.scss\";\n\n.sw-side-tabs-host {\n\twidth: 100%;\n\theight: 100%;\n\t@include add-border(1px, $primary-color);\n\t@extend .border-radius-1;\n\t\n\t.sw-side-tab-titles-host {\n\t\tbackground-color: $primary-color;\n\t\tcolor: $white-color;\n\t}\n\t\n\t.sw-side-tab-title {\n\t\tcursor: pointer;\n\t\t@extend .border-radius-1;\n\t\t@extend .margin-top-1;\n\t\t@extend .margin-bottom-1;\n\t\t\n\t\t&.active {\n\t\t\tbackground-color: $secondary-color3;\n\t\t\tcolor: $primary-color;\n\t\t\t@extend .font-weight-bold;\n\t\t}\n\t\t\n\t\t&:hover {\n\t\t\tbackground-color: $secondary-color2;\n\t\t\tcolor: $primary-color;\n\t\t}\n\t}\n}\n",
+                    "styleUrl": "./sw-side-tabs-host.component.scss"
                 }
             ],
             "stylesData": "",
@@ -2459,9 +2527,23 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 14
+                "line": 20
             },
-            "templateData": "<div>\n\t<div *ngFor=\"let sideTab of swSideTabComponents.toArray()\">\n\t\t<ng-container *ngIf=\"sideTab?.swSideTabTitleComponent?.swSideTabTitle\">\n\t\t\t<ng-container *ngTemplateOutlet=\"sideTab.swSideTabTitleComponent.swSideTabTitle\"></ng-container>\n\t\t</ng-container>\n\t</div>\n</div>\n\n<ng-template #sample12>\n\t<h1>hello</h1>\n</ng-template>\n"
+            "implements": [
+                "AfterViewInit"
+            ],
+            "accessors": {
+                "activeTabContentTemplate": {
+                    "name": "activeTabContentTemplate",
+                    "getSignature": {
+                        "name": "activeTabContentTemplate",
+                        "type": "",
+                        "returnType": "TemplateRef<>",
+                        "line": 31
+                    }
+                }
+            },
+            "templateData": "<div class=\"sw-side-tabs-host flex\">\n\t<div class=\"sw-side-tab-titles-host padding-2 flex flex-column align-items-center\">\n\t\t<ng-container *ngFor=\"let sideTabTitleTemplate of swSideTabTitleTemplates; let tabIndex=index; trackBy: trackTitleTemplatesByIndex\">\n\t\t\t<div \n\t\t\t\tclass=\"padding-1 sw-side-tab-title\"\n\t\t\t\t[class.active]=\"activeTabIndex === tabIndex\"\n\t\t\t\t(click)=\"onTabClick(tabIndex)\"\n\t\t\t>\n\t\t\t\t<ng-container *ngTemplateOutlet=\"sideTabTitleTemplate\"></ng-container>\n\t\t\t</div>\n\t\t</ng-container>\n\t</div>\n\t<div class=\"padding-3\">\n\t\t<ng-container *ngTemplateOutlet=\"activeTabContentTemplate\"></ng-container>\n\t</div>\n</div>\n"
         },
         {
             "name": "SwSideTabTitleComponent",
@@ -3202,13 +3284,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-b0bb343999c0401a2e3ecbec65490c5a76866396b25cae82ed79702c1d4e115033ea8c8ade9395518e8eba42217f2ec5d6c7a62f3d969b3ab2838fe206d56a66",
+            "id": "module-AppModule-e63079a6c382f87bc9def733dda599c8fbff06ddd31cefafa5148b3551fb0f4d909382b69ca788d86b14d4d2b484c36be0bc61d305c81d1bd2634f22d4032996",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/modules/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    AppRoutingModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -3532,13 +3614,13 @@
         },
         {
             "name": "SwFormControlModule",
-            "id": "module-SwFormControlModule-b87428b5f795f1dc2ea12fea10509502fa2cc5299c386645862419547e1e626edf64a4548ec3734e0b5a721b27b32de2513b7b9528123706eb324c43d4bd0fcc",
+            "id": "module-SwFormControlModule-f5f6c09f1f559cca91958d2b69baeceb0680d5e388b7898b77608bfb20349c02b972ab6fd285d2384d329e51e1f64e8e04af2d43dfadc616563104788cc6b746",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-simple-widgets/src/modules/sw-form-control/sw-form-control.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { BrowserAnimationsModule } from \"@angular/platform-browser/animations\";\nimport { SwFormControlComponent } from \"./components/sw-form-control/sw-form-control.component\";\n\n@NgModule({\n    imports: [\n        BrowserAnimationsModule\n    ],\n    declarations: [\n        SwFormControlComponent\n    ],\n    exports: [\n        SwFormControlComponent\n    ]\n})\nexport class SwFormControlModule {}",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwFormControlComponent } from \"./components/sw-form-control/sw-form-control.component\";\n\n@NgModule({\n    declarations: [\n        SwFormControlComponent\n    ],\n    exports: [\n        SwFormControlComponent\n    ]\n})\nexport class SwFormControlModule {}",
             "children": [
                 {
                     "type": "providers",
@@ -3726,13 +3808,13 @@
         },
         {
             "name": "SwSwitchModule",
-            "id": "module-SwSwitchModule-04cb06b0554e60d4c80ef969b1184acfef7a09cfbdf7252ba837827f50bc5481b8197fe83d130a89645b204f6f38a01f1b3643fe1fc15984e1c44245d6d7397f",
+            "id": "module-SwSwitchModule-c3ffa3c792f4c2d952307e830f814931995bd8a91f916d90025a4dae8c34643e197978f7b1f3c4a783e94a147d274bee2894e195649df08e5ca3146cb6110504",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-simple-widgets/src/modules/sw-switch/sw-switch.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwSwitchComponent } from \"./components/sw-switch/sw-switch.component\";\nimport { BrowserAnimationsModule } from \"@angular/platform-browser/animations\";\n\n@NgModule({\n    imports: [BrowserAnimationsModule],\n    declarations: [SwSwitchComponent],\n    exports: [SwSwitchComponent]\n})\nexport class SwSwitchModule {}",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwSwitchComponent } from \"./components/sw-switch/sw-switch.component\";\n\n@NgModule({\n    declarations: [SwSwitchComponent],\n    exports: [SwSwitchComponent]\n})\nexport class SwSwitchModule {}",
             "children": [
                 {
                     "type": "providers",
@@ -4156,6 +4238,16 @@
                 "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
             },
             {
+                "name": "Switch",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
+            },
+            {
                 "name": "Table",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4561,6 +4653,18 @@
                     "deprecationMessage": "",
                     "type": "Record<SW_TOOLTIP_POSITION, ConnectedPosition>",
                     "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
+                }
+            ],
+            "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts": [
+                {
+                    "name": "Switch",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
                 }
             ],
             "projects/ngx-simple-widgets/src/modules/sw-table/components/sw-table/sw-table.component.stories.ts": [
@@ -5048,7 +5152,17 @@
                 "linktype": "component",
                 "name": "SwSideTabsHostComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Switch",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
