@@ -16,6 +16,7 @@ tbody {
         
         td {
             flex: var(--sw-table-cell-flex);
+            background-color: $white-color;
         }
 
         &:nth-child(even) {
