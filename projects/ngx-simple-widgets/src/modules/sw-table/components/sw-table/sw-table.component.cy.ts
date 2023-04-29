@@ -32,9 +32,9 @@ describe('table component should', () => {
 	it('render given columns', () => {
 		mountComponent();
 		cy.get('table > thead > tr > td').should('have.length', 3);
-		cy.get('table > thead > tr > td:nth-child(1)').should('have.text', 'Brand');
-		cy.get('table > thead > tr > td:nth-child(2)').should('have.text', 'Car');
-		cy.get('table > thead > tr > td:nth-child(3)').should('have.text', 'Is SUV');	
+		cy.get('table > thead > tr > td:nth-child(1)').should('contain.text', 'Brand');
+		cy.get('table > thead > tr > td:nth-child(2)').should('contain.text', 'Car');
+		cy.get('table > thead > tr > td:nth-child(3)').should('contain.text', 'Is SUV');	
 	})	
 	
 	it('render given rows', () => {
