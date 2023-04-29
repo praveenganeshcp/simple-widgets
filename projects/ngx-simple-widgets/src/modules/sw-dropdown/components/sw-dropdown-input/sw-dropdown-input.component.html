@@ -28,11 +28,12 @@
 >
     <div cdkListbox
         [cdkListboxValue]="selectedValues"
+        class="sw-dropdown-panel"
         (cdkListboxValueChange)="onValueChange($event)"
     >
-        <ng-container *ngFor="let item of items">
-            <div [cdkOption]="item.value">
-                {{ item.key }}
+        <ng-container *ngFor="let option of options">
+            <div class="sw-dropdown-panel-option" [cdkOption]="option.value">
+                {{ option.key }}
             </div>
         </ng-container>
     </div>
