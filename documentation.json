@@ -4238,16 +4238,6 @@
                 "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
             },
             {
-                "name": "Switch",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
-            },
-            {
                 "name": "Table",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4653,18 +4643,6 @@
                     "deprecationMessage": "",
                     "type": "Record<SW_TOOLTIP_POSITION, ConnectedPosition>",
                     "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
-                }
-            ],
-            "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts": [
-                {
-                    "name": "Switch",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
                 }
             ],
             "projects/ngx-simple-widgets/src/modules/sw-table/components/sw-table/sw-table.component.stories.ts": [
@@ -5153,16 +5131,6 @@
                 "name": "SwSideTabsHostComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/10",
-                "status": "low"
-            },
-            {
-                "filePath": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Switch",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             },
             {
