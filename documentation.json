@@ -1357,7 +1357,7 @@
         },
         {
             "name": "SwDropdownInputComponent",
-            "id": "component-SwDropdownInputComponent-e6965d2246ebf3640ff5b926644f22a601f40f3c5d2b92581a78f534d56c892ff29a332b715e9a33a2b68250ba21fc506dbac8c7fc30c63f7af9dc950ec2653d",
+            "id": "component-SwDropdownInputComponent-a346c2942a5cd3bc7643f97d425efebbc7b85454c3f5f44cec36140f5fafae10a943685f0f204c0bc84fbd023455a00e1c497d3be0c1e1add6cf93ff8ea72bb8",
             "file": "projects/ngx-simple-widgets/src/modules/sw-dropdown/components/sw-dropdown-input/sw-dropdown-input.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1380,11 +1380,10 @@
             "viewProviders": [],
             "inputsClass": [
                 {
-                    "name": "items",
-                    "defaultValue": "[]",
+                    "name": "options",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 25,
                     "type": "KeyValuePair[]",
                     "decorators": []
                 },
@@ -1393,13 +1392,39 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 34,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "_options",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "KeyValuePair[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "modifierKind": [
+                        121
+                    ]
+                },
+                {
+                    "name": "_valueLabelMap",
+                    "defaultValue": "new Map()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Map<string | string>",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "modifierKind": [
+                        121
+                    ]
+                },
                 {
                     "name": "isOpen",
                     "defaultValue": "false",
@@ -1408,7 +1433,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 36
                 },
                 {
                     "name": "onChangeFn",
@@ -1418,7 +1443,7 @@
                     "type": "Function | null",
                     "optional": false,
                     "description": "",
-                    "line": 28
+                    "line": 40
                 },
                 {
                     "name": "onTouchFn",
@@ -1428,7 +1453,7 @@
                     "type": "Function | null",
                     "optional": false,
                     "description": "",
-                    "line": 30
+                    "line": 42
                 },
                 {
                     "name": "selectedValues",
@@ -1438,7 +1463,7 @@
                     "type": "string[]",
                     "optional": false,
                     "description": "",
-                    "line": 26
+                    "line": 38
                 }
             ],
             "methodsClass": [
@@ -1455,7 +1480,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 46,
+                    "line": 58,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1483,7 +1508,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 71,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1511,7 +1536,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 42,
+                    "line": 54,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1539,7 +1564,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 53,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1567,7 +1592,7 @@
                     "optional": true,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 57,
+                    "line": 69,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1595,7 +1620,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 50,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1618,7 +1643,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ListboxValueChangeEvent } from '@angular/cdk/listbox';\nimport { Component, forwardRef, Input } from '@angular/core';\nimport { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';\nimport { KeyValuePair } from '../../sw-dropdown.types';\n\n@Component({\n  selector: 'sw-dropdown-input',\n  templateUrl: './sw-dropdown-input.component.html',\n  styleUrls: ['./sw-dropdown-input.component.scss'],\n  providers: [\n    {\n        provide: NG_VALUE_ACCESSOR,\n        useExisting: forwardRef(() => SwDropdownInputComponent),\n        multi: true        \n    }\n  ]\n})\nexport class SwDropdownInputComponent implements ControlValueAccessor {\n\n  @Input() items: KeyValuePair[] = [];\n\n  @Input() placeholder: string = '';\n\n  isOpen: boolean = false;\n\n  selectedValues: string[] = [];\n\n  onChangeFn: Function | null = null;\n\n  onTouchFn: Function | null = null;\n\n  get selectedValueVM() {\n    return this.selectedValues ? this.selectedValues.join(', ') : '';\n  }\n\n  constructor() { }\n\n  writeValue(value: string[]): void {\n    this.selectedValues = value;\n  }\n    \n  registerOnChange(fn: Function): void {\n    this.onChangeFn = fn;\n  }\n\n  onUpdateValue(updatedValue: string[]) {\n    this.selectedValues = updatedValue;\n    if(this.onChangeFn) {\n        this.onChangeFn(this.selectedValues);\n    }\n  }\n\n  registerOnTouched(fn: Function): void {\n    this.onTouchFn = fn;\n  }\n\n  setDisabledState?(isDisabled: boolean): void { }\n\n  onValueChange(event: ListboxValueChangeEvent<string>) {\n    this.onUpdateValue(event.value as string[]);\n    this.isOpen = false;\n  }\n\n}\n",
+            "sourceCode": "import { ListboxValueChangeEvent } from '@angular/cdk/listbox';\nimport { Component, forwardRef, Input } from '@angular/core';\nimport { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';\nimport { KeyValuePair } from '../../sw-dropdown.types';\n\n@Component({\n  selector: 'sw-dropdown-input',\n  templateUrl: './sw-dropdown-input.component.html',\n  styleUrls: ['./sw-dropdown-input.component.scss'],\n  providers: [\n    {\n        provide: NG_VALUE_ACCESSOR,\n        useExisting: forwardRef(() => SwDropdownInputComponent),\n        multi: true        \n    }\n  ]\n})\nexport class SwDropdownInputComponent implements ControlValueAccessor {\n\n  private _options: KeyValuePair[] = [];\n  \n  private _valueLabelMap: Map<string, string> = new Map();\n\n  @Input() \n  set options(options: KeyValuePair[]) {\n    this._options = options;\n    this._valueLabelMap = new Map(options.map(option => [option.value, option.key]));\n  }\n  \n  get options() {\n  \treturn this._options;\n  }\n\n  @Input() placeholder: string = '';\n\n  isOpen: boolean = false;\n\n  selectedValues: string[] = [];\n\n  onChangeFn: Function | null = null;\n\n  onTouchFn: Function | null = null;\n\n  get selectedValueVM() {\n    return this.selectedValues ? (this.selectedValues.map(selectedValue => this._valueLabelMap.get(selectedValue)).join(', ')) : '';\n  }\n\n  constructor() { }\n\n  writeValue(value: string[]): void {\n    this.selectedValues = value;\n  }\n    \n  registerOnChange(fn: Function): void {\n    this.onChangeFn = fn;\n  }\n\n  onUpdateValue(updatedValue: string[]) {\n    this.selectedValues = updatedValue;\n    if(this.onChangeFn) {\n        this.onChangeFn(this.selectedValues);\n    }\n  }\n\n  registerOnTouched(fn: Function): void {\n    this.onTouchFn = fn;\n  }\n\n  setDisabledState?(isDisabled: boolean): void { }\n\n  onValueChange(event: ListboxValueChangeEvent<string>) {\n    this.onUpdateValue(event.value as string[]);\n    this.isOpen = false;\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1633,23 +1658,59 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 34
+                "line": 46
             },
             "implements": [
                 "ControlValueAccessor"
             ],
             "accessors": {
+                "options": {
+                    "name": "options",
+                    "setSignature": {
+                        "name": "options",
+                        "type": "void",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "args": [
+                            {
+                                "name": "options",
+                                "type": "KeyValuePair[]",
+                                "deprecated": false,
+                                "deprecationMessage": ""
+                            }
+                        ],
+                        "returnType": "void",
+                        "line": 25,
+                        "jsdoctags": [
+                            {
+                                "name": "options",
+                                "type": "KeyValuePair[]",
+                                "deprecated": false,
+                                "deprecationMessage": "",
+                                "tagName": {
+                                    "text": "param"
+                                }
+                            }
+                        ]
+                    },
+                    "getSignature": {
+                        "name": "options",
+                        "type": "",
+                        "returnType": "",
+                        "line": 30
+                    }
+                },
                 "selectedValueVM": {
                     "name": "selectedValueVM",
                     "getSignature": {
                         "name": "selectedValueVM",
                         "type": "",
                         "returnType": "",
-                        "line": 32
+                        "line": 44
                     }
                 }
             },
-            "templateData": "<div \n    class=\"sw-dropdown-input\"\n    (click)=\"isOpen = true\"\n    cdkOverlayOrigin \n    tabindex=\"0\"\n    #swDropdownPanelOrigin=\"cdkOverlayOrigin\"\n>\n    <div class=\"flex align-items-center justify-space-between\">\n        <span \n            [class.sw-dropdown-placeholder]=\"!selectedValueVM\"\n        >\n            {{ selectedValueVM ? selectedValueVM : placeholder }}\n        </span>\n        <sw-icon \n            [name]=\"isOpen ? 'expand_less' : 'expand_more'\"\n        >\n        </sw-icon>\n    </div>\n</div>\n\n<ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"swDropdownPanelOrigin\"\n    [cdkConnectedOverlayOpen]=\"isOpen\"\n    (backdropClick)=\"isOpen = false\"\n    [cdkConnectedOverlayHasBackdrop]=\"true\"\n    [cdkConnectedOverlayBackdropClass]=\"'sw-dropdown-backdrop'\"\n>\n    <div cdkListbox\n        [cdkListboxValue]=\"selectedValues\"\n        (cdkListboxValueChange)=\"onValueChange($event)\"\n    >\n        <ng-container *ngFor=\"let item of items\">\n            <div [cdkOption]=\"item.value\">\n                {{ item.key }}\n            </div>\n        </ng-container>\n    </div>\n</ng-template>"
+            "templateData": "<div \n    class=\"sw-dropdown-input\"\n    (click)=\"isOpen = true\"\n    cdkOverlayOrigin \n    tabindex=\"0\"\n    #swDropdownPanelOrigin=\"cdkOverlayOrigin\"\n>\n    <div class=\"flex align-items-center justify-space-between\">\n        <span \n            [class.sw-dropdown-placeholder]=\"!selectedValueVM\"\n        >\n            {{ selectedValueVM ? selectedValueVM : placeholder }}\n        </span>\n        <sw-icon \n            [name]=\"isOpen ? 'expand_less' : 'expand_more'\"\n        >\n        </sw-icon>\n    </div>\n</div>\n\n<ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"swDropdownPanelOrigin\"\n    [cdkConnectedOverlayOpen]=\"isOpen\"\n    (backdropClick)=\"isOpen = false\"\n    [cdkConnectedOverlayHasBackdrop]=\"true\"\n    [cdkConnectedOverlayBackdropClass]=\"'sw-dropdown-backdrop'\"\n>\n    <div cdkListbox\n        [cdkListboxValue]=\"selectedValues\"\n        class=\"sw-dropdown-panel\"\n        (cdkListboxValueChange)=\"onValueChange($event)\"\n    >\n        <ng-container *ngFor=\"let option of options\">\n            <div class=\"sw-dropdown-panel-option\" [cdkOption]=\"option.value\">\n                {{ option.key }}\n            </div>\n        </ng-container>\n    </div>\n</ng-template>"
         },
         {
             "name": "SwFormControlComponent",
@@ -2931,7 +2992,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../../assets/styles/styles.scss\";\n\ntable {\n    @extend .border-radius-3;\n    text-align: left;\n    width: 100%;\n}\n\ntd {\n    @extend .padding-vertical-1;\n    @extend .padding-horizontal-2;\n}\n\ntbody {\n    tr {\n        \n        td {\n            flex: var(--sw-table-cell-flex);\n        }\n\n        &:nth-child(even) {\n            td {\n                background-color: $secondary-color2;\n            }\n        }\n\n        &:nth-child(odd) {\n            td {\n                &:first-child {\n                    @include add-left-border(1px, $secondary-color2);\n                }\n                &:last-child {\n                    @include add-right-border(1px, $secondary-color2);\n                }\n            }\n\n            &:last-child {\n                td {\n                    @include add-bottom-border(1px, $secondary-color2);\n                }\n            }\n        }\n\n        &:last-child td {\n            &:nth-child(1) {\n                @extend .border-bottom-left-radius-2;\n            }\n\n            &:last-child {\n                @extend .border-bottom-right-radius-2;\n            }\n        }\n    }\n}\n\n\nthead {\n    tr {\n        color: $white-color;\n    }\n    td {\n        @extend .font-weight-bold;\n        background-color: $primary-color;\n        flex: var(--sw-table-cell-flex);\n\n        &:nth-child(1) {\n            @extend .border-top-left-radius-2;\n        }\n\n        &:last-child {\n            @extend .border-top-right-radius-2;\n        }\n    }\n}",
+                    "data": "@import \"../../../../assets/styles/styles.scss\";\n\ntable {\n    @extend .border-radius-3;\n    text-align: left;\n    width: 100%;\n}\n\ntd {\n    @extend .padding-vertical-1;\n    @extend .padding-horizontal-2;\n}\n\ntbody {\n    tr {\n        \n        td {\n            flex: var(--sw-table-cell-flex);\n            background-color: $white-color;\n        }\n\n        &:nth-child(even) {\n            td {\n                background-color: $secondary-color2;\n            }\n        }\n\n        &:nth-child(odd) {\n            td {\n                &:first-child {\n                    @include add-left-border(1px, $secondary-color2);\n                }\n                &:last-child {\n                    @include add-right-border(1px, $secondary-color2);\n                }\n            }\n\n            &:last-child {\n                td {\n                    @include add-bottom-border(1px, $secondary-color2);\n                }\n            }\n        }\n\n        &:last-child td {\n            &:nth-child(1) {\n                @extend .border-bottom-left-radius-2;\n            }\n\n            &:last-child {\n                @extend .border-bottom-right-radius-2;\n            }\n        }\n    }\n}\n\n\nthead {\n    tr {\n        color: $white-color;\n    }\n    td {\n        @extend .font-weight-bold;\n        background-color: $primary-color;\n        flex: var(--sw-table-cell-flex);\n\n        &:nth-child(1) {\n            @extend .border-top-left-radius-2;\n        }\n\n        &:last-child {\n            @extend .border-top-right-radius-2;\n        }\n    }\n}",
                     "styleUrl": "./sw-table.component.scss"
                 }
             ],
@@ -2944,11 +3005,11 @@
                 "args": [],
                 "line": 20
             },
-            "templateData": "<table>\n    <thead>\n        <tr class=\"flex\">\n            <td \n                *ngFor=\"let column of activeColumns; trackBy: trackByIndex\" \n                [style.--sw-table-cell-flex]=\"column.flex\"\n            >\n                {{ column.label }}\n            </td>\n        </tr>\n    </thead>\n    <tbody>\n        <tr \n            *ngFor=\"let row of rows; trackBy: trackByIndex\" \n            class=\"flex\">\n            <td \n                *ngFor=\"let column of activeColumns; trackBy: trackByIndex\" \n                [style.--sw-table-cell-flex]=\"column.flex\"\n            >\n                <ng-container *ngIf=\"isLoading; else cellContent\">\n                    Loading ...\n                </ng-container>\n                <ng-template #cellContent>\n                    <ng-container \n                        *ngIf=\"column.renderTemplate && customCellTemplate; else defaultTemplate\"\n                    >\n                        <ng-container\n                            [ngTemplateOutlet]=\"customCellTemplate\"\n                            [ngTemplateOutletContext]=\"{\n                                'row': row,\n                                'column': column,\n                                'value': row[column.fieldName]\n                            }\"\n                        >\n                        </ng-container>\n                    </ng-container>\n                    <ng-template #defaultTemplate>\n                        {{ row[column.fieldName] }}\n                    </ng-template>\n                </ng-template>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n"
+            "templateData": "<table>\n    <thead>\n        <tr class=\"flex\">\n            <td \n                *ngFor=\"let column of activeColumns; trackBy: trackByIndex\" \n                [style.--sw-table-cell-flex]=\"column.flex\"\n            >\n                {{ column.label }}\n            </td>\n        </tr>\n    </thead>\n    <tbody>\n        <tr \n            *ngFor=\"let row of rows; trackBy: trackByIndex\" \n            class=\"flex\">\n            <td \n                *ngFor=\"let column of activeColumns; trackBy: trackByIndex\" \n                [style.--sw-table-cell-flex]=\"column.flex\"\n            >\n                <ng-container *ngIf=\"isLoading; else cellContent\">\n                    Loading ...\n                </ng-container>\n                <ng-template #cellContent>\n                    <ng-container \n                        *ngIf=\"column.renderTemplate && customCellTemplate; else defaultCellTemplate\"\n                    >\n                        <ng-container\n                            [ngTemplateOutlet]=\"customCellTemplate\"\n                            [ngTemplateOutletContext]=\"{\n                                'row': row,\n                                'column': column,\n                                'value': row[column.fieldName]\n                            }\"\n                        >\n                        </ng-container>\n                    </ng-container>\n                    <ng-template #defaultCellTemplate>\n                        {{ row[column.fieldName] }}\n                    </ng-template>\n                </ng-template>\n            </td>\n        </tr>\n    </tbody>\n</table>\n\n"
         },
         {
             "name": "SwToastHostComponent",
-            "id": "component-SwToastHostComponent-a5fb4317ec61ec77f5477dc997f1b632d369d8e808f3a879a3f5ec48ed523ced8ab081655cc3aec8817eba4c8d7f95236635c8e2fa562700efac757aa3f47539",
+            "id": "component-SwToastHostComponent-6d46a4d19dd76a37708d8aa104976c8856b0bdb3902be83267ce517ab66b6a01bdfac37468acc6a409f3e42790f58fddaf5ec58a15958f10b84363829d168dff",
             "file": "projects/ngx-simple-widgets/src/modules/sw-toast/components/sw-toast-host/sw-toast-host.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -2956,7 +3017,7 @@
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "sw-sw-toast-host",
+            "selector": "sw-toast-host",
             "styleUrls": [
                 "./sw-toast-host.component.scss"
             ],
@@ -3055,7 +3116,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';\nimport { SwToastOverlayConfig, SwToastStatus } from '../../models/sw-toast.config';\nimport { SW_TOAST_DATA } from '../../sw-toast.constants';\n\n@Component({\n  selector: 'sw-sw-toast-host',\n  templateUrl: './sw-toast-host.component.html',\n  styleUrls: ['./sw-toast-host.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SwToastHostComponent {\n\n  private cssClassMap: Map<SwToastStatus, string> = new Map();\n  private iconNameMap: Map<SwToastStatus, string> = new Map();\n\n  constructor(\n    @Inject(SW_TOAST_DATA) public toastConfig: SwToastOverlayConfig\n  ) {\n    this.initializeCssClasses();\n    this.initializeIconNameMap();\n   }\n\n  initializeCssClasses() {\n    this.cssClassMap.set(SwToastStatus.SUCCESS, 'info-success-bg');\n    this.cssClassMap.set(SwToastStatus.WARN, 'info-warn-bg');\n    this.cssClassMap.set(SwToastStatus.ERROR, 'info-error-bg');\n  }\n\n  initializeIconNameMap() {\n    this.iconNameMap.set(SwToastStatus.SUCCESS, 'done');\n    this.iconNameMap.set(SwToastStatus.WARN, 'warning');\n    this.iconNameMap.set(SwToastStatus.ERROR, 'error');\n  }\n  \n  get title() {\n    return this.toastConfig.title;\n  }\n\n  get message() {\n    return this.toastConfig.message;\n  }\n\n  get status() {\n    return this.toastConfig.status;\n  }\n\n  get toastCssClass() {\n    return this.cssClassMap.get(this.toastConfig.status) || ''\n  }\n\n  get iconName() {\n    return this.iconNameMap.get(this.toastConfig.status) || '';\n  }\n\n  readonly toastStatus = SwToastStatus;\n}\n",
+            "sourceCode": "import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';\nimport { SwToastOverlayConfig, SwToastStatus } from '../../models/sw-toast.config';\nimport { SW_TOAST_DATA } from '../../sw-toast.constants';\n\n@Component({\n  selector: 'sw-toast-host',\n  templateUrl: './sw-toast-host.component.html',\n  styleUrls: ['./sw-toast-host.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SwToastHostComponent {\n\n  private cssClassMap: Map<SwToastStatus, string> = new Map();\n  private iconNameMap: Map<SwToastStatus, string> = new Map();\n\n  constructor(\n    @Inject(SW_TOAST_DATA) public toastConfig: SwToastOverlayConfig\n  ) {\n    this.initializeCssClasses();\n    this.initializeIconNameMap();\n   }\n\n  initializeCssClasses() {\n    this.cssClassMap.set(SwToastStatus.SUCCESS, 'info-success-bg');\n    this.cssClassMap.set(SwToastStatus.WARN, 'info-warn-bg');\n    this.cssClassMap.set(SwToastStatus.ERROR, 'info-error-bg');\n  }\n\n  initializeIconNameMap() {\n    this.iconNameMap.set(SwToastStatus.SUCCESS, 'done');\n    this.iconNameMap.set(SwToastStatus.WARN, 'warning');\n    this.iconNameMap.set(SwToastStatus.ERROR, 'error');\n  }\n  \n  get title() {\n    return this.toastConfig.title;\n  }\n\n  get message() {\n    return this.toastConfig.message;\n  }\n\n  get status() {\n    return this.toastConfig.status;\n  }\n\n  get toastCssClass() {\n    return this.cssClassMap.get(this.toastConfig.status) || ''\n  }\n\n  get iconName() {\n    return this.iconNameMap.get(this.toastConfig.status) || '';\n  }\n\n  readonly toastStatus = SwToastStatus;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3137,11 +3198,91 @@
                     }
                 }
             },
-            "templateData": "<div \n    class=\"sw-toast border-radius-1 padding-1 flex\"\n    [ngClass]=\"toastCssClass\"\n>\n    <sw-icon [name]=\"iconName\"></sw-icon>\n    <div class=\"flex flex-column margin-left-1\">\n        <span class=\"padding-bottom-1\" *ngIf=\"title\">{{ title }}</span>\n        <span>{{ message }}</span>\n    </div>\n</div>"
+            "templateData": "<div \n    class=\"sw-toast border-radius-1 padding-1 flex\"\n    [ngClass]=\"toastCssClass\"\n>\n    <sw-icon id=\"sw-toast-icon\" [name]=\"iconName\"></sw-icon>\n    <div id=\"sw-toast-content\" class=\"flex flex-column margin-left-1\">\n        <span id=\"sw-toast-title-content\" class=\"padding-bottom-1\" *ngIf=\"title\">{{ title }}</span>\n        <span id=\"sw-toast-message-content\">{{ message }}</span>\n    </div>\n</div>"
+        },
+        {
+            "name": "SwToastHostDemoComponent",
+            "id": "component-SwToastHostDemoComponent-06e6a38a436f266008b1df4a7e46da7fdaa1ae37a99ea416584dc77cf72e903c43e09610a6b5c8b268561f622e940672acf7dabe815dc0972235f32f9cfdf2de",
+            "file": "projects/ngx-simple-widgets/src/modules/sw-toast/components/sw-toast-host/sw-toast-host-demo.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sw-toast-host-demo",
+            "styleUrls": [],
+            "styles": [],
+            "template": "Showing toast notification\n\t",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "level",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { OnInit, Component, ChangeDetectionStrategy, Input } from \"@angular/core\";\nimport { SwToastService } from \"../../services/sw-toast.service\";\n\n\n@Component({\n\tselector: 'sw-toast-host-demo',\n\ttemplate: `\n\t\tShowing toast notification\n\t`,\n\n})\nexport class SwToastHostDemoComponent implements OnInit {\n\t@Input() level!: string;\n\t\n\tconstructor(\n\t\tprivate swToastService: SwToastService\n\t) {}\n\t\n\tngOnInit() {\n\t\tif(this.level === \"warn\") {\n\t\t\tthis.swToastService.warn({\n\t\t\t\tmessage: \"Toast message shown for demo\",\n\t\t\t\ttitle: \"Toast demo\"\n\t\t\t});\n\t\t}\n\t\telse if(this.level === \"success\") {\n\t\t\tthis.swToastService.success({\n\t\t\t\tmessage: \"Toast message shown for demo\",\n\t\t\t\ttitle: \"Toast demo\"\n\t\t\t});\n\t\t}\n\t\telse if(this.level === \"error\") {\n\t\t\tthis.swToastService.error({\n\t\t\t\tmessage: \"Toast message shown for demo\",\n\t\t\t\ttitle: \"Toast demo\"\n\t\t\t});\n\t\t}\n\t}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "swToastService",
+                        "type": "SwToastService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 13,
+                "jsdoctags": [
+                    {
+                        "name": "swToastService",
+                        "type": "SwToastService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ]
         },
         {
             "name": "SwTooltipComponent",
-            "id": "component-SwTooltipComponent-8792ea490c3de652ee55dbcd5bde360b3b39c3a2c4abc27bb8061acecec241f4c053b4098f79c82baff6820b27c2b86d3cc6968bbd216b16fab2bf5f49d1eb9d",
+            "id": "component-SwTooltipComponent-7656e2afe643f2d2d9f8b7720a837e786056aaf3dda3e332329359fcdbcccb8ce2594ae93696a06d56e2e5598824475481601a583d5d69edf7b283b1b831c160",
             "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -3163,7 +3304,7 @@
                     "name": "position",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 26,
                     "type": "SW_TOOLTIP_POSITION",
                     "decorators": []
                 },
@@ -3172,7 +3313,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 21,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -3181,7 +3322,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 }
@@ -3190,13 +3331,13 @@
             "propertiesClass": [
                 {
                     "name": "_position",
-                    "defaultValue": "SW_TOOLTIP_CONNECTED_POSITIONS[\n    SW_TOOLTIP_POSITION.TOP\n  ]",
+                    "defaultValue": "DEFAULT_TOOLTIP_POSITION",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ConnectionPositionPair",
                     "optional": false,
                     "description": "",
-                    "line": 19,
+                    "line": 23,
                     "modifierKind": [
                         121
                     ]
@@ -3209,7 +3350,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 17
                 }
             ],
             "methodsClass": [],
@@ -3220,7 +3361,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { ConnectionPositionPair } from '@angular/cdk/overlay';\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from '../../sw-tooltip.constants';\n\n@Component({\n  selector: 'sw-tooltip',\n  templateUrl: './sw-tooltip.component.html',\n  styleUrls: ['./sw-tooltip.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SwTooltipComponent {\n\n  isOpen: boolean = false;\n\n  @Input() text: string = '';\n\n  @Input() show: boolean = true;\n\n  private _position: ConnectionPositionPair = SW_TOOLTIP_CONNECTED_POSITIONS[\n    SW_TOOLTIP_POSITION.TOP\n  ]\n\n  @Input()\n  set position(position: SW_TOOLTIP_POSITION) {\n    this._position = SW_TOOLTIP_CONNECTED_POSITIONS[position];\n  }\n\n  get connectedPositionStrategy() {\n    return this._position;\n  }\n\n  constructor() { }\n\n}\n",
+            "sourceCode": "import { ConnectionPositionPair } from '@angular/cdk/overlay';\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\nimport { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from '../../sw-tooltip.constants';\n\nexport const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_CONNECTED_POSITIONS[\n  SW_TOOLTIP_POSITION.TOP\n];\n\n@Component({\n  selector: 'sw-tooltip',\n  templateUrl: './sw-tooltip.component.html',\n  styleUrls: ['./sw-tooltip.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class SwTooltipComponent {\n\n  isOpen: boolean = false;\n\n  @Input() text: string = '';\n\n  @Input() show: boolean = true;\n\n  private _position: ConnectionPositionPair = DEFAULT_TOOLTIP_POSITION;\n\n  @Input()\n  set position(position: SW_TOOLTIP_POSITION) {\n    this._position = SW_TOOLTIP_CONNECTED_POSITIONS[position];\n  }\n\n  get connectedPositionStrategy() {\n    return this._position;\n  }\n\n  constructor() { }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -3235,7 +3376,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 30
+                "line": 32
             },
             "accessors": {
                 "position": {
@@ -3254,7 +3395,7 @@
                             }
                         ],
                         "returnType": "void",
-                        "line": 24,
+                        "line": 26,
                         "jsdoctags": [
                             {
                                 "name": "position",
@@ -3274,7 +3415,7 @@
                         "name": "connectedPositionStrategy",
                         "type": "",
                         "returnType": "",
-                        "line": 28
+                        "line": 30
                     }
                 }
             },
@@ -3614,13 +3755,13 @@
         },
         {
             "name": "SwFormControlModule",
-            "id": "module-SwFormControlModule-f5f6c09f1f559cca91958d2b69baeceb0680d5e388b7898b77608bfb20349c02b972ab6fd285d2384d329e51e1f64e8e04af2d43dfadc616563104788cc6b746",
+            "id": "module-SwFormControlModule-f23d27c2f2e36421758d8a99f711fa27e37574e495755ec56e12213034bddcc7e894e8ba46108dd4dee3bed94111bc69546feca981d51cd786e19685f2444540",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-simple-widgets/src/modules/sw-form-control/sw-form-control.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwFormControlComponent } from \"./components/sw-form-control/sw-form-control.component\";\n\n@NgModule({\n    declarations: [\n        SwFormControlComponent\n    ],\n    exports: [\n        SwFormControlComponent\n    ]\n})\nexport class SwFormControlModule {}",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { CommonModule } from \"@angular/common\";\nimport { SwFormControlComponent } from \"./components/sw-form-control/sw-form-control.component\";\n\n@NgModule({\n\timports: [\n\t\tCommonModule,\n\t],\n    declarations: [\n        SwFormControlComponent\n    ],\n    exports: [\n        SwFormControlComponent\n    ]\n})\nexport class SwFormControlModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3808,13 +3949,13 @@
         },
         {
             "name": "SwSwitchModule",
-            "id": "module-SwSwitchModule-c3ffa3c792f4c2d952307e830f814931995bd8a91f916d90025a4dae8c34643e197978f7b1f3c4a783e94a147d274bee2894e195649df08e5ca3146cb6110504",
+            "id": "module-SwSwitchModule-adc64b52fb8c7c7c6ca89f7f0f91e34c2c2a30a925968d32ba8a3ed7765da5a5ce2a1894a823a5dfc4e7117a8451c49ae5573ef881cf7ec9e5cf41a3bf20ac8e",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-simple-widgets/src/modules/sw-switch/sw-switch.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwSwitchComponent } from \"./components/sw-switch/sw-switch.component\";\n\n@NgModule({\n    declarations: [SwSwitchComponent],\n    exports: [SwSwitchComponent]\n})\nexport class SwSwitchModule {}",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { CommonModule } from \"@angular/common\";\nimport { SwSwitchComponent } from \"./components/sw-switch/sw-switch.component\";\n\n@NgModule({\n\timports: [CommonModule],\n    declarations: [SwSwitchComponent],\n    exports: [SwSwitchComponent]\n})\nexport class SwSwitchModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -3896,13 +4037,13 @@
         },
         {
             "name": "SwToastModule",
-            "id": "module-SwToastModule-f270dde8ab332baf26868d50e6ee9b185a6b9742128069dbbf9ceb1971d16e74c6b247734ee82630b695e7db8226bd23edc71e2be8b0a4b2c6e65ee52a9353ff",
+            "id": "module-SwToastModule-cf997046578ab0e5df4897debc5b7a5fa4d20e2f0150b7cb71f7c6641043bbec6b146d9bbe1dd4dcf97af0c8313cb05b29b4c6d2443f5578f6d28ccc978a74c4",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-simple-widgets/src/modules/sw-toast/sw-toast.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwToastHostComponent } from './components/sw-toast-host/sw-toast-host.component';\nimport { OverlayModule } from \"@angular/cdk/overlay\";\nimport { SwToastService } from \"./services/sw-toast.service\";\nimport { SwIconModule } from \"../sw-icon/sw-icon.module\";\nimport { CommonModule } from \"@angular/common\";\n\n@NgModule({\n  imports: [\n    CommonModule,\n    OverlayModule,\n    SwIconModule\n  ],\n  declarations: [\n    SwToastHostComponent\n  ],\n  providers: [SwToastService]\n})\nexport class SwToastModule {}",
+            "sourceCode": "import { NgModule } from \"@angular/core\";\nimport { SwToastHostComponent } from './components/sw-toast-host/sw-toast-host.component';\nimport { SwToastHostDemoComponent } from \"./components/sw-toast-host/sw-toast-host-demo.component\";\nimport { OverlayModule } from \"@angular/cdk/overlay\";\nimport { SwToastService } from \"./services/sw-toast.service\";\nimport { SwIconModule } from \"../sw-icon/sw-icon.module\";\nimport { CommonModule } from \"@angular/common\";\n\n@NgModule({\n  imports: [\n    CommonModule,\n    OverlayModule,\n    SwIconModule\n  ],\n  declarations: [\n    SwToastHostComponent,\n    SwToastHostDemoComponent,\n  ],\n  providers: [SwToastService],\n  exports: [SwToastHostDemoComponent]\n})\nexport class SwToastModule {}",
             "children": [
                 {
                     "type": "providers",
@@ -3917,6 +4058,9 @@
                     "elements": [
                         {
                             "name": "SwToastHostComponent"
+                        },
+                        {
+                            "name": "SwToastHostDemoComponent"
                         }
                     ]
                 },
@@ -3930,7 +4074,11 @@
                 },
                 {
                     "type": "exports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "SwToastHostDemoComponent"
+                        }
+                    ]
                 },
                 {
                     "type": "bootstrap",
@@ -4078,6 +4226,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\n    template: `\n        <button [size]='size' sw-danger-button>Click me !</button>\n    `,\n    props: {\n        ...args\n    }\n})"
+            },
+            {
+                "name": "DEFAULT_TOOLTIP_POSITION",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "SW_TOOLTIP_CONNECTED_POSITIONS[\n  SW_TOOLTIP_POSITION.TOP\n]"
             },
             {
                 "name": "Dropdown",
@@ -4238,6 +4396,16 @@
                 "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
             },
             {
+                "name": "Switch",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
+            },
+            {
                 "name": "Table",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -4266,6 +4434,26 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => ({\n    template: `\n        <button [size]='size' sw-text-button>Click me !</button>\n    `,\n    props: {\n        ...args\n    }\n})"
+            },
+            {
+                "name": "Tooltip",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "TooltipTemplate.bind({})"
+            },
+            {
+                "name": "TooltipTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\n    props: {\n        ...args\n    },\n    template: `\n        <div style=\"margin-top: 3rem; margin-left: 20rem\">\n            <sw-tooltip [text]='text' [position]='position'>\n                <span>Hover on me !</span>\n            </sw-tooltip>\n        </div>\n    `\n})"
             }
         ],
         "functions": [],
@@ -4525,6 +4713,18 @@
                     "type": "literal type"
                 }
             ],
+            "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts": [
+                {
+                    "name": "DEFAULT_TOOLTIP_POSITION",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "SW_TOOLTIP_CONNECTED_POSITIONS[\n  SW_TOOLTIP_POSITION.TOP\n]"
+                }
+            ],
             "projects/ngx-simple-widgets/src/modules/sw-dropdown/components/sw-dropdown-input/sw-dropdown-input.component.stories.ts": [
                 {
                     "name": "Dropdown",
@@ -4645,6 +4845,18 @@
                     "defaultValue": "{\n    [SW_TOOLTIP_POSITION.BOTTOM] : {\n        originX: 'center',\n        originY: 'bottom',\n        overlayX: 'center',\n        overlayY: 'top',\n        offsetY: 10\n    },\n    [SW_TOOLTIP_POSITION.TOP] : {\n        originX: 'center',\n        originY: 'top',\n        overlayX: 'center',\n        overlayY: 'bottom',\n        offsetY: -10\n    },\n    [SW_TOOLTIP_POSITION.LEFT] : {\n        originX: 'start',\n        originY: 'center',\n        overlayX: 'end',\n        overlayY: 'center',\n        offsetX: -10\n    },\n    [SW_TOOLTIP_POSITION.RIGHT] : {\n        originX: 'end',\n        originY: 'center',\n        overlayX: 'start',\n        overlayY: 'center',\n        offsetX: 10\n    }\n}"
                 }
             ],
+            "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts": [
+                {
+                    "name": "Switch",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n    template: `\n        <sw-switch></sw-switch>\n    `\n})"
+                }
+            ],
             "projects/ngx-simple-widgets/src/modules/sw-table/components/sw-table/sw-table.component.stories.ts": [
                 {
                     "name": "Table",
@@ -4655,6 +4867,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "(args) => ({\n    props: {\n        rows: [\n            { brand: 'Toyota', name: \"Fortuner\", isSUV: true },\n            { brand: 'Hyundai', name: \"i20\", isSUV: false },\n            { brand: 'Tata', name: \"Harrier\", isSUV: true },\n            { brand: 'Tata', name: \"Altroz\", isSUV: false },\n            { brand: 'Renault', name: \"Kiger\", isSUV: true },\n        ],\n        activeColumns: [\n            { fieldName: 'brand', label: 'Brand', renderTemplate: false, flex: '0 0 33%' },\n            { fieldName: 'name', label: 'Car name', renderTemplate: false, flex: '0 0 33%' },\n            { fieldName: 'isSUV', label: 'Is SUV', renderTemplate: true, flex: '0 0 33%' },\n        ],\n        isLoading: false\n    },\n    template: `\n        <sw-table \n            [rows]=\"rows\" \n            [isLoading]=\"isLoading\" \n            [customCellTemplate]=\"cellTemplate\" \n            [activeColumns]=\"activeColumns\"\n        >\n        </sw-table>\n        <ng-template #cellTemplate let-row=\"row\" let-column=\"column\" let-value=\"value\">\n            <sw-icon [name]=\"value ? 'done' : 'close'\"></sw-icon>\n        </ng-template>\n    `\n})"
+                }
+            ],
+            "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts": [
+                {
+                    "name": "Tooltip",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "TooltipTemplate.bind({})"
+                },
+                {
+                    "name": "TooltipTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\n    props: {\n        ...args\n    },\n    template: `\n        <div style=\"margin-top: 3rem; margin-left: 20rem\">\n            <sw-tooltip [text]='text' [position]='position'>\n                <span>Hover on me !</span>\n            </sw-tooltip>\n        </div>\n    `\n})"
                 }
             ]
         },
@@ -5018,7 +5252,7 @@
                 "linktype": "component",
                 "name": "SwDropdownInputComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/16",
                 "status": "low"
             },
             {
@@ -5134,6 +5368,16 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Switch",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/ngx-simple-widgets/src/modules/sw-switch/components/sw-switch/sw-switch.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -5175,6 +5419,15 @@
                 "type": "interface",
                 "linktype": "interface",
                 "name": "SwPagination",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-toast/components/sw-toast-host/sw-toast-host-demo.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SwToastHostDemoComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/4",
                 "status": "low"
@@ -5226,12 +5479,42 @@
                 "status": "low"
             },
             {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Tooltip",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "TooltipTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "SwTooltipComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-simple-widgets/src/modules/sw-tooltip/components/sw-tooltip/sw-tooltip.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DEFAULT_TOOLTIP_POSITION",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
