@@ -1,5 +1,4 @@
-import { SwDropdownInputComponent } from "./sw-dropdown-input.component";
-import { SwDropDownModule } from "../../sw-dropdown.module";
+import { SwDropdownInputComponent } from "./dropdown.component";
 
 describe('dropdown component should', () => {
 
@@ -15,7 +14,6 @@ describe('dropdown component should', () => {
 				],
 				selectedValues: ['option_2']
 			},
-			imports: [SwDropDownModule]
 		})
 	}
 	

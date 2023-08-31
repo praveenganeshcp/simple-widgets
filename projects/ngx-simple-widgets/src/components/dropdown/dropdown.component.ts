@@ -1,21 +1,31 @@
-import { ListboxValueChangeEvent } from '@angular/cdk/listbox';
+import { CdkListboxModule, ListboxValueChangeEvent } from '@angular/cdk/listbox';
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { KeyValuePair } from '../../sw-dropdown.types';
+import { KeyValuePair } from './dropdown.types';
+import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { SwIconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'sw-dropdown-input',
-  templateUrl: './sw-dropdown-input.component.html',
-  styleUrls: ['./sw-dropdown-input.component.scss'],
+  selector: 'sw-dropdown',
+  templateUrl: './dropdown.component.html',
+  styleUrls: ['./dropdown.component.scss'],
   providers: [
     {
         provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => SwDropdownInputComponent),
+        useExisting: forwardRef(() => SwDropdownComponent),
         multi: true        
     }
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    OverlayModule,
+    SwIconComponent,
+    CdkListboxModule
   ]
 })
-export class SwDropdownInputComponent implements ControlValueAccessor {
+export class SwDropdownComponent implements ControlValueAccessor {
 
   private _options: KeyValuePair[] = [];
   
