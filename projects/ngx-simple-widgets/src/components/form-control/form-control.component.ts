@@ -1,14 +1,15 @@
+import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { Observable, map } from "rxjs";
-import { FormControl } from "@angular/forms";
 
 @Component({
     selector: 'sw-form-control',
-    templateUrl: './sw-form-control.component.html',
+    templateUrl: './form-control.component.html',
     styleUrls: [
-        `./sw-form-control.component.scss`
+        `./form-control.component.scss`
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule]
 })
 export class SwFormControlComponent {
 
