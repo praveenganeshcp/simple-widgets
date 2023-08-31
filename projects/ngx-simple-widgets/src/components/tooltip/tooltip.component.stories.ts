@@ -1,18 +1,10 @@
-import { Meta, moduleMetadata, Story } from "@storybook/angular";
-import { SW_TOOLTIP_POSITION } from "../../sw-tooltip.constants";
-import { DEFAULT_TOOLTIP_POSITION, SwTooltipComponent } from "./sw-tooltip.component";
-import { OverlayModule } from "@angular/cdk/overlay";
+import { Meta, Story } from "@storybook/angular";
+import { SW_TOOLTIP_POSITION } from "./tooltip.constants";
+import { DEFAULT_TOOLTIP_POSITION, SwTooltipComponent } from "./tooltip.component";
 
 export default {
     title: 'Simple Widgets/Tooltip',
     component: SwTooltipComponent,
-    decorators: [
-        moduleMetadata({
-            imports: [
-                OverlayModule
-            ]
-        })
-    ],
     argTypes: {
         text: {
             control: 'text',

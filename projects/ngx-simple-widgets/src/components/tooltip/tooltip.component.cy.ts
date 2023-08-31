@@ -1,4 +1,4 @@
-import { SwTooltipModule } from "../../sw-tooltip.module";
+import { SwTooltipComponent } from "./tooltip.component";
 
 describe('tooltip component should', () => {
 
@@ -9,7 +9,7 @@ describe('tooltip component should', () => {
 					<span id="host">Hello</span>
 				</sw-tooltip>
 			</div>
-		`, {imports: [SwTooltipModule]});
+		`, {imports: [SwTooltipComponent]});
 	}
 	
 	beforeEach(() => {
