@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { SwMonthCalendarComponent } from "../month-calendar/month.component";
+import { SwMonthCalendarHeaderComponent } from "../month-calendar-header/month-calendar-header.component";
 
 @Component({
     selector: 'sw-calendar',
@@ -13,7 +15,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
         }
     ],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true
+    standalone: true,
+    imports: [SwMonthCalendarComponent, SwMonthCalendarHeaderComponent]
 })
 export class SwCalendarComponent implements ControlValueAccessor {
    

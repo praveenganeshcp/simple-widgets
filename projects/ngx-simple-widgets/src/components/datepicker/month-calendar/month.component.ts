@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { Component, Input, OnInit, OnChanges, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, Input, OnInit, OnChanges, Output, EventEmitter, ChangeDetect
     styleUrls: ['./month.component.scss'],
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: []
+    imports: [CommonModule]
 })
 export class SwMonthCalendarComponent implements OnInit, OnChanges {
 
