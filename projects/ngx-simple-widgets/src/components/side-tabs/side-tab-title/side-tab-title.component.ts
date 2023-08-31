@@ -2,9 +2,9 @@ import { Component, ChangeDetectionStrategy, ViewChild, TemplateRef } from '@ang
 
 @Component({
   selector: 'sw-side-tab-title',
-  templateUrl: './sw-side-tab-title.component.html',
-  styleUrls: ['./sw-side-tab-title.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './side-tab-title.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class SwSideTabTitleComponent {
   

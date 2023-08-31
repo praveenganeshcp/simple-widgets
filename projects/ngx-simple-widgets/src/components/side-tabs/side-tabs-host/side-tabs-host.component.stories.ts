@@ -1,13 +1,20 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
-import { SwSideTabsHostComponent } from "./sw-side-tabs-host.component";
-import { SwSideTabsModule } from "../../sw-side-tabs.module";
+import { SwSideTabsHostComponent } from "./side-tabs-host.component";
+import { SwSideTabComponent } from "../side-tab/side-tab.component";
+import { SwSideTabTitleComponent } from "../side-tab-title/side-tab-title.component";
+import { SwSideTabContentComponent } from "../side-tab-content/side-tab-content.component";
 
 export default {
   title: 'Simple Widgets/Side tabs',
   component: SwSideTabsHostComponent,
   decorators: [
     moduleMetadata({
-      imports: [SwSideTabsModule]
+      imports: [
+		SwSideTabsHostComponent,
+		SwSideTabComponent,
+		SwSideTabTitleComponent,
+		SwSideTabContentComponent
+	  ]
     })
   ]
 } as Meta;

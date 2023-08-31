@@ -1,11 +1,14 @@
-import { Component, OnInit, ContentChildren, AfterViewInit, EventEmitter, ChangeDetectionStrategy, TemplateRef, ViewChildren, QueryList, Input } from '@angular/core';
-import { SwSideTabComponent } from "../sw-side-tab/sw-side-tab.component";
+import { Component, ContentChildren, AfterViewInit, EventEmitter, ChangeDetectionStrategy, TemplateRef, QueryList, Input } from '@angular/core';
+import { SwSideTabComponent } from "../side-tab/side-tab.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sw-side-tabs-host',
-  templateUrl: './sw-side-tabs-host.component.html',
-  styleUrls: ['./sw-side-tabs-host.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './side-tabs-host.component.html',
+  styleUrls: ['./side-tabs-host.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class SwSideTabsHostComponent implements AfterViewInit {
 

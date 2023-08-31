@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, ContentChild } from '@angular/core';
-import { SwSideTabTitleComponent } from "../sw-side-tab-title/sw-side-tab-title.component"
-import { SwSideTabContentComponent } from "../sw-side-tab-content/sw-side-tab-content.component";
+import { SwSideTabTitleComponent } from "../side-tab-title/side-tab-title.component"
+import { SwSideTabContentComponent } from "../side-tab-content/side-tab-content.component";
 
 @Component({
   selector: 'sw-side-tab',
-  templateUrl: './sw-side-tab.component.html',
-  styleUrls: ['./sw-side-tab.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './side-tab.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true
 })
 export class SwSideTabComponent {
 
