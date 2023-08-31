@@ -1,17 +1,19 @@
-import { Component, forwardRef } from "@angular/core";
+import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 
 @Component({
     selector: 'sw-calendar',
-    styleUrls: ['./sw-calendar.component.scss'],
-    templateUrl: './sw-calendar.component.html',
+    styleUrls: ['./calendar.component.scss'],
+    templateUrl: './calendar.component.html',
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
             useExisting: forwardRef(() => SwCalendarComponent),
             multi: true        
         }
-    ]
+    ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true
 })
 export class SwCalendarComponent implements ControlValueAccessor {
    

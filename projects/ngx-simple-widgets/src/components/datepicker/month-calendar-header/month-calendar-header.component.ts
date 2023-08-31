@@ -1,9 +1,13 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
+import { SwIconComponent } from "../../icon/icon.component";
 
 @Component({
     selector: 'sw-month-calendar-header',
-    templateUrl: './sw-month-calendar-header.component.html',
-    styleUrls: ['./sw-month-calendar-header.component.scss']
+    templateUrl: './month-calendar-header.component.html',
+    styleUrls: ['./month-calendar-header.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [SwIconComponent]
 })
 export class SwMonthCalendarHeaderComponent {
 

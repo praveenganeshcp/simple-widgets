@@ -1,9 +1,12 @@
-import { Component, Input, OnInit, OnChanges, Output, EventEmitter } from "@angular/core";
+import { Component, Input, OnInit, OnChanges, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
     selector: 'sw-month-calendar',
-    templateUrl: './sw-month.component.html',
-    styleUrls: ['./sw-month.component.scss'],
+    templateUrl: './month.component.html',
+    styleUrls: ['./month.component.scss'],
+    standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: []
 })
 export class SwMonthCalendarComponent implements OnInit, OnChanges {
 
