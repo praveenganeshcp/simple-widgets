@@ -1,5 +1,4 @@
-import { SwIconComponent } from "./sw-icon.component";
-import { MatIconModule } from "@angular/material/icon";
+import { SwIconComponent } from "./icon.component";
 
 describe('SwIconComponent', () => {
 
@@ -7,10 +6,7 @@ describe('SwIconComponent', () => {
         cy.mount(SwIconComponent, {
             componentProperties: {
                 name: iconName
-            },
-            imports: [
-                MatIconModule
-            ]
+            }
         })
     }
 

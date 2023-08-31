@@ -1,13 +1,12 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
-import { MatIconModule } from "@angular/material/icon";
-import { SwIconComponent } from "./sw-icon.component";
+import { SwIconComponent } from "./icon.component";
 
 export default {
     title: 'Simple Widgets/Icon',
     component: SwIconComponent,
     decorators: [
         moduleMetadata({
-            imports: [MatIconModule]
+            imports: []
         })
     ],
     argTypes: {

@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { SwAllowedSizes } from '../../../../shared/constants';
+import { SwAllowedSizes } from '../../shared/constants';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'sw-icon',
-  templateUrl: './sw-icon.component.html',
+  templateUrl: './icon.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrls: ['./sw-icon.component.scss'],
+  styleUrls: ['./icon.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatIconModule]
 })
 export class SwIconComponent {
 
