@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, HostBinding } from "@angular/core";
-import { SwAllowedSizes } from "../../../../shared/constants";
+import { SwAllowedSizes } from "../../shared/constants";
 
 @Component({
     selector: `
@@ -8,11 +8,12 @@ import { SwAllowedSizes } from "../../../../shared/constants";
         input[type="password"][sw-input],
         input[type="email"][sw-input],
     `,
-    templateUrl: './sw-input.component.html',
+    templateUrl: './input.component.html',
     styleUrls: [
-        './sw-input.component.scss'
+        './input.component.scss'
     ],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true
 })
 export class SwInputComponent {
     @Input() size: SwAllowedSizes = "md";

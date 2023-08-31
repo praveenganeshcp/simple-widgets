@@ -1,6 +1,5 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
-import { SwInputComponent } from "./sw-input.component";
-import { SwInputModule } from "../../sw-input.module";
+import { SwInputComponent } from "./input.component";
 
 export default {
     title: 'Simple Widgets/Input',
@@ -8,7 +7,6 @@ export default {
     decorators: [
         moduleMetadata({
             imports: [
-                SwInputModule
             ]
         })
     ],
