@@ -1,14 +1,15 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
-import { SwSwitchModule } from "../../sw-switch.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SwSwitchComponent } from "./switch.component";
 
 export default {
     title: 'Simple Widgets/Switch',
     decorators: [
         moduleMetadata({
-            imports: [BrowserAnimationsModule, SwSwitchModule]
+            imports: [BrowserAnimationsModule, SwSwitchComponent]
         })
-    ]
+    ],
+    tags: ['docs']
 } as Meta;
 
 export const Switch: Story = (args) => ({

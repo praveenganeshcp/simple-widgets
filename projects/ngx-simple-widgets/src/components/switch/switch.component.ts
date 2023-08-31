@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
 import { state, style, transition, animate, trigger } from "@angular/animations";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @Component({
     selector: 'sw-switch',
-    templateUrl: './sw-switch.component.html',
-    styleUrls: ['./sw-switch.component.scss'],
+    templateUrl: './switch.component.html',
+    styleUrls: ['./switch.component.scss'],
+    standalone: true,
+    imports: [CommonModule],
     animations: [
         trigger('switch-state', [
             state('on', style({

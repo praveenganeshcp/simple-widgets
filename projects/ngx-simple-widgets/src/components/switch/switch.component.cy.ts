@@ -1,6 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { SwSwitchModule } from "../../sw-switch.module";
-import { SwSwitchComponent } from "./sw-switch.component";
+import { SwSwitchComponent } from "./switch.component";
 
 describe('Switch component', () => {
 
@@ -11,7 +10,6 @@ describe('Switch component', () => {
             },
             imports: [
                 BrowserAnimationsModule,
-                SwSwitchModule
             ]
         })
     }
