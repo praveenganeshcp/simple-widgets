@@ -1,12 +1,11 @@
-import { SwButtonModule } from "../../sw-button.module";
-import { SwIconModule } from "../../../sw-icon/sw-icon.module";
+import { SwIconModule } from "../sw-icon/sw-icon.module";
 
 describe('button component should', () => {
 
 	function mountPlainButtonComponent(type: string, size: string) {
 		cy.mount(`
 			<button size="${size}" ${type}>Click me !</button>
-		`, {imports: [SwButtonModule]})
+		`, {imports: []})
 	}
 	
 	function mountIconButtonComponent(type: string) {
@@ -14,7 +13,7 @@ describe('button component should', () => {
 			<button ${type}>
 				<sw-icon name="person"></sw-icon>
 			</button>
-		`, {imports: [SwButtonModule, SwIconModule]})
+		`, {imports: [, SwIconModule]})
 
 	}
 	

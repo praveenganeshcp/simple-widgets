@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { SwAllowedSizes } from '../../../../shared/constants';
+import { SwAllowedSizes } from '../../shared/constants';
 import { Subscription } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: ` 
@@ -11,8 +12,10 @@ import { Subscription } from 'rxjs';
     button[sw-bordered-icon-button],
     button[sw-icon-button],
   `,
-  templateUrl: './sw-button.component.html',
-  styleUrls: ['./sw-button.component.scss'],
+  templateUrl: './button.component.html',
+  standalone: true,
+  imports: [CommonModule],
+  styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwButtonComponent {

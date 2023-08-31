@@ -1,13 +1,12 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
-import { SwButtonModule } from "../../sw-button.module";
-import { SwIconModule } from "../../../sw-icon/sw-icon.module";
-import { SwButtonComponent } from "./sw-button.component";
+import { SwButtonComponent } from "./button.component";
+import { SwIconComponent } from "../icon/icon.component";
 
 export default {
     component: SwButtonComponent,
     decorators: [
         moduleMetadata({
-            imports: [SwButtonModule, SwIconModule]
+            imports: [SwIconComponent]
         })
     ],
     title: 'Simple Widgets/Button',
