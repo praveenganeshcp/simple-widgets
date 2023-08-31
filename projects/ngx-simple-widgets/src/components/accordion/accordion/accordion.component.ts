@@ -1,11 +1,19 @@
-import { CdkAccordionItem } from '@angular/cdk/accordion';
+import { CdkAccordionItem, CdkAccordionModule } from '@angular/cdk/accordion';
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SwIconComponent } from '../../icon/icon.component';
 
 @Component({
   selector: 'sw-accordion',
-  templateUrl: './sw-accordion.component.html',
-  styleUrls: ['./sw-accordion.component.scss'],
+  templateUrl: './accordion.component.html',
+  styleUrls: ['./accordion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    CdkAccordionModule,
+    SwIconComponent
+  ]
 })
 export class SwAccordionComponent {
 

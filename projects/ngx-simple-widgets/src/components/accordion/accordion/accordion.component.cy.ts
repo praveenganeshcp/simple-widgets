@@ -1,4 +1,3 @@
-import { SwAccordionModule } from "../../sw-accordion.module";
 
 describe('Accordion component should', () => {
 
@@ -12,7 +11,7 @@ describe('Accordion component should', () => {
         <sw-accordion-body>${accordionBody}</sw-accordion-body>
       </sw-accordion>
     `, {
-      imports: [SwAccordionModule]
+      imports: []
     })
   }
 
