@@ -1,4 +1,3 @@
-import { SwToastModule } from "../../sw-toast.module";
 
 describe('toast service should', () => {
 
@@ -6,7 +5,7 @@ describe('toast service should', () => {
 		cy.mount(`
 			<sw-toast-host-demo level="${level}"></sw-toast-host-demo>
 		`, {
-			imports: [SwToastModule]
+			imports: []
 		})
 	}
 

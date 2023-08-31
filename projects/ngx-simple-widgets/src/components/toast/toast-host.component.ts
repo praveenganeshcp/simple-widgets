@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { SwToastOverlayConfig, SwToastStatus } from '../../models/sw-toast.config';
-import { SW_TOAST_DATA } from '../../sw-toast.constants';
+import { SwToastOverlayConfig, SwToastStatus } from './models/toast.config';
+import { SW_TOAST_DATA } from './toast.constants';
 
 @Component({
   selector: 'sw-toast-host',
-  templateUrl: './sw-toast-host.component.html',
-  styleUrls: ['./sw-toast-host.component.scss'],
+  templateUrl: './toast-host.component.html',
+  styleUrls: ['./toast-host.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SwToastHostComponent {

@@ -1,9 +1,9 @@
 import { Overlay, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal, PortalInjector } from "@angular/cdk/portal";
 import { Injectable, InjectionToken, Injector } from "@angular/core";
-import { SwToastHostComponent } from "../components/sw-toast-host/sw-toast-host.component";
-import { SwToastConfig, SwToastOverlayConfig, SwToastStatus } from "../models/sw-toast.config";
-import { SW_TOAST_DATA } from "../sw-toast.constants";
+import { SwToastHostComponent } from "../toast-host.component";
+import { SwToastConfig, SwToastOverlayConfig, SwToastStatus } from "../models/toast.config";
+import { SW_TOAST_DATA } from "../toast.constants";
 
 @Injectable()
 export class SwToastService {

@@ -1,5 +1,5 @@
 import { OnInit, Component, ChangeDetectionStrategy, Input } from "@angular/core";
-import { SwToastService } from "../../services/sw-toast.service";
+import { SwToastService } from "./services/toast.service";
 
 
 @Component({
@@ -7,7 +7,7 @@ import { SwToastService } from "../../services/sw-toast.service";
 	template: `
 		Showing toast notification
 	`,
-
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwToastHostDemoComponent implements OnInit {
 	@Input() level!: string;
