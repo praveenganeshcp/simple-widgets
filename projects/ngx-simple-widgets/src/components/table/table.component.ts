@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
-import { SwColumnDef, SwPagination } from '../../types';
+import { SwColumnDef, SwPagination } from './types';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'sw-table',
-  templateUrl: './sw-table.component.html',
-  styleUrls: ['./sw-table.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule]
 })
 export class SwTableComponent {
 

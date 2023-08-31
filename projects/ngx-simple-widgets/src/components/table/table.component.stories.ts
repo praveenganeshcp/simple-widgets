@@ -1,7 +1,6 @@
 import { Meta, Story, moduleMetadata } from "@storybook/angular";
-import { SwTableComponent } from "./sw-table.component";
-import { SwIconModule } from "../../../sw-icon/sw-icon.module";
-import { SwTableModule } from "../../sw-table.module";
+import { SwTableComponent } from "./table.component";
+import { SwIconComponent } from "../icon/icon.component";
 
 export default{
     title: 'Simple Widgets/Table',
@@ -9,8 +8,7 @@ export default{
     decorators: [
         moduleMetadata({
             imports: [
-                SwTableModule,
-                SwIconModule
+                SwIconComponent
             ]
         })
     ]

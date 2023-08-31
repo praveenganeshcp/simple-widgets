@@ -1,4 +1,3 @@
-import { SwTableModule } from "../../sw-table.module";
 
 describe('table component should', () => {
 
@@ -25,7 +24,7 @@ describe('table component should', () => {
 				[rows]="${rows}">
 			</sw-table>
 		`, {
-			imports: [SwTableModule]
+			imports: []
 		});
 	}
 
