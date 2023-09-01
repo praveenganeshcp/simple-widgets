@@ -19,7 +19,7 @@ export const Dropdown: Story = () => ({
         <sw-dropdown
             [(ngModel)]="selectedValues" 
             placeholder='Select' 
-            [items]='items'
+            [options]='items'
         >
         </sw-dropdown>
     `,
