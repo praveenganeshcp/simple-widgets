@@ -1,18 +1,24 @@
+@use "sass:map";
 @import "../../assets/styles/styles.scss";
 
 .sw-switch-track {
-    height: 15px;
-    width: 50px;
-    background-color: $secondary-color2;
-
+     height: 13px;
+     width: 50px;
+     background-color: map.get($secondary-color, 400);
 }
 
 .sw-switch-thumb {
     height: 25px;
     width: 25px;
-    background-color: $secondary-color1;
+    @extend .border-radius-1;
+    @include add-border(0, transparent);
+    background-color: map.get($secondary-color, 500);
 
     &.on-state-thumb {
-        background-color: $primary-color;
-    } 
+        background-color: map.get($primary-color, 500);
+    }
+
+    &:disabled {
+    	background-color: yellow;
+    }
 }

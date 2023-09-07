@@ -2,10 +2,10 @@
     (click)="toggle()" 
     class="sw-switch-track flex align-items-center border-radius-1"
 >
-    <div 
+    <button 
         [@switch-state]="state === true ? 'on' : 'off'" 
         class="sw-switch-thumb border-radius-1"
         [class.on-state-thumb]="state"
     >
-    </div>
+    </button>
 </div>
