@@ -3,6 +3,9 @@ import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwIconComponent } from '../../icon/icon.component';
 
+/**
+ * Renders the accordion title and body. 
+ */
 @Component({
   selector: 'sw-accordion',
   templateUrl: './accordion.component.html',
@@ -17,17 +20,18 @@ import { SwIconComponent } from '../../icon/icon.component';
 })
 export class SwAccordionComponent {
 
-    @ViewChild(CdkAccordionItem) cdkAccordionItem: CdkAccordionItem | undefined;
+    @ViewChild(CdkAccordionItem) 
+    private cdkAccordionItem: CdkAccordionItem | undefined;
 
     constructor() { }
 
-    toggle() {
+    public toggleAccordionBody(): void {
         if(this.cdkAccordionItem) {
             this.cdkAccordionItem.toggle();
         }
     }
 
-    get isExpanded(): boolean {
+    public get isExpanded(): boolean {
         return this.cdkAccordionItem ? this.cdkAccordionItem.expanded : false;
     }
 

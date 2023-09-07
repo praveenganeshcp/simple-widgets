@@ -1,34 +1,50 @@
+@use "sass:map";
 @import "../../../assets/styles/styles.scss";
 
 .sw-accordion {
     width: 100%;
+
+    .sw-accordion-panel {
+        width: 100%;
+    }
+
+    .sw-accordion-title {
+        width: 100%;
+        background-color: map.get($primary-color, 500);
+        color: map.get($primary-color, 50);
+        box-sizing: border-box;
+        @extend .padding-vertical-1;
+        @extend .padding-horizontal-2;
+        @extend .font-weight-600;
+        @extend .border-radius-1;
+    }
+
+     &:hover {
+        .sw-accordion-title {
+            background-color: map.get($primary-color, 900);
+        }
+    }
+
+    .remove-inner-border {
+        .sw-accordion-title {
+            @extend .border-bottom-left-radius-0;
+            @extend .border-bottom-right-radius-0;
+        }
+
+        .sw-accordion-body {
+            @extend .border-top-left-radius-0;
+            @extend .border-top-left-radius-0;
+        }
+    }
+
+    .sw-accordion-body {
+        width: 100%;
+        display: var(--sw-accordion-body-display);
+        box-sizing: border-box;
+        @extend .padding-horizontal-2;
+        border: 1px solid map.get($primary-color, 500);
+        border-top-color: map.get($primary-color, 50);
+        @extend .border-radius-1;
+    }
 }
 
-.sw-accordion-panel {
-    width: 100%;
-}
-
-.remove-bottom-borders {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.sw-accordion-title {
-    @include add-border(1px, $primary-color);
-    @extend .border-radius-2;
-    width: 100%;
-    @extend .padding-vertical-1;
-    @extend .padding-horizontal-2;
-    background-color: $primary-color;
-    color: $white-color;
-}
-
-.sw-accordion-body {
-    width: 100%;
-    display: var(--sw-accordion-body-display);
-    @include add-border(1px, $primary-color);
-    @extend .padding-vertical-1;
-    @extend .padding-horizontal-2;
-    @extend .border-bottom-left-radius-2;
-    @extend .border-bottom-right-radius-2;
-}
