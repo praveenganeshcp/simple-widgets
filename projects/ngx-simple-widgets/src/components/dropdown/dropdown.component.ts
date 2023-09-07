@@ -57,28 +57,28 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   constructor() { }
 
-  writeValue(value: string[]): void {
+  public writeValue(value: string[]): void {
     this.selectedValues = value;
   }
     
-  registerOnChange(fn: Function): void {
+  public registerOnChange(fn: Function): void {
     this.onChangeFn = fn;
   }
 
-  onUpdateValue(updatedValue: string[]) {
+  public onUpdateValue(updatedValue: string[]) {
     this.selectedValues = updatedValue;
     if(this.onChangeFn) {
         this.onChangeFn(this.selectedValues);
     }
   }
 
-  registerOnTouched(fn: Function): void {
+  public registerOnTouched(fn: Function): void {
     this.onTouchFn = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void { }
+  public setDisabledState?(isDisabled: boolean): void { }
 
-  onValueChange(event: ListboxValueChangeEvent<string>) {
+  public onValueChange(event: ListboxValueChangeEvent<string>) {
     this.onUpdateValue(event.value as string[]);
     this.isOpen = false;
   }

@@ -30,6 +30,6 @@ export const Dropdown: Story = () => ({
             { key: 'Option 3', value: 'value 3' },
             { key: 'Option 4', value: 'value 4' },
         ],
-        selectedValues: ['value 3']
+        selectedValues: []
     }
 })
