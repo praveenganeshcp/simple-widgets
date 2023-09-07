@@ -1,10 +1,18 @@
-import { Meta, Story } from "@storybook/angular";
+import { Meta, Story, moduleMetadata, componentWrapperDecorator } from "@storybook/angular";
 import { SW_TOOLTIP_POSITION } from "./tooltip.constants";
-import { DEFAULT_TOOLTIP_POSITION, SwTooltipComponent } from "./tooltip.component";
+import { SwTooltipComponent } from "./tooltip.component";
 
 export default {
     title: 'Simple Widgets/Tooltip',
-    component: SwTooltipComponent,
+    decorators: [
+        moduleMetadata({
+            imports: [SwTooltipComponent]
+        }),
+        componentWrapperDecorator((story) => `
+            <div style="height: 200px; width: 500px; display: flex; align-items: center; justify-content: space-evenly">
+                ${story}
+            </div>`)
+    ],
     argTypes: {
         text: {
             control: 'text',
@@ -15,7 +23,7 @@ export default {
         position: {
             name: 'Tooltip position',
             description: 'Tooltip position relative to the element',
-            defaultValue: DEFAULT_TOOLTIP_POSITION,
+            defaultValue: SW_TOOLTIP_POSITION.TOP,
             control: 'select',
             options: [
                 SW_TOOLTIP_POSITION.BOTTOM,
@@ -31,12 +39,10 @@ const TooltipTemplate: Story = (args) => ({
     props: {
         ...args
     },
-    template: `
-        <div style="margin-top: 3rem; margin-left: 20rem">
-            <sw-tooltip [text]='text' [position]='position'>
-                <span>Hover on me !</span>
-            </sw-tooltip>
-        </div>
+    template: ` 
+        <sw-tooltip [text]='text' [position]='position'>
+            <span>Hover on me !</span>
+        </sw-tooltip>
     `
 })
 
@@ -44,5 +50,5 @@ export const Tooltip = TooltipTemplate.bind({});
 
 Tooltip.args = {
     text: 'This button is disabled. User is not authorized to perform the action',
-    position: DEFAULT_TOOLTIP_POSITION
+    position: SW_TOOLTIP_POSITION.TOP
 }

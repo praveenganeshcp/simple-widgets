@@ -18,18 +18,18 @@ export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_CONNECTED_POSITIONS[
 })
 export class SwTooltipComponent {
 
-  isOpen: boolean = false;
-
   @Input() text: string = '';
 
   @Input() show: boolean = true;
-
-  private _position: ConnectionPositionPair = DEFAULT_TOOLTIP_POSITION;
 
   @Input()
   set position(position: SW_TOOLTIP_POSITION) {
     this._position = SW_TOOLTIP_CONNECTED_POSITIONS[position];
   }
+
+  private _position: ConnectionPositionPair = DEFAULT_TOOLTIP_POSITION;
+
+  public isOpen: boolean = false;
 
   get connectedPositionStrategy() {
     return this._position;
