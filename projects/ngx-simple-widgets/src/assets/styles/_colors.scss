@@ -1,28 +1,31 @@
-$primary-color: #6930C3;
-
-$secondary-color1: #aaafb1;
-$secondary-color2: #D6DADB;
-$secondary-color3: #F5F5F5;
-
-$white-color: white;
-$black-color: black;
-
-$success-info-color: green;
-$error-info-color: red;
-$warn-info-color: orange;
-
-$info-color-map: (
-    "success": $success-info-color,
-    "error": $error-info-color,
-    "warn": $warn-info-color
+$primary-color: (
+    900: #0003af,
+    800: #3316b9,
+    700: #451cbf,
+    600: #5625c8,
+    500: #6b2ed4,
+    400: #8350db,
+    300: #9b71e2,
+    200: #b89bea,
+    100: #d4c3f2,
+    50: #efe7fa
 );
 
-@each $level, $color in $info-color-map {
-    .info-#{$level} {
-        color: $color;
-    }
+$secondary-color: (
+    900: #1c1c1c,
+    800: #3c3c3c,
+    700: #5b5b5b,
+    600: #6f6f6f,
+    500: #979797,
+    400: #b7b7b7,
+    300: #dadada,
+    200: #eaeaea,
+    100: #f3f3f3,
+    50: #f9f9f9
+);
 
-    .info-#{$level}-bg {
-        background-color: $color;
-    }
-}
+$info-color: (
+    error: #B00020,
+    warning: #FF9800,
+    success: #00C853
+);

@@ -1,4 +1,4 @@
-$allowed-border-radius: ("1": 4px, "2": 8px, "3": 12px, "4": 16px, "5": 20px);
+$allowed-border-radius: ("0": 0px, "1": 4px, "2": 8px, "3": 12px, "4": 16px, "5": 20px);
 
 @each $border-radius-key, $border-radius-value  in $allowed-border-radius {
     .border-radius-#{$border-radius-key} {

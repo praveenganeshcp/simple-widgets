@@ -1,34 +1,39 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
 import { SwButtonComponent } from "./button.component";
 import { SwIconComponent } from "../icon/icon.component";
+import { action } from "@storybook/addon-actions"
 
 export default {
-    component: SwButtonComponent,
     decorators: [
         moduleMetadata({
-            imports: [SwIconComponent]
+            imports: [SwButtonComponent, SwIconComponent]
         })
     ],
     title: 'Simple Widgets/Button',
     argTypes: {
+        disabled: {
+            control: 'boolean',
+            name: 'Disable button',
+            description: 'Whether to disable the button',
+        },
+        showLoader: {
+            control: 'boolean',
+            name: 'Show Loader',
+            description: 'Whether to show loader',
+        },
         size: {
             control: 'inline-radio',
             options: ['sm', 'md', 'lg'],
             name: 'Size',
-            description: 'Size of the button'
+            description: 'Size of the button',
         },
-        showLoaderUntil: {
-            table: {
-                disable: true
-            }
-        }
-    }
+    },
 } as Meta;
 
 
 const PrimaryButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-primary-button>Click me !</button>
+        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-primary-button>Create Account</button>
     `,
     props: {
         ...args
@@ -37,12 +42,14 @@ const PrimaryButtonTemplate: Story = (args) => ({
 
 export const Primary = PrimaryButtonTemplate.bind({});
 Primary.args = {
-    size: 'md'
+    size: 'md',
+    showLoader: false,
+    disabled: false
 };
 
 const BorderedButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-bordered-button>Click me !</button>
+        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-bordered-button>Create Account</button>
     `,
     props: {
         ...args
@@ -56,7 +63,7 @@ Bordered.args = {
 
 const DangerButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-danger-button>Click me !</button>
+        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-danger-button>Create Account</button>
     `,
     props: {
         ...args
@@ -70,7 +77,7 @@ Danger.args = {
 
 const BorderedIconButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-bordered-icon-button>
+        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-bordered-icon-button>
             <sw-icon name='person'></sw-icon>
         </button>
     `,
@@ -86,7 +93,7 @@ BorderedIcon.args = {
 
 const TextButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-text-button>Click me !</button>
+        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-text-button>Create Account</button>
     `,
     props: {
         ...args
@@ -100,7 +107,7 @@ Text.args = {
 
 const IconButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' sw-icon-button>
+        <button [size]='size' [showLoader]='showLoader' sw-icon-button>
             <sw-icon name='person'></sw-icon>
         </button>
     `,

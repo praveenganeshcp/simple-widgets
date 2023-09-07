@@ -22,30 +22,22 @@ export class SwButtonComponent {
 
     @Input() size: SwAllowedSizes = 'md';
 
-    showLoader: boolean = false;
+    @Input() showLoader: boolean = false;
 
-    private buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
+    @Input() disabled: boolean = false;
+
+    private readonly buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
         'sm': 'sw-small-button',
         'md': 'sw-medium-button',
         'lg': 'sw-large-button'
     }
 
-    @Input() 
-    set showLoaderUntil(subscription: Subscription | null) {
-        if(subscription !== null) {
-            this.showLoader = true;
-            subscription.add(() => {
-                this.showLoader = false;
-            })
-        }
+    @HostBinding("attr.disabled")
+    get isDisabled() {
+        return this.disabled;
     }
 
     constructor() { }
-
-    @HostBinding('disabled')
-    get disabled() {
-        return this.showLoader;
-    }
 
     @HostBinding('attr.is-loading') 
     get isLoading() {

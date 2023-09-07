@@ -1,50 +1,88 @@
+@use "sass:map";
 @import "../../assets/styles/styles.scss";
 
 :host {
-    @extend .border-radius-1;
-    @extend .border-none;
-    @extend .padding-1;
-    @extend .font-weight-bold;
-    outline: none;
+     @extend .border-radius-1;
+     @extend .border-none;
+     @extend .padding-1;
+     @extend .font-weight-500;
+     outline: none;
+     background: none;
 
-    &[sw-primary-button] {
-        background-color: $primary-color;
-        color: $white-color
-    }
+     &[sw-primary-button] {
+         background-color: map.get($primary-color, 500);
+         color: map.get($primary-color, 50);
 
-    &[sw-danger-button] {
-        color: $white-color;
-        @extend .info-error-bg;
-    }
+         &:hover, &:focus {
+	         background-color: map.get($primary-color, 900);
+         }
+     }
 
-    &[sw-bordered-button] {
-        background: none;
-        border: 1px solid $primary-color;
-    }
+     &[sw-bordered-button] {
+         border: 1px solid map.get($primary-color, 600);
+         color: map.get($primary-color, 600);
 
-    &[sw-text-button] {
-        background: none;
-    }
+         &:hover, &:focus {
+        	background-color: map.get($primary-color, 900);
+         	color: map.get($primary-color, 50);
+         }
+     }
 
-    &[sw-bordered-icon-button] {
-        background: none;
-        border: 1px solid $primary-color;
-    }
 
-    &[sw-icon-button] {
-        background: none;
-    }
+     &[sw-danger-button] {
+         background-color: map.get($info-color, "error");
+         color: map.get($primary-color, 50);
+     }
 
-    &.sw-large-button {
-        font-size: 1.25rem;
-    }
+     &[sw-text-button] {
+         &:hover, &:focus {
+         	background-color: map.get($secondary-color, 200);
+         	color: map.get($primary-color, 900);
+         }
+     }
 
-    &.sw-medium-button {
-        font-size: 1rem;
-    }
+     &[sw-bordered-icon-button] {
+     	border: 1px solid map.get($primary-color, 900);
+        color: map.get($primary-color, 900);
+     	&:hover, &:focus {
+         	background-color: map.get($secondary-color, 200);
+         }
+     }
+
+     &[sw-icon-button] {
+         &:hover, &:focus {
+        	color: map.get($primary-color, 900);
+         	background-color: map.get($secondary-color, 200);
+         }
+     }
+
+     &.sw-large-button {
+         font-size: 1.25rem;
+     }
+
+     &.sw-medium-button {
+         font-size: 1rem;
+     }
     
-    &.sw-small-button {
-        font-size: 0.75rem
-    }
+     &.sw-small-button {
+         font-size: 0.75rem
+     }
 
+     &[disabled=true] {
+        background-color: map.get($secondary-color, 400);
+
+        &:hover, &:focus {
+            background-color: map.get($secondary-color, 400);
+        }
+     }
 }
+
+
+
+
+
+
+
+
+    
+
