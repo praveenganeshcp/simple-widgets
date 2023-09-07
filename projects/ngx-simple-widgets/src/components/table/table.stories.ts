@@ -4,11 +4,11 @@ import { SwIconComponent } from "../icon/icon.component";
 
 export default{
     title: 'Simple Widgets/Table',
-    component: SwTableComponent,
     decorators: [
         moduleMetadata({
             imports: [
-                SwIconComponent
+                SwIconComponent,
+                SwTableComponent
             ]
         })
     ]
@@ -39,7 +39,11 @@ export const Table: Story = (args) => ({
         >
         </sw-table>
         <ng-template #cellTemplate let-row="row" let-column="column" let-value="value">
-            <sw-icon [name]="value ? 'done' : 'close'"></sw-icon>
+            <ng-container [ngSwitch]="column.label">
+                <ng-template ngSwitchCase="Is SUV">
+                    <sw-icon [name]="value ? 'done' : 'close'"></sw-icon>
+                </ng-template>
+            </ng-container>
         </ng-template>
     `
 })
