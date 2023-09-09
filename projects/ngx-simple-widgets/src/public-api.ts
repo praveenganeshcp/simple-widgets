@@ -50,6 +50,9 @@ export {
     SwSideTabTitleComponent
 } from "./components/side-tabs/side-tab-title/side-tab-title.component";
 
+export {
+    SwLoaderComponent
+} from "./components/loader/loader.component";
 
 // switch module
 export { SwSwitchComponent } from "./components/switch/switch.component";
