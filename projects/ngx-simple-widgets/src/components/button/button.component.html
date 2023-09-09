@@ -1,6 +1,13 @@
-<ng-container *ngIf="!showLoader; else loaderBtn">
-    <ng-content></ng-content>
-</ng-container>
-<ng-template #loaderBtn>
-    loading ...
-</ng-template>
+<span [style.visibility]="showLoader ? 'hidden' : 'visible'">
+    <ng-container *ngIf="iconName; else customLabel">
+        <sw-icon [size]="size" [name]="iconName"></sw-icon>
+    </ng-container>
+    <ng-template #customLabel>
+        <ng-content></ng-content>
+    </ng-template>
+</span>
+<sw-loader 
+    style="z-index: 100; position: absolute;" 
+    [style.visibility]="!showLoader ? 'hidden' : 'visible'"
+></sw-loader>
+

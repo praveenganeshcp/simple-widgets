@@ -1,50 +1,146 @@
+@use "sass:map";
 @import "../../assets/styles/styles.scss";
 
 :host {
-    @extend .border-radius-1;
-    @extend .border-none;
-    @extend .padding-1;
-    @extend .font-weight-bold;
-    outline: none;
+     @extend .border-radius-1;
+     @extend .border-none;
+     @extend .padding-1;
+     @extend .font-weight-500;
+     outline: none;
+     background: none;
+     display: flex; 
+     justify-content: space-evenly;
+     align-items: center;
 
-    &[sw-primary-button] {
-        background-color: $primary-color;
-        color: $white-color
+    &[showing-loader=true] {
+        sw-loader {
+            --sw-loader-height: 12px;
+            --sw-loader-width: 12px;
+        }
     }
 
-    &[sw-danger-button] {
-        color: $white-color;
-        @extend .info-error-bg;
-    }
+     &[sw-primary-button] {
+         background-color: map.get($primary-color, 500);
+         color: map.get($primary-color, 50);
 
-    &[sw-bordered-button] {
-        background: none;
-        border: 1px solid $primary-color;
-    }
+         &:hover, &:focus {
+	         background-color: map.get($primary-color, 900);
+         }
 
-    &[sw-text-button] {
-        background: none;
-    }
+         &[disabled=true] {
+            background-color: map.get($secondary-color, 400);
 
-    &[sw-bordered-icon-button] {
-        background: none;
-        border: 1px solid $primary-color;
-    }
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 400);
+            }
+         }
 
-    &[sw-icon-button] {
-        background: none;
-    }
+         &[showing-loader=true] {
+            background-color: map.get($primary-color, 100);
 
-    &.sw-large-button {
-        font-size: 1.25rem;
-    }
+            &:hover, &:focus {
+                background-color: map.get($primary-color, 100);
+            }
+         }
 
-    &.sw-medium-button {
-        font-size: 1rem;
-    }
+     }
+
+     &[sw-bordered-button] {
+         border: 1px solid map.get($primary-color, 600);
+         color: map.get($primary-color, 600);
+
+         &:hover, &:focus {
+        	background-color: map.get($primary-color, 900);
+         	color: map.get($primary-color, 50);
+         }
+
+         &[disabled=true] {
+            border: 1px solid map.get($secondary-color, 400);
+            color: map.get($secondary-color, 400);
+
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 50);
+            }
+         }
+     }
+
+
+     &[sw-danger-button] {
+         background-color: map.get($info-color, "error");
+         color: map.get($secondary-color, 50);
+
+        &[disabled=true] {
+            background-color: map.get($secondary-color, 400);
+
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 400);
+            }
+        }
+     }
+
+     &[sw-text-button] {
+         color: map.get($primary-color, 500);
+
+         &:hover, &:focus {
+         	background-color: map.get($secondary-color, 200);
+         	color: map.get($primary-color, 900);
+         }
+        
+        &[disabled=true] {
+            color: map.get($secondary-color, 400);
+        }
+           
+     }
+
+     &[sw-bordered-icon-button] {
+     	border: 1px solid map.get($primary-color, 900);
+        padding-bottom: 4px;
+        color: map.get($primary-color, 900);
+
+     	&:hover, &:focus {
+         	background-color: map.get($secondary-color, 200);
+        }
+
+         &[disabled=true] {
+            color: map.get($secondary-color, 500);
+            border-color: map.get($secondary-color, 600);
+            background-color: map.get($secondary-color, 200);
+         }
+     }
+
+     &[sw-icon-button] {
+         color: map.get($primary-color, 500);
+
+         &:hover, &:focus {
+        	color: map.get($primary-color, 900);
+         	background-color: map.get($secondary-color, 200);
+         }
+
+         &[disabled=true] {
+            color: map.get($secondary-color, 500);
+         }
+     }
+
+     &.sw-large-button {
+         font-size: 1.25rem;
+     }
+
+     &.sw-medium-button {
+         font-size: 1rem;
+     }
     
-    &.sw-small-button {
-        font-size: 0.75rem
-    }
+     &.sw-small-button {
+         font-size: 0.75rem
+     }
 
 }
+
+
+
+
+
+
+
+
+    
+

@@ -9,7 +9,10 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "storybook-dark-mode",
-    "@storybook/addon-mdx-gfm"
+    "@storybook/addon-mdx-gfm",
+    "@storybook/addon-docs",
+    "@storybook/addon-actions"
+
   ],
 
   "framework": {
@@ -18,6 +21,7 @@ module.exports = {
   },
 
   docs: {
-    autodocs: true
+    autodocs: true,
+    enabled: true
   }
 };
