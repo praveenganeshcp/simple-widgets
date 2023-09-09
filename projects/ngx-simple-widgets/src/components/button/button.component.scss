@@ -8,6 +8,16 @@
      @extend .font-weight-500;
      outline: none;
      background: none;
+     display: flex; 
+     justify-content: space-evenly;
+     align-items: center;
+
+    &[showing-loader=true] {
+        sw-loader {
+            --sw-loader-height: 12px;
+            --sw-loader-width: 12px;
+        }
+    }
 
      &[sw-primary-button] {
          background-color: map.get($primary-color, 500);
@@ -16,6 +26,23 @@
          &:hover, &:focus {
 	         background-color: map.get($primary-color, 900);
          }
+
+         &[disabled=true] {
+            background-color: map.get($secondary-color, 400);
+
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 400);
+            }
+         }
+
+         &[showing-loader=true] {
+            background-color: map.get($primary-color, 100);
+
+            &:hover, &:focus {
+                background-color: map.get($primary-color, 100);
+            }
+         }
+
      }
 
      &[sw-bordered-button] {
@@ -26,33 +53,71 @@
         	background-color: map.get($primary-color, 900);
          	color: map.get($primary-color, 50);
          }
+
+         &[disabled=true] {
+            border: 1px solid map.get($secondary-color, 400);
+            color: map.get($secondary-color, 400);
+
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 50);
+            }
+         }
      }
 
 
      &[sw-danger-button] {
          background-color: map.get($info-color, "error");
-         color: map.get($primary-color, 50);
+         color: map.get($secondary-color, 50);
+
+        &[disabled=true] {
+            background-color: map.get($secondary-color, 400);
+
+            &:hover, &:focus {
+                background-color: map.get($secondary-color, 400);
+            }
+        }
      }
 
      &[sw-text-button] {
+         color: map.get($primary-color, 500);
+
          &:hover, &:focus {
          	background-color: map.get($secondary-color, 200);
          	color: map.get($primary-color, 900);
          }
+        
+        &[disabled=true] {
+            color: map.get($secondary-color, 400);
+        }
+           
      }
 
      &[sw-bordered-icon-button] {
      	border: 1px solid map.get($primary-color, 900);
+        padding-bottom: 4px;
         color: map.get($primary-color, 900);
+
      	&:hover, &:focus {
          	background-color: map.get($secondary-color, 200);
+        }
+
+         &[disabled=true] {
+            color: map.get($secondary-color, 500);
+            border-color: map.get($secondary-color, 600);
+            background-color: map.get($secondary-color, 200);
          }
      }
 
      &[sw-icon-button] {
+         color: map.get($primary-color, 500);
+
          &:hover, &:focus {
         	color: map.get($primary-color, 900);
          	background-color: map.get($secondary-color, 200);
+         }
+
+         &[disabled=true] {
+            color: map.get($secondary-color, 500);
          }
      }
 
@@ -68,13 +133,6 @@
          font-size: 0.75rem
      }
 
-     &[disabled=true] {
-        background-color: map.get($secondary-color, 400);
-
-        &:hover, &:focus {
-            background-color: map.get($secondary-color, 400);
-        }
-     }
 }
 
 

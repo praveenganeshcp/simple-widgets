@@ -1,12 +1,13 @@
 import { Meta, moduleMetadata, Story } from "@storybook/angular";
 import { SwButtonComponent } from "./button.component";
-import { SwIconComponent } from "../icon/icon.component";
 import { action } from "@storybook/addon-actions"
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 
 export default {
     decorators: [
         moduleMetadata({
-            imports: [SwButtonComponent, SwIconComponent]
+            imports: [SwButtonComponent, BrowserAnimationsModule]
         })
     ],
     title: 'Simple Widgets/Button',
@@ -27,13 +28,25 @@ export default {
             name: 'Size',
             description: 'Size of the button',
         },
+        iconName: {
+            control: 'text',
+            name: 'Icon Name',
+            description: 'Name of the icon to be rendered as label',
+        }
     },
 } as Meta;
 
 
 const PrimaryButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-primary-button>Create Account</button>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader' 
+            [disabled]='disabled' 
+            sw-primary-button
+        >
+            Create Account
+        </button>
     `,
     props: {
         ...args
@@ -49,7 +62,14 @@ Primary.args = {
 
 const BorderedButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-bordered-button>Create Account</button>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader' 
+            [disabled]='disabled' 
+            sw-bordered-button
+        >
+            Create Account
+        </button>
     `,
     props: {
         ...args
@@ -63,7 +83,14 @@ Bordered.args = {
 
 const DangerButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-danger-button>Create Account</button>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader' 
+            [disabled]='disabled' 
+            sw-danger-button
+        >
+            Create Account
+        </button>
     `,
     props: {
         ...args
@@ -77,8 +104,13 @@ Danger.args = {
 
 const BorderedIconButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-bordered-icon-button>
-            <sw-icon name='person'></sw-icon>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader' 
+            [disabled]='disabled' 
+            sw-bordered-icon-button
+            [iconName]="iconName"
+        >
         </button>
     `,
     props: {
@@ -88,12 +120,20 @@ const BorderedIconButtonTemplate: Story = (args) => ({
 
 export const BorderedIcon = BorderedIconButtonTemplate.bind({});
 BorderedIcon.args = {
-    ...Primary.args
+    ...Primary.args,
+    iconName: 'person'
 }
 
 const TextButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' [disabled]='disabled' sw-text-button>Create Account</button>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader' 
+            [disabled]='disabled' 
+            sw-text-button
+        >
+            Create Account
+        </button>
     `,
     props: {
         ...args
@@ -107,17 +147,23 @@ Text.args = {
 
 const IconButtonTemplate: Story = (args) => ({
     template: `
-        <button [size]='size' [showLoader]='showLoader' sw-icon-button>
-            <sw-icon name='person'></sw-icon>
+        <button 
+            [size]='size' 
+            [showLoader]='showLoader'
+            [disabled]='disabled' 
+            sw-icon-button
+            [iconName]="iconName"
+        >
         </button>
     `,
     props: {
-        ...args
+        ...args,
     }
 })
 
 export const Icon = IconButtonTemplate.bind({});
 
 Icon.args = {
-    ...Primary.args
+    ...Primary.args,
+    iconName: 'person'
 }

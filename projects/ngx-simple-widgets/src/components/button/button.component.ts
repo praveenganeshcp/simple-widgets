@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
 import { SwAllowedSizes } from '../../shared/constants';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { SwLoaderComponent } from "../loader/loader.component";
+import { SwIconComponent } from "../icon/icon.component";
 
 @Component({
   selector: ` 
@@ -14,7 +16,7 @@ import { CommonModule } from '@angular/common';
   `,
   templateUrl: './button.component.html',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SwIconComponent, SwLoaderComponent],
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -26,6 +28,8 @@ export class SwButtonComponent {
 
     @Input() disabled: boolean = false;
 
+    @Input() iconName: string = "";
+
     private readonly buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
         'sm': 'sw-small-button',
         'md': 'sw-medium-button',
@@ -34,15 +38,20 @@ export class SwButtonComponent {
 
     @HostBinding("attr.disabled")
     get isDisabled() {
-        return this.disabled;
+        return this.disabled || this.showLoader;
+    }
+
+    @HostBinding("attr.showing-loader")
+    get showingLoader() {
+        return this.showLoader;
+    }
+
+    @HostBinding("attr.size")
+    get buttonSize() {
+        return this.size;
     }
 
     constructor() { }
-
-    @HostBinding('attr.is-loading') 
-    get isLoading() {
-        return this.showLoader;
-    }
 
     @HostBinding('class')
     get buttonClass() {
