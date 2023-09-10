@@ -1,9 +1,11 @@
 <cdk-accordion class="sw-accordion">
-    <cdk-accordion-item class="sw-accordion-panel">
+    <cdk-accordion-item 
+        class="sw-accordion-panel" 
+        [class.sw-accordion-disabled]="disabled"
+    >
         <div 
-            (click)="toggle()" 
+            (click)="toggleAccordionBody()" 
             class="sw-accordion-title flex align-items-center justify-space-between"
-            [class.remove-bottom-borders]="isExpanded"
         >
             <ng-content select="sw-accordion-title"></ng-content>
             <sw-icon size="lg" [name]="isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'">
