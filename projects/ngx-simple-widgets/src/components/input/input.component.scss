@@ -1,37 +1,39 @@
+@use "sass:map";
 @import "../../assets/styles/styles.scss";
 
 :host {
-    @include add-border(2px, $secondary-color1);
+    @include add-border(2px, map.get($primary-color, 300));
     @extend .border-radius-1;
-    @extend .padding-horizontal-1;
-    @extend .padding-vertical-2;
+    @extend .padding-1;
+    outline: none;
+    color: map.get($secondary-color, 700);
 
     &::placeholder {
-        color: $secondary-color1;
+        color: map.get($secondary-color, 800);
     }
 
-    &:focus-visible {
-        @include add-focus-outline();
+    &.sw-input-underlined {
+    	border-width: 0 0 2px 0;
+    	border-radius: 0;
+    }
+
+    &:focus, &:hover {
+    	border-color: map.get($primary-color, 900);
     }
 
     &.ng-invalid {
-        @include add-border(2px, $error-info-color);
-    }
-
-    &:focus-visible.ng-invalid {
-        @include remove-focus-outline();
+        @include add-border(2px, map.get($info-color, error));
     }
 
     &.sw-small-input {
-        width: 10rem;
+        font-size: 0.75rem;
     }
 
     &.sw-medium-input {
-        width: 15rem;
+        font-size: 1rem;
     }
     
     &.sw-large-input {
-        width: 20rem;
-    }
-    
+        font-size: 1.5rem;
+    }    
 }
