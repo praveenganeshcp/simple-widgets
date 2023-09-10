@@ -11,24 +11,42 @@ export default{
                 SwTableComponent
             ]
         })
-    ]
+    ],
+    argTypes: {
+        rows: {
+            control: 'object',
+            description: 'Array of objects to render as rows',
+            table: {
+                defaultValue: { summary: '[]' }
+            }
+        },
+        activeColumns: {
+            control: 'object',
+            description: 'List of all column configuration',
+            table: {
+                defaultValue: { summary: '[]' }
+            }
+        },
+        isLoading: {
+            control: 'boolean',
+            description: 'Is table data is loading',
+            table: {
+                defaultValue: { summary: 'false' }
+            }
+        },
+        cellTemplate: {
+            control: 'text',
+            description: 'Template to render custom UI for table cell value. Receives row, column and cell values as input',
+            table: {
+                defaultValue: { summary: '' }
+            }
+        }
+    }
 } as Meta;
 
-export const Table: Story = (args) => ({
+const TableTemplate: Story = (args) => ({
     props: {
-        rows: [
-            { brand: 'Toyota', name: "Fortuner", isSUV: true },
-            { brand: 'Hyundai', name: "i20", isSUV: false },
-            { brand: 'Tata', name: "Harrier", isSUV: true },
-            { brand: 'Tata', name: "Altroz", isSUV: false },
-            { brand: 'Renault', name: "Kiger", isSUV: true },
-        ],
-        activeColumns: [
-            { fieldName: 'brand', label: 'Brand', renderTemplate: false, flex: '0 0 33%' },
-            { fieldName: 'name', label: 'Car name', renderTemplate: false, flex: '0 0 33%' },
-            { fieldName: 'isSUV', label: 'Is SUV', renderTemplate: true, flex: '0 0 33%' },
-        ],
-        isLoading: false
+       ...args
     },
     template: `
         <sw-table 
@@ -47,3 +65,17 @@ export const Table: Story = (args) => ({
         </ng-template>
     `
 })
+
+export const Table = TableTemplate.bind({});
+Table.args = {
+     rows: [
+        { brand: 'Toyota', name: "Fortuner", isSUV: true },
+        { brand: 'Hyundai', name: "i20", isSUV: false },
+    ],
+    activeColumns: [
+        { fieldName: 'brand', label: 'Brand', renderTemplate: false, flex: '0 0 33%' },
+        { fieldName: 'name', label: 'Car name', renderTemplate: false, flex: '0 0 33%' },
+        { fieldName: 'isSUV', label: 'Is SUV', renderTemplate: true, flex: '0 0 33%' },
+    ],
+    isLoading: false,
+}
