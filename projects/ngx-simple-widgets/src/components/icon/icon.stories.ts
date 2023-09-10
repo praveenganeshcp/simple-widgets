@@ -3,10 +3,9 @@ import { SwIconComponent } from "./icon.component";
 
 export default {
     title: 'Simple Widgets/Icon',
-    component: SwIconComponent,
     decorators: [
         moduleMetadata({
-            imports: []
+            imports: [SwIconComponent],
         })
     ],
     argTypes: {
@@ -27,9 +26,17 @@ export default {
     },
 } as Meta;
 
-export const Icon: Story = (args) => ({
+const IconTemplate: Story = (args) => ({
+    template: `
+        <sw-icon [name]="name" [size]="size"></sw-icon>
+    `,
     props: {
-        name: 'home',
-        size: 'md'
+        ...args
     }
 })
+
+export const Icon = IconTemplate.bind({});
+Icon.args = {
+    name: 'home',
+    size: 'md'
+}
