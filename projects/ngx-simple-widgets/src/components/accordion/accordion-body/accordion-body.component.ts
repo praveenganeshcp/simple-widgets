@@ -1,11 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 /**
-<<<<<<< Updated upstream
- * Render body of the 
-=======
  * Renders the body of the accordion
->>>>>>> Stashed changes
  */
 @Component({
     selector: 'sw-accordion-body',
