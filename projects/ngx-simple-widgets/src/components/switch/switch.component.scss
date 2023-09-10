@@ -2,23 +2,20 @@
 @import "../../assets/styles/styles.scss";
 
 .sw-switch-track {
-     height: 13px;
+     height: 25px;
      width: 50px;
-     background-color: map.get($secondary-color, 400);
+     background-color: map.get($primary-color, 100);
+     border-radius: 16px;
 }
 
 .sw-switch-thumb {
     height: 25px;
     width: 25px;
-    @extend .border-radius-1;
+    border-radius: 50%;
     @include add-border(0, transparent);
     background-color: map.get($secondary-color, 500);
 
     &.on-state-thumb {
-        background-color: map.get($primary-color, 500);
-    }
-
-    &:disabled {
-    	background-color: yellow;
+        background-color: map.get($primary-color, 900);
     }
 }
