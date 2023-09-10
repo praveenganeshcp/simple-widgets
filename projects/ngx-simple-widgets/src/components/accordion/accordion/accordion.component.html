@@ -1,5 +1,8 @@
 <cdk-accordion class="sw-accordion">
-    <cdk-accordion-item class="sw-accordion-panel" [class.remove-inner-border]="isExpanded">
+    <cdk-accordion-item 
+        class="sw-accordion-panel" 
+        [class.sw-accordion-disabled]="disabled"
+    >
         <div 
             (click)="toggleAccordionBody()" 
             class="sw-accordion-title flex align-items-center justify-space-between"

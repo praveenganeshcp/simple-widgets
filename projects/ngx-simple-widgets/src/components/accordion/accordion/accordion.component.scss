@@ -6,45 +6,38 @@
 
     .sw-accordion-panel {
         width: 100%;
-    }
+        outline: 1px solid map.get($primary-color, 900);
 
-    .sw-accordion-title {
-        width: 100%;
-        background-color: map.get($primary-color, 500);
-        color: map.get($primary-color, 50);
-        box-sizing: border-box;
-        @extend .padding-vertical-1;
-        @extend .padding-horizontal-2;
-        @extend .font-weight-600;
-        @extend .border-radius-1;
-    }
-
-     &:hover {
         .sw-accordion-title {
-            background-color: map.get($primary-color, 900);
+            width: 100%;
+            background-color: map.get($primary-color, 500);
+            color: map.get($primary-color, 50);
+            box-sizing: border-box;
+            @extend .padding-vertical-1;
+            @extend .padding-horizontal-2;
+            @extend .font-weight-600;
         }
-    }
 
-    .remove-inner-border {
-        .sw-accordion-title {
-            @extend .border-bottom-left-radius-0;
-            @extend .border-bottom-right-radius-0;
+        &:hover {
+            .sw-accordion-title {
+                background-color: map.get($primary-color, 900);
+            }
+        }
+
+        &.sw-accordion-disabled {
+            outline-color: map.get($secondary-color, 500);
+            .sw-accordion-title {
+                background-color: map.get($secondary-color, 500);
+            }
         }
 
         .sw-accordion-body {
-            @extend .border-top-left-radius-0;
-            @extend .border-top-left-radius-0;
+            width: 100%;
+            display: var(--sw-accordion-body-display);
+            box-sizing: border-box;
+            @extend .padding-horizontal-2;
+            @extend .padding-vertical-1;
         }
-    }
-
-    .sw-accordion-body {
-        width: 100%;
-        display: var(--sw-accordion-body-display);
-        box-sizing: border-box;
-        @extend .padding-horizontal-2;
-        border: 1px solid map.get($primary-color, 500);
-        border-top-color: map.get($primary-color, 50);
-        @extend .border-radius-1;
     }
 }
 
