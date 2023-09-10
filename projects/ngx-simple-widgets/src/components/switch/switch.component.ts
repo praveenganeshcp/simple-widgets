@@ -33,32 +33,32 @@ import { CommonModule } from "@angular/common";
 })
 export class SwSwitchComponent implements ControlValueAccessor {
 
-    state: boolean = false;
+    public state: boolean = false;
 
     private onChange: Function | null = null;
 
     private onTouched: Function | null = null;
 
-    writeValue(state: boolean): void {
+    public writeValue(state: boolean): void {
         this.state = state;
     }
 
-    registerOnChange(onChange: Function): void {
+    public registerOnChange(onChange: Function): void {
         this.onChange = onChange;
     }
 
-    toggle() {
+    public toggle() {
         this.state = ! this.state;
         if(this.onChange) {
             this.onChange(this.state);
         }
     }
 
-    registerOnTouched(onTouched: Function): void {
+    public registerOnTouched(onTouched: Function): void {
         this.onTouched = onTouched;
     }
 
-    setDisabledState?(isDisabled: boolean): void {
+    public setDisabledState?(isDisabled: boolean): void {
         console.log(isDisabled);
     }
     
