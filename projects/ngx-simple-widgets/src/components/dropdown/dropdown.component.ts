@@ -5,6 +5,8 @@ import { KeyValuePair } from './dropdown.types';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SwIconComponent } from '../icon/icon.component';
+import { SwInputComponent } from "../input/input.component";
+import { SwAllowedSizes } from "../../shared/constants";
 
 @Component({
   selector: 'sw-dropdown',
@@ -22,42 +24,48 @@ import { SwIconComponent } from '../icon/icon.component';
     CommonModule,
     OverlayModule,
     SwIconComponent,
-    CdkListboxModule
+    CdkListboxModule,
+    SwInputComponent
   ]
 })
 export class SwDropdownComponent implements ControlValueAccessor {
 
-  private _options: KeyValuePair[] = [];
-  
-  private _valueLabelMap: Map<string, string> = new Map();
-
   @Input() 
   set options(options: KeyValuePair[]) {
     this._options = options;
+    this.filteredOptions = options;
     this._valueLabelMap = new Map(options.map(option => [option.value, option.key]));
-  }
-  
-  get options() {
-  	return this._options;
   }
 
   @Input() placeholder: string = '';
 
-  isOpen: boolean = false;
+  @Input() size: SwAllowedSizes = "md";
 
-  selectedValues: string[] = [];
+  private _options: KeyValuePair[] = [];
 
-  onChangeFn: Function | null = null;
+  public filteredOptions: KeyValuePair[] = [];
+  
+  private _valueLabelMap: Map<string, string> = new Map();
 
-  onTouchFn: Function | null = null;
+  public isOpen: boolean = false;
+
+  public selectedValues: string[] = [];
+
+  public onChangeFn: Function | null = null;
+
+  public onTouchFn: Function | null = null;
+
+  constructor() { }
+
+  get options() {
+    return this._options;
+  }
 
   get selectedValueVM() {
     return this.selectedValues ? (this.selectedValues.map(selectedValue => this._valueLabelMap.get(selectedValue)).join(', ')) : '';
   }
 
-  constructor() { }
-
-  writeValue(value: string[]): void {
+  public writeValue(value: string[]): void {
     this.selectedValues = value;
   }
     
@@ -78,9 +86,23 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void { }
 
-  onValueChange(event: ListboxValueChangeEvent<string>) {
+  public onValueChange(event: ListboxValueChangeEvent<string>) {
+    this.onFilterOptions("");
     this.onUpdateValue(event.value as string[]);
     this.isOpen = false;
+  }
+
+  public onFilterOptions(searchTerm: string): void {
+    if(searchTerm.length) {
+      this.isOpen = true;
+    }
+    this.filteredOptions = this._options.filter((option) => {
+      return option.key.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+  }
+
+  public trackDropdownOption(index: number, option: KeyValuePair) {
+    return option.key;
   }
 
 }

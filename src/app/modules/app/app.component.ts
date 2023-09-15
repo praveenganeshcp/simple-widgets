@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SW_TOOLTIP_POSITION } from "ngx-simple-widgets"; 
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'simple-widgets';
+
+  SwTooltipPosition = SW_TOOLTIP_POSITION;
+
+  sayHello() {
+    console.log("hello  11")
+  }
 }

@@ -8,6 +8,10 @@ $flex-justify-content-values: "space-evenly", "space-between", "space-around";
     display: flex;
 }
 
+.inline-flex {
+    display: inline-flex;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
 }

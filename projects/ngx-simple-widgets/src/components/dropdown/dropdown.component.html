@@ -1,21 +1,23 @@
 <div 
-    class="sw-dropdown-input"
-    (click)="isOpen = true"
+    class="inline-flex align-items-center justify-space-between sw-dropdown-input" 
     cdkOverlayOrigin 
     tabindex="0"
     #swDropdownPanelOrigin="cdkOverlayOrigin"
 >
-    <div class="flex align-items-center justify-space-between">
-        <span 
-            [class.sw-dropdown-placeholder]="!selectedValueVM"
-        >
-            {{ selectedValueVM ? selectedValueVM : placeholder }}
-        </span>
-        <sw-icon 
-            [name]="isOpen ? 'expand_less' : 'expand_more'"
-        >
-        </sw-icon>
-    </div>
+    <input 
+        sw-input 
+        [size]="size" 
+        (click)="isOpen = !isOpen"
+        type="text" 
+        [placeholder]="placeholder" 
+        [value]="selectedValueVM" 
+        (input)="onFilterOptions('')"
+    />
+    <sw-icon 
+        class="sw-dropdown-toggle-icon"
+        [name]="isOpen ? 'expand_less' : 'expand_more'"
+    >
+    </sw-icon>
 </div>
 
 <ng-template
@@ -31,7 +33,7 @@
         class="sw-dropdown-panel"
         (cdkListboxValueChange)="onValueChange($event)"
     >
-        <ng-container *ngFor="let option of options">
+        <ng-container *ngFor="let option of filteredOptions; trackBy: trackDropdownOption">
             <div class="sw-dropdown-panel-option" [cdkOption]="option.value">
                 {{ option.key }}
             </div>

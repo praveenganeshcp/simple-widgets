@@ -12,9 +12,18 @@ export default {
             ]
         })
     ],
+    argTypes: {
+        items: {
+            control: 'object',
+            description: 'Items to be rendered in dropdown',
+            table: {
+                defaultValue: { summary: '[]' }
+            }
+        },
+    }
 } as Meta;
 
-export const Dropdown: Story = () => ({
+const DropdownTemplate: Story = (args) => ({
     template: `
         <sw-dropdown
             [(ngModel)]="selectedValues" 
@@ -24,12 +33,17 @@ export const Dropdown: Story = () => ({
         </sw-dropdown>
     `,
     props: {
-        items: [
-            { key: 'Option 1', value: 'value 1' },
-            { key: 'Option 2', value: 'value 2' },
-            { key: 'Option 3', value: 'value 3' },
-            { key: 'Option 4', value: 'value 4' },
-        ],
-        selectedValues: ['value 3']
+        ...args
     }
 })
+
+export const Dropdown = DropdownTemplate.bind({});
+Dropdown.args = {
+    items: [
+        { key: 'Option 1', value: 'value 1' },
+        { key: 'Option 2', value: 'value 2' },
+        { key: 'Option 3', value: 'value 3' },
+        { key: 'Option 4', value: 'value 4' },
+    ],
+    selectedValues: []
+}
