@@ -6,14 +6,14 @@
 	border-radius: 5px;
 
 	&.sw-dialog-small-size {
-		width: 25vw;
-	}
-
-	&.sw-dialog-medium-size {
 		width: 35vw;
 	}
 
+	&.sw-dialog-medium-size {
+		width: 50vw;
+	}
+
 	&.sw-dialog-large-size {
-		width: 45vw;
+		width: 65vw;
 	}
 }
