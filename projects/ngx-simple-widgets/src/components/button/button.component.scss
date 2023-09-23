@@ -27,7 +27,7 @@
 	         background-color: map.get($primary-color, 900);
          }
 
-         &[disabled=true] {
+         &[disabled] {
             background-color: map.get($secondary-color, 400);
 
             &:hover, &:focus {
@@ -54,7 +54,7 @@
          	color: map.get($primary-color, 50);
          }
 
-         &[disabled=true] {
+         &[disabled] {
             border: 1px solid map.get($secondary-color, 400);
             color: map.get($secondary-color, 400);
 
@@ -69,7 +69,7 @@
          background-color: map.get($info-color, "error");
          color: map.get($secondary-color, 50);
 
-        &[disabled=true] {
+        &[disabled] {
             background-color: map.get($secondary-color, 400);
 
             &:hover, &:focus {
@@ -86,7 +86,7 @@
          	color: map.get($primary-color, 900);
          }
         
-        &[disabled=true] {
+        &[disabled] {
             color: map.get($secondary-color, 400);
         }
            
@@ -101,7 +101,7 @@
          	background-color: map.get($secondary-color, 200);
         }
 
-         &[disabled=true] {
+         &[disabled] {
             color: map.get($secondary-color, 500);
             border-color: map.get($secondary-color, 600);
             background-color: map.get($secondary-color, 200);
@@ -116,7 +116,7 @@
          	background-color: map.get($secondary-color, 200);
          }
 
-         &[disabled=true] {
+         &[disabled] {
             color: map.get($secondary-color, 500);
          }
      }

@@ -36,7 +36,7 @@ export class SwButtonComponent {
         'lg': 'sw-large-button'
     }
 
-    @HostBinding("attr.disabled")
+    @HostBinding("disabled")
     get isDisabled() {
         return this.disabled || this.showLoader;
     }
