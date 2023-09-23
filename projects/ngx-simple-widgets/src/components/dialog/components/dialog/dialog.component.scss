@@ -6,14 +6,52 @@
 	border-radius: 5px;
 
 	&.sw-dialog-small-size {
-		width: 35vw;
+		width: 65vw;
 	}
 
 	&.sw-dialog-medium-size {
-		width: 50vw;
+		width: 70vw;
 	}
 
 	&.sw-dialog-large-size {
-		width: 65vw;
+		width: 85vw;
 	}
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	.sw-dialog {
+		
+		&.sw-dialog-small-size {
+			width: 50vw;
+		}
+
+		&.sw-dialog-medium-size {
+			width: 65vw;
+		}
+
+		&.sw-dialog-large-size {
+			width: 80vw;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 992px) {
+	.sw-dialog {
+		
+		&.sw-dialog-small-size {
+			width: 35vw;
+		}
+
+		&.sw-dialog-medium-size {
+			width: 45vw;
+		}
+
+		&.sw-dialog-large-size {
+			width: 55vw;
+		}
+	}
+}
+
