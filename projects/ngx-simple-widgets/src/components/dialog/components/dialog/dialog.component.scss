@@ -1,0 +1,19 @@
+@import "../../../../assets/styles/styles.scss";
+
+.sw-dialog {
+	background-color: white;
+	@extend .padding-2;
+	border-radius: 5px;
+
+	&.sw-dialog-small-size {
+		width: 25vw;
+	}
+
+	&.sw-dialog-medium-size {
+		width: 35vw;
+	}
+
+	&.sw-dialog-large-size {
+		width: 45vw;
+	}
+}

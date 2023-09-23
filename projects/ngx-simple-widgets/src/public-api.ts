@@ -16,6 +16,7 @@ export { SwDialogService } from "./components/dialog/services/dialog.service";
 export { SwDialogRef } from "./components/dialog/models/dialog.ref";
 export { SW_DIALOG_DATA } from "./components/dialog/dialog.constant";
 export { SwDialogConfig } from "./components/dialog/models/dialog.config";
+export { SwDialogComponent } from "./components/dialog/components/dialog/dialog.component";
 
 // dropdown module
 export {
