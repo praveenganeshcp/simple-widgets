@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SwAllowedSizes } from '../../shared/constants';
+import { CanBeNull } from '../../shared/types';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -13,9 +14,9 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class SwIconComponent {
 
-    @Input() name: string = '';
+    @Input() name: CanBeNull<string> = '';
 
-    @Input() size: SwAllowedSizes = 'md';
+    @Input() size: CanBeNull<SwAllowedSizes> = 'md';
 
     private iconSizeAndCssClassMap: Record<SwAllowedSizes, string> = {
         'sm': 'sw-small-icon',
@@ -26,7 +27,7 @@ export class SwIconComponent {
     constructor() {}
 
     get iconSizeClass(): string {
-      return this.iconSizeAndCssClassMap[this.size];
+      return this.iconSizeAndCssClassMap[this.size as SwAllowedSizes];
     }
 
 }
