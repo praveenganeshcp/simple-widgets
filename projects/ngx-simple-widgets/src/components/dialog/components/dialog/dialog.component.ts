@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { SwAllowedSizes } from "../../../../shared/constants";
+import { CanBeNull } from "../../../../shared/types";
 
 @Component({
   selector: 'sw-dialog',
@@ -8,7 +9,7 @@ import { SwAllowedSizes } from "../../../../shared/constants";
 })
 export class SwDialogComponent {
 
-  @Input() size: SwAllowedSizes = "md";
+  @Input() size: CanBeNull<SwAllowedSizes> = "md";
 
   public get isSmallSize(): boolean {
     return this.size === "sm";

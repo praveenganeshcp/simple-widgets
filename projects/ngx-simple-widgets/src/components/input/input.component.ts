@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, HostBinding } from "@angular/core";
 import { SwAllowedSizes } from "../../shared/constants";
+import { CanBeNull } from "../../shared/types";
 
 type SwInputTheme = 'normal' | 'underlined'
 
@@ -18,9 +19,9 @@ type SwInputTheme = 'normal' | 'underlined'
     standalone: true
 })
 export class SwInputComponent {
-    @Input() size: SwAllowedSizes = "md";
+    @Input() size: CanBeNull<SwAllowedSizes> = "md";
 
-    @Input() theme: SwInputTheme = 'normal';
+    @Input() theme: CanBeNull<SwInputTheme> = 'normal';
 
     private sizeCssClassMap: Record<SwAllowedSizes, string> = {
         'sm': 'sw-small-input',
@@ -31,7 +32,7 @@ export class SwInputComponent {
     constructor() { }
 
     @HostBinding("class") get inputClass(): string {
-        return this.sizeCssClassMap[this.size] + 
+        return this.sizeCssClassMap[this.size as SwAllowedSizes] + 
             `${this.theme === 'underlined' ? ' sw-input-underlined' : ''}`;
     }
 }

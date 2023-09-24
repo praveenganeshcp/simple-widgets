@@ -1,6 +1,6 @@
 <span 
-    (mouseleave)="isOpen = false" 
-    (mouseenter)="isOpen = true" 
+    (mouseleave)="onMouseLeave()" 
+    (mouseenter)="onMouseEnter()" 
     cdkOverlayOrigin 
     #swTooltipOrigin="cdkOverlayOrigin"
 >
@@ -10,7 +10,7 @@
 <ng-template 
     cdkConnectedOverlay 
     [cdkConnectedOverlayOrigin]="swTooltipOrigin" 
-    [cdkConnectedOverlayOpen]="isOpen && show"
+    [cdkConnectedOverlayOpen]="showTooltip"
     [cdkConnectedOverlayPositions]="[connectedPositionStrategy]"
 >
     <span 

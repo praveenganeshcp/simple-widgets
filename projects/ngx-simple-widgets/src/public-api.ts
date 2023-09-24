@@ -74,3 +74,7 @@ export {
 // tooltip module
 export { SwTooltipComponent } from "./components/tooltip/tooltip.component";
 export { SW_TOOLTIP_POSITION } from "./components/tooltip/tooltip.constants";
+
+// shared
+export { SwAllowedSizes } from "./shared/constants";
+export { CanBeNull } from "./shared/types";

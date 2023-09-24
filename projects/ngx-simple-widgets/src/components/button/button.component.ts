@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { SwAllowedSizes } from '../../shared/constants';
+import { CanBeNull } from '../../shared/types';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SwLoaderComponent } from "../loader/loader.component";
@@ -22,13 +23,13 @@ import { SwIconComponent } from "../icon/icon.component";
 })
 export class SwButtonComponent {
 
-    @Input() size: SwAllowedSizes = 'md';
+    @Input() size: CanBeNull<SwAllowedSizes> = 'md';
 
-    @Input() showLoader: boolean = false;
+    @Input() showLoader: CanBeNull<boolean> = false;
 
-    @Input() disabled: boolean = false;
+    @Input() disabled: CanBeNull<boolean> = false;
 
-    @Input() iconName: string = "";
+    @Input() iconName: CanBeNull<string> = "";
 
     private readonly buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
         'sm': 'sw-small-button',
@@ -55,7 +56,7 @@ export class SwButtonComponent {
 
     @HostBinding('class')
     get buttonClass() {
-        return this.buttonSizeCSSClasses[this.size];
+        return this.buttonSizeCSSClasses[<SwAllowedSizes>this.size];
     }
 
 }
