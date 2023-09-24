@@ -1,0 +1,73 @@
+@use "sass:map";
+@import "../../../assets/styles/styles.scss";
+
+:host {
+	--sw-tab-view-width: 70vw;
+	--sw-tab-view-height: 40vh;
+	--sw-tab-view-title-height: 20%;
+	--sw-tab-view-content-height: 80%;
+}
+
+.sw-tab-view {
+	width: var(--sw-tab-view-width);
+	height: var(--sw-tab-view-height);
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	border: 1px solid map.get($primary-color, 900);
+	border-radius: 4px;
+
+	&.sw-bottom-tab-view {
+		flex-direction: column-reverse;
+	}
+
+	.sw-tab-view__titles {
+		border: 0px solid map.get($primary-color, 900);
+		width: 100%;
+		height: var(--sw-tab-view-title-height);
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		border-bottom-width: 1px;
+		border-top-width: 0px;
+		background-color: map.get($secondary-color, 300);
+
+
+		&.bottom-tab-view-titles {
+			border-bottom-width: 0px;
+			border-top-width: 1px;
+			justify-content: space-evenly;
+		}
+
+		.sw-tab-title {
+			height: 100%;
+			flex-grow: 1;
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			padding: 0 1.5rem;
+			cursor: pointer;
+			border-right: 1px solid map.get($primary-color, 900);
+
+			&:last-child {
+				border-width: 0;
+			}
+
+			&:hover {
+				background-color: map.get($primary-color, 500);
+				color: map.get($secondary-color, 50);
+			}
+
+			&.sw-active-tab-title {
+				background-color: map.get($primary-color, 700);
+				color: map.get($secondary-color, 50);
+			}
+		}
+	}
+
+	.sw-tab-view__content {
+		height: var(--sw-tab-view-content-height);
+		width: 100%;
+	}
+}

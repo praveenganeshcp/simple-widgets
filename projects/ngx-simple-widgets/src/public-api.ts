@@ -39,17 +39,17 @@ export {
 
 // sidetab module
 export {
-    SwSideTabsHostComponent
-} from "./components/side-tabs/side-tabs-host/side-tabs-host.component";
+    SwTabViewComponent
+} from "./components/tab-view/tab-view/tab-view.component";
 export {
-    SwSideTabComponent
-} from "./components/side-tabs/side-tab/side-tab.component";
+    SwTabComponent
+} from "./components/tab-view/tab/tab.component";
 export {
-    SwSideTabContentComponent
-} from "./components/side-tabs/side-tab-content/side-tab-content.component";
+    SwTabContentComponent
+} from "./components/tab-view/tab-content/tab-content.component";
 export {
-    SwSideTabTitleComponent
-} from "./components/side-tabs/side-tab-title/side-tab-title.component";
+    SwTabTitleComponent
+} from "./components/tab-view/tab-title/tab-title.component";
 
 export {
     SwLoaderComponent
