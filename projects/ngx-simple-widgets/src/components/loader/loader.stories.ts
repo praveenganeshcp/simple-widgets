@@ -14,16 +14,16 @@ export default {
     ],
     argTypes: {
         height: {
-            name: 'Height of the loader',
-            description: 'Configure height via css variable (--sw-loader-height)',
+            name: '--sw-loader-height',
+            description: 'CSS variable to control height of the loader',
             control: 'text',
              table: {
                 defaultValue: { summary: '18px' }
             },
         },
         width: {
-            name: 'Width of the loader',
-            description: 'Configure width via css variable (--sw-loader-width)',
+            name: '--sw-loader-width',
+            description: 'CSS variable to control width of the loader',
             control: 'text',
             table: {
                 defaultValue: { summary: '18px' }
