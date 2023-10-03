@@ -5,9 +5,7 @@ import { OverlayModule } from "@angular/cdk/overlay";
 import { CommonModule } from '@angular/common';
 import { CanBeNull } from "../../shared/types";
 
-export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_CONNECTED_POSITIONS[
-  SW_TOOLTIP_POSITION.TOP
-];
+export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_POSITION.TOP
 
 @Component({
   selector: 'sw-tooltip',
@@ -23,13 +21,15 @@ export class SwTooltipComponent {
 
   @Input() text: CanBeNull<string> = '';
 
-  @Input() show: CanBeNull<boolean> = true;
+  @Input() disable: CanBeNull<boolean> = false;
 
-  private _position: ConnectionPositionPair = DEFAULT_TOOLTIP_POSITION;
+  private _position: ConnectionPositionPair = SW_TOOLTIP_CONNECTED_POSITIONS[
+    DEFAULT_TOOLTIP_POSITION
+  ];
 
   @Input()
   set position(position: CanBeNull<SW_TOOLTIP_POSITION>) {
-    this._position = SW_TOOLTIP_CONNECTED_POSITIONS[position || SW_TOOLTIP_POSITION.TOP];
+    this._position = SW_TOOLTIP_CONNECTED_POSITIONS[position || DEFAULT_TOOLTIP_POSITION];
   }
 
   get connectedPositionStrategy() {
@@ -47,7 +47,7 @@ export class SwTooltipComponent {
   constructor() { }
 
   public get showTooltip(): boolean {
-    return this.isMouseHoveredOnElement && this.show as boolean;
+    return this.isMouseHoveredOnElement && !this.disable as boolean;
   }
 
 }

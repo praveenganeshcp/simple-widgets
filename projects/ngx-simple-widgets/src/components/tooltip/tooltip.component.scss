@@ -1,5 +1,11 @@
+@use "sass:map";
 @import "../../assets/styles/styles.scss";
 
-.sw-tooltip {
+.sw-tooltip-text {
     max-width: 12rem;
+    background-color: map.get($secondary-color, 800);
+    color: map.get($secondary-color, 50);
+    @extend .padding-1;
+    @extend .border-radius-1;
+    font-size: 12px;
 }
