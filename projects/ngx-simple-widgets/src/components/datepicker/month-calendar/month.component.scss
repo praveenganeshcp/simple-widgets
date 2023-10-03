@@ -1,44 +1,40 @@
-.flex {
+@use "sass:map";
+@import "../../../assets/styles/styles.scss";
+
+.sw-calendar-month {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.month-name {
-    padding: 0.5rem 0;
-}
-
-.flex-column {
     flex-direction: column;
-}
+    align-items: center;
 
-.week-day-names {
-    margin-bottom: 0.5rem;
-}
+    .sw-calendar-month__view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.date-cell {
-    text-align: center;
-    width: 13%;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-}
+    .sw-calendar-month__days {
+        display: grid;
+        grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+        width: 100%;
+        text-align: center;
+    }
 
-.empty-date-cell {
-    width: 13%;
-}
+    .sw-calendar-month__week {
+        display: grid;
+        grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+        width: 100%;
+        text-align: center;
+    }
 
-.date-cell:hover {
-    background-color: lightgray;
-    border-radius: 5px;
-}
+    .sw-calendar-month__week_date {
+        @extend .padding-1;
 
-.week-cell {
-    text-align: center;
-    width: 13%;
-    padding: 0rem 0.6rem;
-}
+        &:hover {
+            outline: 1px solid map.get($secondary-color, 700);
+        }
+    }
 
-.selected-date {
-    background-color: lightgray;
-    border-radius: 5px;
+    .selected-date {
+        outline: 1px solid map.get($secondary-color, 900);
+    }
 }

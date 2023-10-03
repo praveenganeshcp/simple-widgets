@@ -45,6 +45,16 @@ export class SwCalendarComponent implements ControlValueAccessor {
         this.calendarState = new Date(this.calendarState);
     }
 
+    onMovePreviousYear() {
+        this.calendarState.setFullYear(this.calendarState.getFullYear()-1);
+        this.calendarState = new Date(this.calendarState);
+    }
+
+    onMoveNextYear() {
+        this.calendarState.setFullYear(this.calendarState.getFullYear()+1);
+        this.calendarState = new Date(this.calendarState);
+    }
+
     writeValue(initialDate: Date | null): void {
         this.selectedDate = initialDate !== null ? new Date(initialDate) : null;
         this.calendarState = initialDate !== null ? new Date(initialDate) : new Date();
