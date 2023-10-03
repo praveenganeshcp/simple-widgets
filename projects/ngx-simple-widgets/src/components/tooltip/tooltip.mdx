@@ -1,0 +1,32 @@
+import { Meta, Primary } from "@storybook/blocks";
+import * as tooltipStories from "./tooltip.stories";
+
+<Meta of={tooltipStories} />
+
+# Tooltip
+
+**Description:**
+The `sw-tooltip` component is designed to provide a simple and customizable tooltip for Angular applications. It allows you to display informative text when hovering over elements. Developers can control various aspects of the tooltip, including its text, position, and behavior when disabled.
+
+**Inputs:**
+- `disable` (boolean): When set to `true`, the tooltip text will not be displayed on hover.
+- `text` (string): Specifies the text to be shown in the tooltip UI when hovering over the element.
+- `position` (SW_TOOLTIP_POSITION enum): Determines the position of the tooltip relative to the element. The enum offers four values:
+  - `TOP`: Tooltip above the element (default).
+  - `LEFT`: Tooltip to the left of the element.
+  - `BOTTOM`: Tooltip below the element.
+  - `RIGHT`: Tooltip to the right of the element.
+
+**Usage:**
+1. Import the `SwTooltipComponent` into your Angular module.
+2. Implement the `sw-tooltip` template on the element where you want to enable the tooltip.
+3. Bind the `disable`, `text`, and `position` inputs to customize the tooltip's behavior and appearance.
+
+**Example:**
+```html
+<sw-tooltip [disable]="false" text='This action is disabled' [position]='SW_TOOLTIP_POSITION.TOP'>
+    <span>Hover on me !</span>
+</sw-tooltip>
+```
+**Output:**
+<Primary />

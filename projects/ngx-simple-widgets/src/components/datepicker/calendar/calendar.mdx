@@ -1,0 +1,26 @@
+import { Meta, Primary } from "@storybook/blocks";
+import * as CalendarStories from "./calendar.stories";
+
+<Meta of={CalendarStories} />
+
+# Calendar
+
+**Description:**
+The `sw-calendar` component offers a straightforward monthly calendar view for use within Angular applications. It seamlessly integrates with Angular's `[(ngModel)]` or `formControl` instances, making it as easy to use as other input elements. 
+
+**Features:**
+- Monthly Calendar View: Provides a clear and simple monthly calendar interface.
+- Navigation Options: Users can easily navigate to the previous and next month or year using built-in controls.
+
+**Usage:**
+1. Import the `sw-calendar` component into your Angular module.
+2. Implement the `sw-calendar` element in your template, binding it to `[(ngModel)]` or a `formControl` instance.
+3. The selected value will be automatically reflected when the calendar is opened, and users can interact with the calendar to select dates.
+
+**Example:**
+```html
+<sw-calendar [formControl]="dateFormControl"></sw-calendar>
+```
+
+**Output:**
+<Primary />
