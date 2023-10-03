@@ -1,37 +1,38 @@
-[![Publish package to NPM registry](https://github.com/praveenganeshcp/simple-widgets/actions/workflows/publish.yml/badge.svg)](https://github.com/praveenganeshcp/simple-widgets/actions/workflows/publish.yml)
 
 # Simple Widgets  
 
+**Simple Widgets** is an [**Angular**](https://angular.io) component library that offers a collection of components designed to maintain a harmonious and unified user experience. These components are meticulously crafted with a consistent theme, drawing inspiration from [**material design for their color scheme**](https://m2.material.io/design/color/the-color-system.html#color-theme-creation). Notably, each component in this library is **standalone** in nature, emphasizing their self-contained design. 
 
-Simple Widgets is a UI component library built using [**Angular**](https://angular.io). Currently the library has a palette of 6 components and few more will be added in the future. All the components encapsulates the core logic and provides a simple API for the consumer to work with it.
+This [**storybook docs**](https://main--63a11b6320c4ef99cb67aa93.chromatic.com/?path=/story/introduction--page) serves as the central hub for documentation, allowing developers to easily adopt and understand these standalone components. Developers can leverage Storybook as both a comprehensive reference guide and an interactive playground to explore how these components behave with various input combinations. 
 
 > ##### NOTE : This library is built for learning purpose and not recommended to use in production.
 
-## Storybook
-This library has a hosted [**Storybook docs**](https://main--63a11b6320c4ef99cb67aa93.chromatic.com/?path=/story/introduction--page), which serves as a playground to interact with components and as a documentation to learn about their usage.
+<br />
+<br />
 
-## Installation
-```sh
-npm install ngx-simple-widgets 
-```
+## Sample usage
 
-## Usage
 
-#### Import the module  
-
-To use a particular component or a service, the respective module needs to be imported into the working module.
+#### Install the library via NPM
 
 ```js
-import { SwButtonModule } from "ngx-simple-widgets"; 
-imports: [
-  SwButtonModule
-]
+npm install "ngx-simple-widgets"; 
 ```
 
-#### Use the component
+#### Import the component  
+
+```js
+import { SwButtonComponent } from "ngx-simple-widgets"; 
+
+@Component({
+  imports: [SwButtonComponent]
+})
+```
+
+#### Use in the template
 
 ```html
-<button sw-primary-button>Click me!</button>
+<button sw-primary-button>Create Account</button>
 ```
 
 #### Output
