@@ -1,5 +1,22 @@
 <div class="sw-month-calendar-header">
-    <sw-icon class="sw-month-arrow-actions" (click)="onMovePreviousMonth()" name="chevron_left"></sw-icon>
+    <div>
+        <button (click)="onMovePreviousYear()" sw-icon-button size="sm">
+            <sw-icon name="keyboard_double_arrow_left"></sw-icon>
+        </button>
+        <button (click)="onMovePreviousMonth()" sw-icon-button size="sm">
+             <sw-icon name="keyboard_arrow_left"></sw-icon>
+        </button>
+       
+    </div>
+
     <span>{{ year }}</span>
-    <sw-icon class="sw-month-arrow-actions" (click)="onMoveNextMonth()" name="chevron_right"></sw-icon>
+
+    <div>
+        <button (click)="onMoveNextMonth()" sw-icon-button size="sm">
+            <sw-icon name="keyboard_arrow_right"></sw-icon>
+        </button>
+        <button (click)="onMoveNextYear()" sw-icon-button size="sm">
+            <sw-icon name="keyboard_double_arrow_right"></sw-icon>
+        </button>
+    </div>
 </div>

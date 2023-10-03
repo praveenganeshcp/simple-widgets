@@ -1,17 +1,24 @@
+@use "sass:map";
+@import "../../../assets/styles/styles.scss";
+
 .sw-month-calendar-header {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: lightgray;
-    width: 100%;
-    padding: 0.3rem 0.6rem;
-}
+    background-color: map.get($primary-color, 600);
+    color: map.get($secondary-color, 50);
+    @extend .padding-1;
+    box-sizing: border-box;
+    @extend .border-top-left-radius-1;
+    @extend .border-top-right-radius-1;
 
-.sw-month-arrow-actions {
-    cursor: pointer;
-}
+    div > button {
+        display: inline;
+        color: map.get($secondary-color, 50);
 
-.sw-month-arrow-actions:hover {
-    background-color: gray;
-    border-radius: 50%;
+        &:hover, &:focus {
+            color: initial;
+        }
+    }
 }

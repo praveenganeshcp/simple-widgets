@@ -1,11 +1,13 @@
-// .sw-calendar-host {
-//     border: 1px solid lightgray;
-//     display: inline-block;
-//     width: 20vw;
-//     background-color: whitesmoke;
-//     border-radius: 8px;
-// }
+@use "sass:map";
+@import "../../../assets/styles/styles.scss";
 
-// .sw-month-calendar-host {
-//     width: 100%;
-// }
+.sw-calendar-host {
+    border: 1px solid map.get($secondary-color, 600);
+    width: 25vw;
+    @extend .border-radius-1;
+    @extend .border-radius-1;
+
+     .sw-month-calendar {
+         width: 100%;
+     }
+ }

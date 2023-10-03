@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 import { SwIconComponent } from "../../icon/icon.component";
+import { SwButtonComponent } from "../../button/button.component";
 
 @Component({
     selector: 'sw-month-calendar-header',
@@ -7,7 +8,7 @@ import { SwIconComponent } from "../../icon/icon.component";
     styleUrls: ['./month-calendar-header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [SwIconComponent]
+    imports: [SwIconComponent, SwButtonComponent]
 })
 export class SwMonthCalendarHeaderComponent {
 
@@ -15,7 +16,11 @@ export class SwMonthCalendarHeaderComponent {
 
     @Output() movePreviousMonth = new EventEmitter();
 
+    @Output() movePreviousYear = new EventEmitter();
+
     @Output() moveNextMonth = new EventEmitter();
+
+    @Output() moveNextYear = new EventEmitter();
 
     onMovePreviousMonth() {
         this.movePreviousMonth.emit();
@@ -23,6 +28,14 @@ export class SwMonthCalendarHeaderComponent {
 
     onMoveNextMonth() {
         this.moveNextMonth.emit();
+    }
+
+     onMovePreviousYear() {
+        this.movePreviousYear.emit();
+    }
+
+    onMoveNextYear() {
+        this.moveNextYear.emit();
     }
 
 }
