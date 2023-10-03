@@ -1,0 +1,35 @@
+@use "sass:map";
+@import "../../../../assets/styles/styles.scss";
+
+.sw-toast {
+	width: 25vw;
+	@extend .padding-2;
+	display: flex;
+	@extend .border-radius-1;
+	box-sizing: border-box;
+
+	&.info-success-bg {
+		background-color: map.get($info-color, "success");
+	}
+
+	&.info-warn-bg {
+		background-color: map.get($info-color, "warning");
+	}
+
+	&.info-error-bg {
+		background-color: map.get($info-color, "error");
+		color: map.get($secondary-color, 50);
+	}
+
+	.sw-toast__message {
+		@extend .padding-left-2;
+		@extend .padding-right-1;
+		display: flex;
+		flex-direction: column;
+
+		span:last-child {
+			@extend .padding-top-2;
+			font-size: 14px;
+		}
+	}
+}

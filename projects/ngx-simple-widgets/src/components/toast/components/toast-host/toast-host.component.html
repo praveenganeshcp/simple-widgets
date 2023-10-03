@@ -1,0 +1,15 @@
+<div 
+    class="sw-toast"
+    [ngClass]="toastCssClass"
+>
+    <sw-icon id="sw-toast-icon" [name]="iconName"></sw-icon>
+    <div id="sw-toast-content" class="sw-toast__message">
+        <span 
+            id="sw-toast-title-content" 
+            *ngIf="title"
+        >
+            {{ title }}
+        </span>
+        <span id="sw-toast-message-content">{{ message }}</span>
+    </div>
+</div>

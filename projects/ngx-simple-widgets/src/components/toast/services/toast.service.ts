@@ -1,9 +1,8 @@
 import { Overlay, OverlayRef } from "@angular/cdk/overlay";
 import { ComponentPortal, PortalInjector } from "@angular/cdk/portal";
 import { Injectable, InjectionToken, Injector } from "@angular/core";
-import { SwToastHostComponent } from "../toast-host.component";
-import { SwToastConfig, SwToastOverlayConfig, SwToastStatus } from "../models/toast.config";
-import { SW_TOAST_DATA } from "../toast.constants";
+import { SwToastHostComponent } from "../components/toast-host/toast-host.component";
+import { SwToastConfig, SwToastOverlayConfig, SwToastStatus, SW_TOAST_DATA } from "../toast.constants";
 
 @Injectable()
 export class SwToastService {
@@ -14,7 +13,7 @@ export class SwToastService {
     ) {}
 
     private createToastMessage(status: SwToastStatus, config: SwToastConfig): OverlayRef {
-        const positionStrategy = this.overlay.position().global().top('80vh').left('75vw');
+        const positionStrategy = this.overlay.position().global().top('80vh').left('72vw');
         const overlayRef = this.overlay.create({
             positionStrategy
         })

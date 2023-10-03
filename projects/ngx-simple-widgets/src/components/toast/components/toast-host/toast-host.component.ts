@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { SwToastOverlayConfig, SwToastStatus } from './models/toast.config';
-import { SW_TOAST_DATA } from './toast.constants';
+import { SwToastOverlayConfig, SwToastStatus, SW_TOAST_DATA } from '../../toast.constants';
 
 @Component({
   selector: 'sw-toast-host',
