@@ -2,6 +2,7 @@ module.exports = {
   "stories": [
     "../projects/**/*.stories.ts",
     "../projects/**/*.stories.mdx",
+    "../projects/**/*.mdx",
   ],
 
   "addons": [

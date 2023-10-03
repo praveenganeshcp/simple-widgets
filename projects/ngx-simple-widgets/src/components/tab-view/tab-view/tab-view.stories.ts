@@ -99,10 +99,10 @@ const TabViewTemplate: Story = (args) => ({
 
 export const TabView = TabViewTemplate.bind({});
 TabView.args = {
-	showTabsInBottom: true,
+	showTabsInBottom: false,
 	activeTabIndex: 0,
 	width: "50vw",
 	height: "50vh",
-	titleHeight: "30%",
-	contentHeight: "70%"
+	titleHeight: "15%",
+	contentHeight: "85%"
 }
