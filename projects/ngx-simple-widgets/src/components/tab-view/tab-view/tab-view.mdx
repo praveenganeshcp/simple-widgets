@@ -1,0 +1,60 @@
+import { Meta, Primary } from "@storybook/blocks";
+import * as tabViewStories from "./tab-view.stories";
+
+<Meta of={tabViewStories} />
+
+# Tab view
+
+**Description:**
+The `sw-tab-view` component is designed to create tabbed views with multiple tab options in Angular applications. Each tab consists of a title and content, and you can easily switch between tabs. This component offers customization options for the active tab index and the placement of tabs at the top or bottom of the view.
+
+**Inputs:**
+- `activeTabIndex` (number): Defines the initially active tab index. Allows you to specify which tab's content is projected when the component is loaded.
+- `showTabsInBottom` (boolean): Determines whether tabs should be displayed at the top or bottom of the view.
+
+**Tab Creation:**
+1. Use the `sw-tab-view` component as the host of all tab views.
+2. Inside `sw-tab-view`, define individual tabs using the `sw-tab` component.
+3. In each `sw-tab`, use `sw-tab-title` to project the tab's title and `sw-tab-content` to project the tab's content.
+4. The combination of `sw-tab-title` and `sw-tab-content` within a `sw-tab` forms a single tab view.
+
+**Tab Switching:**
+- Whenever a tab title is clicked, the `tabClick` event is triggered, providing the active index value as event data.
+- Consumers can listen to the `tabClick` event, save the state of the active index, and pass it back to the `activeTabIndex` input to programmatically control the active tab.
+
+**Customization Using CSS Variables:**
+- Developers can use CSS variables to control the size of the tab view:
+  - `--sw-tab-view-width`: Defines the width of the tab view.
+  - `--sw-tab-view-height`: Defines the height of the tab view.
+  - `--sw-tab-view-title-height`: Defines the height of the tab title.
+  - `--sw-tab-view-content-height`: Defines the height of the tab title relative to the tab content.
+
+**Example:**
+```html
+<sw-tab-view 
+	[style.--sw-tab-view-width]="width"
+	[style.--sw-tab-view-height]="height"
+	[style.--sw-tab-view-title-height]="titleHeight"
+	[style.--sw-tab-view-content-height]="contentHeight"
+	[activeTabIndex]="activeTabIndex" 
+	[showTabsInBottom]="showTabsInBottom"
+	(tabClick)="onTabClick(selectedIndex)"
+>
+	<sw-tab>
+	    <sw-tab-title>tab 1</sw-tab-title>
+	    <sw-tab-content>tab 1 content</sw-tab-content>
+	</sw-tab>
+	<sw-tab>
+	    <sw-tab-title>tab 2</sw-tab-title>
+	    <sw-tab-content>tab 2 content</sw-tab-content>
+	</sw-tab>
+	<sw-tab>
+	    <sw-tab-title>tab 3</sw-tab-title>
+	    <sw-tab-content>tab 3 content</sw-tab-content>
+	</sw-tab>
+</sw-tab-view>
+	`,
+```
+
+**Output:**
+<Primary />

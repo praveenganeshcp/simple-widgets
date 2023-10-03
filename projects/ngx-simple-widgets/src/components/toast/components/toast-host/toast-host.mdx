@@ -1,0 +1,45 @@
+import { Meta, Primary } from "@storybook/blocks";
+import * as toastStories from "./toast-host.stories";
+
+<Meta of={toastStories} />
+
+# Toast
+
+**Description:**
+The `SwToastService` is a versatile service designed to facilitate the display of toast notifications in Angular applications. Developers can use this service to inform users about success, error, or warning messages with customizable content.
+
+**Methods:**
+- `success(config: SwToastConfig)`: Displays a success toast notification.
+- `error(config: SwToastConfig)`: Displays an error toast notification.
+- `warning(config: SwToastConfig)`: Displays a warning toast notification.
+
+**Toast Configuration Object:**
+- `title` (string): Specifies the title of the toast notification.
+- `message` (string): Provides the message content for the toast.
+- `closeAfter` (number): Defines the time, in milliseconds, after which the toast should automatically close.
+
+**Usage:**
+1. Import the `SwToastModule` into your Angular module.
+2. Inject the `SwToastService` into your component or service where you want to display toast notifications.
+3. Use the `success`, `error`, or `warning` methods to display relevant toast notifications, providing the toast configuration object with `title`, `message`, and `closeAfter` properties.
+
+**Example:**
+```typescript
+import { SwToastService } from 'ngx-simple-widgets';
+
+// ...
+
+constructor(private toastService: SwToastService) {}
+
+showSuccessToast() {
+  const successConfig = {
+    title: 'Success',
+    message: 'Operation completed successfully!',
+    closeAfter: 3000 // Auto-close after 3 seconds
+  };
+  this.toastService.success(successConfig);
+}
+```
+
+**Output:**
+<Primary />

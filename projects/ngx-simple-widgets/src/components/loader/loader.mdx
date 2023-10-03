@@ -1,0 +1,35 @@
+import { Meta, Primary } from "@storybook/blocks";
+import * as loaderStories from "./loader.stories";
+
+<Meta of={loaderStories} />
+
+## Loader
+
+**Description:**
+The `sw-loader` component is designed to provide a loading indicator for Angular applications, helping users understand when an action is in progress. It offers customization options for the loader's height and width via CSS variables.
+
+**Customization:**
+- `--sw-loader-height` (CSS variable): Allows customization of the loader's height.
+- `--sw-loader-width` (CSS variable): Enables customization of the loader's width.
+
+**Usage:**
+1. Import the `SwLoaderComponent` into your Angular module.
+2. Implement the `sw-loader` element in your template.
+3. Customize the loader's appearance by adjusting the `--sw-loader-height` and `--sw-loader-width` CSS variables as needed in your application's styles.
+
+**Example:**
+```html
+<sw-loader></sw-loader>
+```
+
+**Customization Example (CSS):**
+```css
+/* Customizing loader size */
+sw-loader {
+  --sw-loader-height: 40px;
+  --sw-loader-width: 40px;
+}
+```
+
+**Output:**
+<Primary />
