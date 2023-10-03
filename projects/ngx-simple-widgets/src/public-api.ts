@@ -26,9 +26,6 @@ export {
     KeyValuePair
 } from "./components/dropdown/dropdown.types";
 
-// form control module
-export { SwFormControlComponent } from "./components/form-control/form-control.component";
-
 // icon module
 export { SwIconComponent } from "./components/icon/icon.component";
 
@@ -65,11 +62,8 @@ export {
 } from "./components/table/types";
 
 // toast module
-export { SwToastModule } from "./components/toast/sw-toast.module";
+export { SwToastModule } from "./components/toast/toast.module";
 export { SwToastService } from './components/toast/services/toast.service';
-export {
-    SwToastHostDemoComponent
-} from "./components/toast/toast-host-demo.component";
 
 // tooltip module
 export { SwTooltipComponent } from "./components/tooltip/tooltip.component";

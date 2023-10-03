@@ -94,7 +94,6 @@
 
      &[sw-bordered-icon-button] {
      	border: 1px solid map.get($primary-color, 900);
-        padding-bottom: 4px;
         color: map.get($primary-color, 900);
 
      	&:hover, &:focus {

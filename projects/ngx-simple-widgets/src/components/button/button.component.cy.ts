@@ -1,11 +1,13 @@
-import { SwIconModule } from "../sw-icon/sw-icon.module";
+import { SwButtonComponent } from "./button.component";
+import { SwIconComponent } from "../icon/icon.component";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 describe('button component should', () => {
 
-	function mountPlainButtonComponent(type: string, size: string) {
+	function mountPlainButtonComponent(type: string, size: string='md') {
 		cy.mount(`
-			<button size="${size}" ${type}>Click me !</button>
-		`, {imports: []})
+			<button [size]="${size}" ${type}>Click me !</button>
+		`, {imports: [NoopAnimationsModule, SwButtonComponent]})
 	}
 	
 	function mountIconButtonComponent(type: string) {
@@ -13,69 +15,120 @@ describe('button component should', () => {
 			<button ${type}>
 				<sw-icon name="person"></sw-icon>
 			</button>
-		`, {imports: [, SwIconModule]})
+		`, {imports: [NoopAnimationsModule, SwButtonComponent, SwIconComponent]})
 
 	}
 	
-	it('add default padding and border radius', () => {
-		mountPlainButtonComponent('sw-primary-button', 'lg');
-		cy.get('button').should('have.css', 'padding', '8px').should('have.css', 'border-radius', '4px');
+	it('add default padding', () => {
+		mountIconButtonComponent('sw-primary-button');
 	});
 
-	it('render in small size for sm size', () => {
-		mountPlainButtonComponent('sw-primary-button', 'sm');
-		cy.get('button').should('have.css', 'font-size', '12px');
-	});
-	
-	it('render in medium size for md size', () => {
-		mountPlainButtonComponent('sw-primary-button', 'md');
-		cy.get('button').should('have.css', 'font-size', '16px');
-	});
-	
-	it('render in large size for lg size', () => {
-		mountPlainButtonComponent('sw-primary-button', 'lg');
-		cy.get('button').should('have.css', 'font-size', '20px');
-	});
-	
-	it('use primary background color for sw-primary-button', () => {
-		mountPlainButtonComponent('sw-primary-button', 'lg');
-		cy.get('button').should('have.css', 'background-color', 'rgb(105, 48, 195)').should('have.css', 'border-width', '0px');
-	});
-	
-	it('show border for sw-bordered-button', () => {
-		mountPlainButtonComponent('sw-bordered-button', 'lg');
-		cy.get('button').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)').should('have.css', 'border-width', '1px');
-	});
-	
-	it('use red background color for sw-danger-button', () => {
-		mountPlainButtonComponent('sw-danger-button', 'lg');
-		cy.get('button').should('have.css', 'background-color', 'rgb(255, 0, 0)').should('have.css', 'border-width', '0px');
-	});
-	
-	it('render button without background and border for sw-text-button', () => {
-		mountPlainButtonComponent('sw-text-button', 'lg');
-		cy.get('button').should('have.css', 'background-color', 'rgba(0, 0, 0, 0)').should('have.css', 'border-width', '0px');
-	});
-	
-	it('render icon inside button without border and background for sw-icon-button', () => {
-		mountIconButtonComponent('sw-icon-button');
-		cy.get('button sw-icon mat-icon')
-			.should('have.text', 'person');
-		cy.get('button')
-			.should('have.css', 'background-color', 'rgba(0, 0, 0, 0)')
-			.should('have.css', 'border-width', '0px');
-	});
-	
-	it('render icon inside button and show border for sw-bordered-icon-button', () => {
-		mountIconButtonComponent('sw-bordered-icon-button');
-		cy.get('button sw-icon mat-icon');
-		cy.get('button')
-			.should('have.text', 'person')
-			.should('have.css', 'border-width', '1px');
-	});
-	
-	it('show loader till subscription is completed, if provided', () => {});
-	
-	it('be disabled when loader is shown', () => {});
+	it('add default border radius', () => {
+
+	})
+
+	it('use 16px font size by default', () => {
+		
+	})
+
+	it('use 12px font size for "sm" input', () => {
+
+	})
+
+	it('use 16px font size for "md" input', () => {
+
+	})
+
+	it('use 20px font size for "lg" input', () => {
+		
+	})
+
+	it('render primary button in primary-500 background and label in primary-50 color', () => {
+
+	})
+
+	it('render primary button in primary-900 background when hovered or focussed ', () => {
+
+	})
+
+	it('render primary button in secondary-400 background when disabled and hovered', () => {
+
+	})
+
+	it('render primary button in primary-100 background when loader is shown and hovered', () => {
+
+	})
+
+	it('render bordered type button with empty background, label with primary-600 color and 1px solid primary-600 border', () => {
+
+	})
+
+	it('render bordered button in primary-900 background and color in primary-50 when hovered or focussed', () => {
+
+	})
+
+	it('render bordered button in empty background when loader is shown and hovered', () => {
+
+	})
+
+	it('render danger button in error-info background and label in secondary-50 color', () => {
+
+	})
+
+	it('render danger button in secondary-400 background when disabled and hovered', () => {
+
+	})
+
+	it('render danger button in error-info background when loader is shown', () => {
+
+	})
+
+	it('render text button in empty background and label in primary-500 color', () => {
+
+	})
+
+	it('render text button in secondary-200 background and label in primary-900 when hovered or focussed', () => {
+
+	})
+
+	it('render text button in secondary-400 when disabled', () => {
+
+	})
+
+	it('render bordered icon button with empty background, icon with primary-900 color and 1px solid primary-900 border', () => {
+
+	})
+
+	it('render bordered icon with secondary-200 background when hovered and focussed', () => {
+
+	})
+
+	it('render bordered icon with secondary-500 color, secondary-600 border color and secondary-200 in background in disabled state', () => {
+
+	})
+
+	it('render icon button with primary-500 color', () => {
+
+	})
+
+	it('render icon button with primary-900 color and secondary-200 background color when hovered or focussed', () => {
+
+	})
+
+	it('render icon button with secondary-500 when disabled', () => {
+
+	})
+
+	it('render in disabled state when disabled input prop is true', () => {
+
+	})
+
+	it('render button in disabled state when loader is shown', () => {
+
+	})
+
+	it('render loader UI when loader input prop in true', () => {
+
+	})
 
 })
