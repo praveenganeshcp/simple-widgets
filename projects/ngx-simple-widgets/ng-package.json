@@ -6,5 +6,8 @@
   },
   "assets": [
     "./styles.css"
+  ],
+  "allowedNonPeerDependencies": [
+    "@angular/material"
   ]
 }
