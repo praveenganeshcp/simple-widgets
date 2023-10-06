@@ -8,6 +8,6 @@
     "./styles.css"
   ],
   "allowedNonPeerDependencies": [
-    "@angular/material"
+    "@angular/cdk"
   ]
 }
