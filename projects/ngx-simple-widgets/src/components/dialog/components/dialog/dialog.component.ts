@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { SwAllowedSizes } from "../../../../shared/constants";
 import { CanBeNull } from "../../../../shared/types";
+import { SwDialogRef } from "../../models/dialog.ref";
 
 @Component({
   selector: 'sw-dialog',
@@ -8,6 +9,8 @@ import { CanBeNull } from "../../../../shared/types";
   styleUrls: ['./dialog.component.scss'],
 })
 export class SwDialogComponent {
+
+  constructor(private dialogRef: SwDialogRef<any>) {}
 
   @Input() size: CanBeNull<SwAllowedSizes> = "md";
 
@@ -21,6 +24,14 @@ export class SwDialogComponent {
 
   public get isLargeSize(): boolean {
     return this.size === "lg";
+  }
+
+  public onCloseModal() {
+    this.dialogRef.close(null);
+  }
+
+  public onPreventPropagation(event: MouseEvent) {
+    event.stopPropagation();
   }
 
 }

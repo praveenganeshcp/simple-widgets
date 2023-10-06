@@ -1,8 +1,9 @@
 <div 
 	class="sw-dialog"
+	(click)="onCloseModal()"
 	
 >
-	<div 
+	<div (click)="onPreventPropagation($event)"
 		class="sw-dialog-content"
 		[class.sw-dialog-small-size]="isSmallSize"
 		[class.sw-dialog-medium-size]="isMediumSize"
