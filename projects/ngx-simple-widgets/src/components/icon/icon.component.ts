@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { SwAllowedSizes } from '../../shared/constants';
 import { CanBeNull } from '../../shared/types';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'sw-icon',
@@ -10,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./icon.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatIconModule]
+  imports: [CommonModule]
 })
 export class SwIconComponent {
 
@@ -27,7 +26,7 @@ export class SwIconComponent {
     constructor() {}
 
     get iconSizeClass(): string {
-      return this.iconSizeAndCssClassMap[this.size as SwAllowedSizes];
+      return `material-symbols-outlined ${this.iconSizeAndCssClassMap[this.size as SwAllowedSizes]}`;
     }
 
 }
