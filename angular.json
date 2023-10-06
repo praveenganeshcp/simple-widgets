@@ -142,9 +142,7 @@
             "browserTarget": "ngx-simple-widgets:build",
             "compodoc": false,
             "port": 6006,
-            "styles": [
-              "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
-            ],
+            "styles": []
           }
         },
         "build-storybook": {

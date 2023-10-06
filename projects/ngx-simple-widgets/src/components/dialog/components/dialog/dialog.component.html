@@ -1,8 +1,13 @@
 <div 
 	class="sw-dialog"
-	[class.sw-dialog-small-size]="isSmallSize"
-	[class.sw-dialog-medium-size]="isMediumSize"
-	[class.sw-dialog-large-size]="isLargeSize"
+	
 >
-	<ng-content></ng-content>
+	<div 
+		class="sw-dialog-content"
+		[class.sw-dialog-small-size]="isSmallSize"
+		[class.sw-dialog-medium-size]="isMediumSize"
+		[class.sw-dialog-large-size]="isLargeSize"
+	>
+		<ng-content></ng-content>
+	</div>
 </div>

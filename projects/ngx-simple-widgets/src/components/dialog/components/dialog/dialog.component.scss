@@ -1,37 +1,55 @@
 @import "../../../../assets/styles/styles.scss";
 
 .sw-dialog {
-	background-color: white;
-	@extend .padding-2;
-	border-radius: 5px;
+	z-index: 1000;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.2); 
 
-	&.sw-dialog-small-size {
-		width: 65vw;
+	.sw-dialog-content {
+		background-color: white;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		@extend .padding-2;
+		border-radius: 5px;
+
+		&.sw-dialog-small-size {
+			width: 65vw;
+		}
+
+		&.sw-dialog-medium-size {
+			width: 70vw;
+		}
+
+		&.sw-dialog-large-size {
+			width: 85vw;
+		}
+
 	}
 
-	&.sw-dialog-medium-size {
-		width: 70vw;
-	}
-
-	&.sw-dialog-large-size {
-		width: 85vw;
-	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 	.sw-dialog {
 		
-		&.sw-dialog-small-size {
-			width: 50vw;
-		}
+		.sw-dialog-content {
+			&.sw-dialog-small-size {
+				width: 50vw;
+			}
 
-		&.sw-dialog-medium-size {
-			width: 65vw;
-		}
+			&.sw-dialog-medium-size {
+				width: 65vw;
+			}
 
-		&.sw-dialog-large-size {
-			width: 80vw;
+			&.sw-dialog-large-size {
+				width: 80vw;
+			}
 		}
 	}
 }
@@ -40,17 +58,20 @@
 
 @media only screen and (min-width: 992px) {
 	.sw-dialog {
+		.sw-dialog-content {
 		
-		&.sw-dialog-small-size {
-			width: 35vw;
-		}
+			&.sw-dialog-small-size {
+				width: 35vw;
+			}
 
-		&.sw-dialog-medium-size {
-			width: 45vw;
-		}
+			&.sw-dialog-medium-size {
+				width: 45vw;
+			}
 
-		&.sw-dialog-large-size {
-			width: 55vw;
+			&.sw-dialog-large-size {
+				width: 55vw;
+			}
+
 		}
 	}
 }
