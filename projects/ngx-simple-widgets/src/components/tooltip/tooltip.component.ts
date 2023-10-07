@@ -1,5 +1,5 @@
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { SW_TOOLTIP_CONNECTED_POSITIONS, SW_TOOLTIP_POSITION } from './tooltip.constants';
 import { OverlayModule } from "@angular/cdk/overlay";
 import { CommonModule } from '@angular/common';
@@ -13,7 +13,8 @@ export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_POSITION.TOP
   templateUrl: './tooltip.component.html',
   imports: [CommonModule, OverlayModule],
   styleUrls: ['./tooltip.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class SwTooltipComponent {
 
