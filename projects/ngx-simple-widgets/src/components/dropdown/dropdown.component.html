@@ -1,5 +1,5 @@
 <div 
-    class="inline-flex align-items-center justify-space-between sw-dropdown-input" 
+    class="sw-dropdown-input" 
     cdkOverlayOrigin 
     tabindex="0"
     #swDropdownPanelOrigin="cdkOverlayOrigin"
@@ -10,30 +10,40 @@
         (click)="isOpen = !isOpen"
         type="text" 
         [placeholder]="placeholder" 
-        [value]="selectedValueVM" 
-        (input)="onFilterOptions('')"
+        [readonly]="true"
+        [value]="selectedValueLabel" 
     />
+    <!-- <sw-icon 
+        class="sw-dropdown-clear-icon"
+        name="clear"
+        (click)="onClearValue($event)"
+        *ngIf="selectedValueLabel"
+    >
+    </sw-icon> -->
     <sw-icon 
         class="sw-dropdown-toggle-icon"
+        (click)="isOpen = !isOpen"
         [name]="isOpen ? 'expand_less' : 'expand_more'"
     >
     </sw-icon>
 </div>
 
+
 <ng-template
     cdkConnectedOverlay
     [cdkConnectedOverlayOrigin]="swDropdownPanelOrigin"
     [cdkConnectedOverlayOpen]="isOpen"
-    (backdropClick)="isOpen = false"
+    (backdropClick)="onClickOutside()"
     [cdkConnectedOverlayHasBackdrop]="true"
-    [cdkConnectedOverlayBackdropClass]="'sw-dropdown-backdrop'"
+    [cdkConnectedOverlayPositions]="[position]"
+    [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
 >
     <div cdkListbox
         [cdkListboxValue]="selectedValues"
         class="sw-dropdown-panel"
         (cdkListboxValueChange)="onValueChange($event)"
     >
-        <ng-container *ngFor="let option of filteredOptions; trackBy: trackDropdownOption">
+        <ng-container *ngFor="let option of options; trackBy: trackDropdownOption">
             <div class="sw-dropdown-panel-option" [cdkOption]="option.value">
                 {{ option.key }}
             </div>

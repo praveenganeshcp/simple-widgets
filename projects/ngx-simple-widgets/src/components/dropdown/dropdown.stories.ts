@@ -26,7 +26,7 @@ export default {
 const DropdownTemplate: Story = (args) => ({
     template: `
         <sw-dropdown
-            [(ngModel)]="selectedValues" 
+            [(ngModel)]="ngModel" 
             placeholder='Select' 
             [options]='items'
         >
@@ -45,5 +45,5 @@ Dropdown.args = {
         { key: 'Option 3', value: 'value 3' },
         { key: 'Option 4', value: 'value 4' },
     ],
-    selectedValues: []
+    ngModel: [],
 }

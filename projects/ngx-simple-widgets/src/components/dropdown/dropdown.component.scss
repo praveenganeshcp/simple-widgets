@@ -1,52 +1,61 @@
 @use "sass:map";
 @import "../../assets/styles/styles.scss";
 
-$sw-dropdown-width: 20vw;
+$sw-dropdown-width: 21vw;
 
 .sw-dropdown-input {
 	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+	sw-icon {
+		cursor: pointer;
+	}
+
+	.sw-dropdown-toggle-icon {
+		position: absolute;
+		right: 5px;
+	}
+
+	.sw-dropdown-clear-icon {
+		position: absolute;
+		right: 25px;
+	}
 }
 
-.sw-dropdown-toggle-icon {
-	position: absolute;
-	right: 5px;
+.sw-dropdown-panel {
+	&.cdk-listbox {
+		max-height: 25vh;
+		overflow-y: auto;
+		width: $sw-dropdown-width;
+		background-color: white;
+		@include add-border(1px, map.get($primary-color, 500));
+		box-shadow: 2px 2px 4px 4px map.get($secondary-color, 300);
+		@extend .border-radius-1;
+		overflow-y: auto;
+		z-index: 1000;
+	}
 }
 
-sw-dropdown-placeholder {
-	color: map.get($secondary-color, 600);
-}
-
-.cdk-listbox {
-	width: $sw-dropdown-width;
-	margin-top: 0.2rem;
-	background-color: none;
-	@include add-border(1px, map.get($primary-color, 500));
-	box-shadow: 2px 2px 4px 4px map.get($secondary-color, 300);
-	@extend .border-radius-1;
-	overflow-y: auto;
-	z-index: 1000;
-}
-
-.cdk-option {
+.sw-dropdown-panel-option {
+	&.cdk-option {
     	@extend .padding-horizontal-2;
     	@extend .padding-vertical-1;
-   	@include add-bottom-border(1px, map.get($primary-color, 500));
+	   	@include add-bottom-border(1px, map.get($primary-color, 500));
 
-     &:last-child {
+	   	&:hover {
+	         background-color: map.get($secondary-color, 200);
+	         color: map.get($primary-color, 900);
+	    }
+
+	    &[aria-selected=true], &.cdk-option-active {
+	     	background-color: map.get($primary-color, 50) !important;
+	    	color: map.get($primary-color, 900) !important;
+	    }
+	}
+
+    &:last-child {
          border-bottom: none;
-     }
-
-     &:hover {
-         background-color: map.get($primary-color, 50);
-         color: map.get($primary-color, 900);
-     }
- }
-
- .cdk-option-active, .cdk-option[aria-selected=true] {
-     background-color: map.get($primary-color, 400);
-     color: map.get($secondary-color, 50);
-}
-
-.cdk-option-active, .cdk-option[aria-selected=true] {
-    background-color: map.get($secondary-color, 100);
+    }
 }

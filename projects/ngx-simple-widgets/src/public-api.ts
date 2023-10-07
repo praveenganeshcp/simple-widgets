@@ -23,7 +23,7 @@ export {
     SwDropdownComponent
 } from "./components/dropdown/dropdown.component";
 export {
-    KeyValuePair
+    DropdownOptions
 } from "./components/dropdown/dropdown.types";
 
 // icon module

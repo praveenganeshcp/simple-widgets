@@ -1,7 +1,7 @@
 import { CdkListboxModule, ListboxValueChangeEvent } from '@angular/cdk/listbox';
-import { Component, forwardRef, Input } from '@angular/core';
+import { Component, forwardRef, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { KeyValuePair } from './dropdown.types';
+import { DropdownOptions } from './dropdown.types';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SwIconComponent } from '../icon/icon.component';
@@ -19,6 +19,8 @@ import { SwAllowedSizes } from "../../shared/constants";
         multi: true        
     }
   ],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
     CommonModule,
@@ -30,22 +32,23 @@ import { SwAllowedSizes } from "../../shared/constants";
 })
 export class SwDropdownComponent implements ControlValueAccessor {
 
+  private _options: DropdownOptions[] = [];
+
   @Input() 
-  set options(options: KeyValuePair[]) {
+  set options(options: DropdownOptions[]) {
     this._options = options;
-    this.filteredOptions = options;
-    this._valueLabelMap = new Map(options.map(option => [option.value, option.key]));
+    this._valueLabelMap = new Map(options.map(option => [option.value, option.label]));
+  }
+
+  get options() {
+    return this._options;
   }
 
   @Input() placeholder: string = '';
 
   @Input() size: SwAllowedSizes = "md";
 
-  private _options: KeyValuePair[] = [];
-
-  public filteredOptions: KeyValuePair[] = [];
-  
-  private _valueLabelMap: Map<string, string> = new Map();
+  private _valueLabelMap: Map<unknown, string> = new Map();
 
   public isOpen: boolean = false;
 
@@ -55,14 +58,25 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   public onTouchFn: Function | null = null;
 
-  constructor() { }
-
-  get options() {
-    return this._options;
+  public readonly position = {
+        originX: 'center',
+        originY: 'bottom',
+        overlayX: 'center',
+        overlayY: 'top',
+        offsetY: 5
   }
 
-  get selectedValueVM() {
-    return this.selectedValues ? (this.selectedValues.map(selectedValue => this._valueLabelMap.get(selectedValue)).join(', ')) : '';
+  constructor() { }
+
+  public onClickOutside() {
+    this.isOpen = false;
+  }
+
+  get selectedValueLabel() {
+    return this.selectedValues ? 
+      (this.selectedValues.map(
+        selectedValue => this._valueLabelMap.get(selectedValue)
+      ).join(', ')) : '';
   }
 
   public writeValue(value: string[]): void {
@@ -76,7 +90,7 @@ export class SwDropdownComponent implements ControlValueAccessor {
   onUpdateValue(updatedValue: string[]) {
     this.selectedValues = updatedValue;
     if(this.onChangeFn) {
-        this.onChangeFn(this.selectedValues);
+        this.onChangeFn(this.selectedValues ? this.selectedValues[0] : null);
     }
   }
 
@@ -87,22 +101,17 @@ export class SwDropdownComponent implements ControlValueAccessor {
   setDisabledState?(isDisabled: boolean): void { }
 
   public onValueChange(event: ListboxValueChangeEvent<string>) {
-    this.onFilterOptions("");
     this.onUpdateValue(event.value as string[]);
     this.isOpen = false;
   }
 
-  public onFilterOptions(searchTerm: string): void {
-    if(searchTerm.length) {
-      this.isOpen = true;
-    }
-    this.filteredOptions = this._options.filter((option) => {
-      return option.key.toLowerCase().includes(searchTerm.toLowerCase());
-    })
+  public trackDropdownOption(index: number, option: DropdownOptions) {
+    return option.value;
   }
 
-  public trackDropdownOption(index: number, option: KeyValuePair) {
-    return option.key;
+  public onClearValue(event: MouseEvent) {
+    event.stopPropagation()
+    this.onUpdateValue([]);
   }
 
 }
