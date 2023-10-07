@@ -34,4 +34,8 @@ export class SwDialogComponent {
     event.stopPropagation();
   }
 
+  public onScroll() {
+    console.log('wd')
+  }
+
 }
