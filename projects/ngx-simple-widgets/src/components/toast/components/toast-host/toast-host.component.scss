@@ -2,7 +2,11 @@
 @import "../../../../assets/styles/styles.scss";
 
 .sw-toast {
-	width: 25vw;
+	z-index: 1000;
+	position: fixed;
+	right: 3%;
+	bottom: 5%;
+	background-color: rgba(0, 0, 0, 0.2); 
 	@extend .padding-2;
 	display: flex;
 	@extend .border-radius-1;

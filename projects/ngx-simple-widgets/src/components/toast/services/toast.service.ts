@@ -13,7 +13,7 @@ export class SwToastService {
     ) {}
 
     private createToastMessage(status: SwToastStatus, config: SwToastConfig): OverlayRef {
-        const positionStrategy = this.overlay.position().global().top('80vh').left('72vw');
+        const positionStrategy = this.overlay.position().global();
         const overlayRef = this.overlay.create({
             positionStrategy
         })
