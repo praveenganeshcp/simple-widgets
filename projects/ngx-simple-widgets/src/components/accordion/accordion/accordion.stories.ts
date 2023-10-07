@@ -42,12 +42,14 @@ export default {
 
 const AccordionTemplate: Story = (args) => ({
     template: `
-        <sw-accordion [expanded]="expanded" [disabled]="disabled" (toggled)="onToggled($event)">
-            <sw-accordion-title>What is Simple Widgets ?</sw-accordion-title>
-            <sw-accordion-body>
-                <p>Simple Widgets is a minimal UI component library built for Angular.<p>
-            </sw-accordion-body>
-        </sw-accordion>
+        <div style="width: 50vw;">
+            <sw-accordion [expanded]="expanded" [disabled]="disabled" (toggled)="onToggled($event)">
+                <sw-accordion-title>What is Simple Widgets ?</sw-accordion-title>
+                <sw-accordion-body>
+                    <p>Simple Widgets is a minimal UI component library built for Angular.<p>
+                </sw-accordion-body>
+            </sw-accordion>
+        </div>
     `,
     props: {
         ...args
