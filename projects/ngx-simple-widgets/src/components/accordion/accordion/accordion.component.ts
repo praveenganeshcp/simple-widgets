@@ -1,17 +1,17 @@
 import { CdkAccordionItem, CdkAccordionModule } from '@angular/cdk/accordion';
-import { 
-    ChangeDetectionStrategy, 
-    Component, 
-    Input, 
-    ViewChild,
-    Output,
-    EventEmitter
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewChild,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwIconComponent } from '../../icon/icon.component';
 
 /**
- * Renders the accordion title and body. 
+ * Renders the accordion title and body.
  */
 @Component({
   selector: 'sw-accordion',
@@ -19,46 +19,39 @@ import { SwIconComponent } from '../../icon/icon.component';
   styleUrls: ['./accordion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    CommonModule,
-    CdkAccordionModule,
-    SwIconComponent
-  ]
+  imports: [CommonModule, CdkAccordionModule, SwIconComponent],
 })
 export class SwAccordionComponent {
+  @ViewChild(CdkAccordionItem)
+  private cdkAccordionItem: CdkAccordionItem | undefined;
 
-    @ViewChild(CdkAccordionItem) 
-    private cdkAccordionItem: CdkAccordionItem | undefined;
-
-    @Input()
-    set expanded(expand: boolean) {
-        if(expand === true) {
-            if(!this.isExpanded) {
-                this.toggleAccordionBody();                
-            }
-        }
-        else {
-            if(this.isExpanded) {
-                this.toggleAccordionBody();                
-            }
-        }
+  @Input()
+  set expanded(expand: boolean) {
+    if (expand === true) {
+      if (!this.isExpanded) {
+        this.toggleAccordionBody();
+      }
+    } else {
+      if (this.isExpanded) {
+        this.toggleAccordionBody();
+      }
     }
+  }
 
-    @Input() disabled: boolean = false;
+  @Input() disabled: boolean = false;
 
-    @Output() toggled = new EventEmitter<boolean>();
+  @Output() toggled = new EventEmitter<boolean>();
 
-    constructor() { }
+  constructor() {}
 
-    public toggleAccordionBody(): void {
-        if(this.cdkAccordionItem && !this.disabled) {
-            this.cdkAccordionItem.toggle();
-            this.toggled.emit(this.isExpanded);
-        }
+  public toggleAccordionBody(): void {
+    if (this.cdkAccordionItem && !this.disabled) {
+      this.cdkAccordionItem.toggle();
+      this.toggled.emit(this.isExpanded);
     }
+  }
 
-    public get isExpanded(): boolean {
-        return this.cdkAccordionItem ? this.cdkAccordionItem.expanded : false;
-    }
-
+  public get isExpanded(): boolean {
+    return this.cdkAccordionItem ? this.cdkAccordionItem.expanded : false;
+  }
 }

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  TemplateRef,
+} from '@angular/core';
 import { SwColumnDef, SwPagination } from './types';
 import { CommonModule } from '@angular/common';
 
@@ -8,10 +13,9 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class SwTableComponent {
-
   @Input() rows: any[] = [];
 
   @Input() isLoading: boolean = false;
@@ -22,10 +26,9 @@ export class SwTableComponent {
 
   @Input() customCellTemplate: TemplateRef<unknown> | null = null;
 
-  constructor() { }
+  constructor() {}
 
   trackByIndex(index: number) {
     return index;
   }
-
 }

@@ -9,24 +9,24 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./icon.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class SwIconComponent {
+  @Input() name: CanBeNull<string> = '';
 
-    @Input() name: CanBeNull<string> = '';
+  @Input() size: CanBeNull<SwAllowedSizes> = 'md';
 
-    @Input() size: CanBeNull<SwAllowedSizes> = 'md';
+  private iconSizeAndCssClassMap: Record<SwAllowedSizes, string> = {
+    sm: 'sw-small-icon',
+    md: 'sw-medium-icon',
+    lg: 'sw-large-icon',
+  };
 
-    private iconSizeAndCssClassMap: Record<SwAllowedSizes, string> = {
-        'sm': 'sw-small-icon',
-        'md': 'sw-medium-icon',
-        'lg': 'sw-large-icon'
-    }
+  constructor() {}
 
-    constructor() {}
-
-    get iconSizeClass(): string {
-      return `material-symbols-outlined ${this.iconSizeAndCssClassMap[this.size as SwAllowedSizes]}`;
-    }
-
+  get iconSizeClass(): string {
+    return `material-symbols-outlined ${
+      this.iconSizeAndCssClassMap[this.size as SwAllowedSizes]
+    }`;
+  }
 }

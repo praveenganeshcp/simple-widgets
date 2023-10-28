@@ -7,6 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'sw-accordion-title',
   template: '<ng-content></ng-content>',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwAccordionTitleComponent { }
+export class SwAccordionTitleComponent {}

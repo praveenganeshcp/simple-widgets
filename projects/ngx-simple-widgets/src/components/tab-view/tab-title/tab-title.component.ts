@@ -6,15 +6,12 @@ import { Component, ViewChild, TemplateRef } from '@angular/core';
     <ng-template #swTabTitle>
       <ng-content></ng-content>
     </ng-template>
-
   `,
-  standalone: true
+  standalone: true,
 })
 export class SwTabTitleComponent {
-  
-  @ViewChild("swTabTitle", {read: TemplateRef}) 
+  @ViewChild('swTabTitle', { read: TemplateRef })
   public swTabTitleTemplate!: TemplateRef<unknown>;
-  
-  constructor() { }
 
+  constructor() {}
 }

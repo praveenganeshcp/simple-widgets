@@ -1,14 +1,14 @@
-import { 
-  Component, 
-  ContentChildren, 
-  Output, 
-  AfterViewInit, 
-  EventEmitter, 
-  TemplateRef, 
-  QueryList, 
-  Input 
+import {
+  Component,
+  ContentChildren,
+  Output,
+  AfterViewInit,
+  EventEmitter,
+  TemplateRef,
+  QueryList,
+  Input,
 } from '@angular/core';
-import { SwTabComponent } from "../tab/tab.component";
+import { SwTabComponent } from '../tab/tab.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,44 +16,46 @@ import { CommonModule } from '@angular/common';
   templateUrl: './tab-view.component.html',
   styleUrls: ['./tab-view.component.scss'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class SwTabViewComponent implements AfterViewInit {
-
-  @ContentChildren(SwTabComponent) 
+  @ContentChildren(SwTabComponent)
   private swTabComponents!: QueryList<SwTabComponent>;
-  
+
   public swTabTitleTemplates: TemplateRef<unknown>[] = [];
-  
+
   private swTabContentTemplates: TemplateRef<unknown>[] = [];
-  
+
   @Output() public tabClick = new EventEmitter<number>();
-  
+
   @Input() activeTabIndex: number = 0;
 
   @Input() showTabsInBottom: boolean = false;
 
-  constructor() { }
-  
+  constructor() {}
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.swTabComponents.toArray().forEach((tab) => {
-        this.swTabTitleTemplates.push(tab.swTabTitleComponent.swTabTitleTemplate);
-        this.swTabContentTemplates.push(tab.swTabContentComponent.swTabContentTemplate);
+        this.swTabTitleTemplates.push(
+          tab.swTabTitleComponent.swTabTitleTemplate,
+        );
+        this.swTabContentTemplates.push(
+          tab.swTabContentComponent.swTabContentTemplate,
+        );
       });
     }, 0);
   }
-  
+
   get activeTabContentTemplate(): TemplateRef<unknown> {
-  	return this.swTabContentTemplates[this.activeTabIndex || 0];
-  }
-  
-  public trackTitleTemplatesByIndex(index: number): number {
-  	return index;
-  }
-  
-  onTabClick(tabIndex: number) {
-  	this.tabClick.emit(tabIndex);
+    return this.swTabContentTemplates[this.activeTabIndex || 0];
   }
 
+  public trackTitleTemplatesByIndex(index: number): number {
+    return index;
+  }
+
+  onTabClick(tabIndex: number) {
+    this.tabClick.emit(tabIndex);
+  }
 }

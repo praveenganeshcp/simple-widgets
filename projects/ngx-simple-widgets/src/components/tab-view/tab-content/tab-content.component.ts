@@ -7,13 +7,11 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
       <ng-content></ng-content>
     </ng-template>
   `,
-  standalone: true
+  standalone: true,
 })
 export class SwTabContentComponent {
-
-  @ViewChild("swTabContentTemplate", {read: TemplateRef}) 
+  @ViewChild('swTabContentTemplate', { read: TemplateRef })
   public swTabContentTemplate!: TemplateRef<unknown>;
 
-  constructor() { }
-
+  constructor() {}
 }

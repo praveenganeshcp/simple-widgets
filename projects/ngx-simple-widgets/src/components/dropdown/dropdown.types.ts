@@ -1,4 +1,4 @@
 export interface DropdownOptions {
-    label: string;
-    value: unknown;
+  label: string;
+  value: unknown;
 }

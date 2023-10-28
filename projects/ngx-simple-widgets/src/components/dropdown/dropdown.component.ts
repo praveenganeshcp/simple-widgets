@@ -1,12 +1,21 @@
-import { CdkListboxModule, ListboxValueChangeEvent } from '@angular/cdk/listbox';
-import { Component, forwardRef, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import {
+  CdkListboxModule,
+  ListboxValueChangeEvent,
+} from '@angular/cdk/listbox';
+import {
+  Component,
+  forwardRef,
+  Input,
+  ViewEncapsulation,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DropdownOptions } from './dropdown.types';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SwIconComponent } from '../icon/icon.component';
-import { SwInputComponent } from "../input/input.component";
-import { SwAllowedSizes } from "../../shared/constants";
+import { SwInputComponent } from '../input/input.component';
+import { SwAllowedSizes } from '../../shared/constants';
 
 @Component({
   selector: 'sw-dropdown',
@@ -14,10 +23,10 @@ import { SwAllowedSizes } from "../../shared/constants";
   styleUrls: ['./dropdown.component.scss'],
   providers: [
     {
-        provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => SwDropdownComponent),
-        multi: true        
-    }
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SwDropdownComponent),
+      multi: true,
+    },
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,17 +36,18 @@ import { SwAllowedSizes } from "../../shared/constants";
     OverlayModule,
     SwIconComponent,
     CdkListboxModule,
-    SwInputComponent
-  ]
+    SwInputComponent,
+  ],
 })
 export class SwDropdownComponent implements ControlValueAccessor {
-
   private _options: DropdownOptions[] = [];
 
-  @Input() 
+  @Input()
   set options(options: DropdownOptions[]) {
     this._options = options;
-    this._valueLabelMap = new Map(options.map(option => [option.value, option.label]));
+    this._valueLabelMap = new Map(
+      options.map((option) => [option.value, option.label]),
+    );
   }
 
   get options() {
@@ -46,7 +56,7 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   @Input() placeholder: string = '';
 
-  @Input() size: SwAllowedSizes = "md";
+  @Input() size: SwAllowedSizes = 'md';
 
   private _valueLabelMap: Map<unknown, string> = new Map();
 
@@ -59,38 +69,39 @@ export class SwDropdownComponent implements ControlValueAccessor {
   public onTouchFn: Function | null = null;
 
   public readonly position = {
-        originX: 'center',
-        originY: 'bottom',
-        overlayX: 'center',
-        overlayY: 'top',
-        offsetY: 5
-  }
+    originX: 'center',
+    originY: 'bottom',
+    overlayX: 'center',
+    overlayY: 'top',
+    offsetY: 5,
+  };
 
-  constructor() { }
+  constructor() {}
 
   public onClickOutside() {
     this.isOpen = false;
   }
 
   get selectedValueLabel() {
-    return this.selectedValues ? 
-      (this.selectedValues.map(
-        selectedValue => this._valueLabelMap.get(selectedValue)
-      ).join(', ')) : '';
+    return this.selectedValues
+      ? this.selectedValues
+          .map((selectedValue) => this._valueLabelMap.get(selectedValue))
+          .join(', ')
+      : '';
   }
 
   public writeValue(value: string[]): void {
     this.selectedValues = value;
   }
-    
+
   registerOnChange(fn: Function): void {
     this.onChangeFn = fn;
   }
 
   onUpdateValue(updatedValue: string[]) {
     this.selectedValues = updatedValue;
-    if(this.onChangeFn) {
-        this.onChangeFn(this.selectedValues ? this.selectedValues[0] : null);
+    if (this.onChangeFn) {
+      this.onChangeFn(this.selectedValues ? this.selectedValues[0] : null);
     }
   }
 
@@ -98,7 +109,7 @@ export class SwDropdownComponent implements ControlValueAccessor {
     this.onTouchFn = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void { }
+  setDisabledState?(isDisabled: boolean): void {}
 
   public onValueChange(event: ListboxValueChangeEvent<string>) {
     this.onUpdateValue(event.value as string[]);
@@ -110,8 +121,7 @@ export class SwDropdownComponent implements ControlValueAccessor {
   }
 
   public onClearValue(event: MouseEvent) {
-    event.stopPropagation()
+    event.stopPropagation();
     this.onUpdateValue([]);
   }
-
 }
