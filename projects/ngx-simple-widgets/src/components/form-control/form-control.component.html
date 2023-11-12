@@ -1,0 +1,7 @@
+<div class="sw-form-control">
+      <label [class]="labelAndErrorMsgFontClass">{{ label }}</label>
+      <ng-content></ng-content>
+      <span *ngIf="showErrorMessage" [ngClass]="['sw-form-control__error-message', labelAndErrorMsgFontClass]">{{
+        errorMessage
+      }}</span>
+</div>

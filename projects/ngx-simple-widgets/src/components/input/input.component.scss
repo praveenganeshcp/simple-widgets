@@ -4,7 +4,7 @@
 :host {
     @include add-border(2px, map.get($primary-color, 300));
     @extend .border-radius-1;
-    @extend .padding-1;
+    padding: 0.6rem 0.4rem;
     outline: none;
     color: map.get($secondary-color, 700);
 
@@ -21,7 +21,7 @@
     	border-color: map.get($primary-color, 900);
     }
 
-    &.ng-invalid {
+    &.ng-invalid.ng-dirty {
         @include add-border(2px, map.get($info-color, error));
     }
 
