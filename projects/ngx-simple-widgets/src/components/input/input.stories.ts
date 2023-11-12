@@ -1,11 +1,13 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
 import { SwInputComponent } from './input.component';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
+
 
 export default {
   title: 'Simple Widgets/Input',
   decorators: [
     moduleMetadata({
-      imports: [SwInputComponent],
+      imports: [SwInputComponent, ReactiveFormsModule],
     }),
   ],
   argTypes: {
@@ -41,6 +43,7 @@ const InputTemplate: Story = (args) => ({
             sw-input 
             [size]="size" 
             [theme]="theme"
+            [formControl]="control"
         />
     `,
 });
@@ -49,4 +52,5 @@ export const Input = InputTemplate.bind({});
 Input.args = {
   size: 'md',
   theme: 'normal',
+  control: new FormControl(null, Validators.required)
 };

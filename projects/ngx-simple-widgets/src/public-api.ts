@@ -27,6 +27,8 @@ export { SwIconComponent } from './components/icon/icon.component';
 // input module
 export { SwInputComponent } from './components/input/input.component';
 
+export { SwFormControlComponent } from "./components/form-control/form-control.component"
+
 // sidetab module
 export { SwTabViewComponent } from './components/tab-view/tab-view/tab-view.component';
 export { SwTabComponent } from './components/tab-view/tab/tab.component';
