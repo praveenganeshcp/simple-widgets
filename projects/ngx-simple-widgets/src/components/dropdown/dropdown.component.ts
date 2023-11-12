@@ -12,7 +12,7 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DropdownOptions } from './dropdown.types';
 import { CommonModule } from '@angular/common';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { ConnectedPosition, OverlayModule } from '@angular/cdk/overlay';
 import { SwIconComponent } from '../icon/icon.component';
 import { SwInputComponent } from '../input/input.component';
 import { SwAllowedSizes } from '../../shared/constants';
@@ -68,8 +68,8 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   public onTouchFn: Function | null = null;
 
-  public readonly position = {
-    originX: 'center',
+  public readonly position: ConnectedPosition = {
+    originX: "center",
     originY: 'bottom',
     overlayX: 'center',
     overlayY: 'top',
