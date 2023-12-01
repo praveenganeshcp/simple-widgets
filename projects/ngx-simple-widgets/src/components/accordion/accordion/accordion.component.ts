@@ -18,8 +18,6 @@ import { SwIconComponent } from '../../icon/icon.component';
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [CommonModule, CdkAccordionModule, SwIconComponent],
 })
 export class SwAccordionComponent {
   @ViewChild(CdkAccordionItem)

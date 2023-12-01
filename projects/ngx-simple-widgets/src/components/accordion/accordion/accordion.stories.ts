@@ -1,17 +1,13 @@
 import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { SwAccordionComponent } from './accordion.component';
-import { SwAccordionTitleComponent } from '../accordion-title/accordion-title.component';
-import { SwAccordionBodyComponent } from '../accordion-body/accordion-body.component';
 import { action } from '@storybook/addon-actions';
+import { SwAccordionModule } from '../accordion.module';
 
 export default {
   title: 'Simple Widgets/Accordion',
   decorators: [
     moduleMetadata({
       imports: [
-        SwAccordionComponent,
-        SwAccordionTitleComponent,
-        SwAccordionBodyComponent,
+        SwAccordionModule
       ],
     }),
   ],
