@@ -2,6 +2,7 @@
 export { SwAccordionComponent } from './components/accordion/accordion/accordion.component';
 export { SwAccordionTitleComponent } from './components/accordion/accordion-title/accordion-title.component';
 export { SwAccordionBodyComponent } from './components/accordion/accordion-body/accordion-body.component';
+export { SwAccordionModule } from "./components/accordion/accordion.module";
 
 // button module
 export { SwButtonComponent } from './components/button/button.component';
