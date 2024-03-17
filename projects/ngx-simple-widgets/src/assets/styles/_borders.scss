@@ -1,23 +1,23 @@
 $allowed-border-radius: ("0": 0px, "1": 4px, "2": 8px, "3": 12px, "4": 16px, "5": 20px);
 
 @each $border-radius-key, $border-radius-value  in $allowed-border-radius {
-    .border-radius-#{$border-radius-key} {
+    .br-#{$border-radius-key} {
         border-radius: $border-radius-value;
     }
 
-    .border-bottom-left-radius-#{$border-radius-key} {
+    .bblr-#{$border-radius-key} {
         border-bottom-left-radius: $border-radius-value;
     }
     
-    .border-bottom-right-radius-#{$border-radius-key} {
+    .bbrr-#{$border-radius-key} {
         border-bottom-right-radius: $border-radius-value;
     }
     
-    .border-top-left-radius-#{$border-radius-key} {
+    .btlr-#{$border-radius-key} {
         border-top-left-radius: $border-radius-value;
     }
 
-    .border-top-right-radius-#{$border-radius-key} {
+    .btrr-#{$border-radius-key} {
         border-top-right-radius: $border-radius-value;
     }
 }

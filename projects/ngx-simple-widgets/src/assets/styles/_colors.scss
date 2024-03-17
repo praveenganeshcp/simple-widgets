@@ -29,3 +29,35 @@ $info-color: (
     warning: #FF9800,
     success: #00C853
 );
+
+@each $primary-color-key, $primary-color-value in $primary-color {
+    .sw-primary-color-#{$primary-color-key} {
+        color: $primary-color-value;
+    }
+
+    .sw-primary-bg-color-#{$primary-color-key} {
+        background-color: $primary-color-value;
+    }
+}
+
+
+@each $secondary-color-key, $secondary-color-value in $secondary-color {
+    .sw-secondary-color-#{$secondary-color-key} {
+        color: $secondary-color-value;
+    }
+
+    .sw-secondary-bg-color-#{$secondary-color-key} {
+        background-color: $secondary-color-value;
+    }
+}
+
+
+@each $info-color-key, $info-color-value in $info-color {
+    .sw-info-color-#{$info-color-key} {
+        color: $info-color-value;
+    }
+
+    .sw-info-bg-color-#{$info-color-key} {
+        background-color: $info-color-value;
+    }
+}

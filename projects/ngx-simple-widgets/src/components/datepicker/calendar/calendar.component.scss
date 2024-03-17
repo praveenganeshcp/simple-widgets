@@ -4,8 +4,7 @@
 .sw-calendar-host {
     border: 1px solid map.get($secondary-color, 600);
     width: 25vw;
-    @extend .border-radius-1;
-    @extend .border-radius-1;
+    @extend .br-1;
 
      .sw-month-calendar {
          width: 100%;

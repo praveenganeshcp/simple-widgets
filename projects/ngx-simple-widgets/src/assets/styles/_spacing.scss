@@ -6,32 +6,55 @@ $allowed-spacing-values: (
     "5": 2rem
 );
 
-$spacing-methods: "padding", "margin";
 
-@each $method in $spacing-methods {
-    @each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
-        #{'.'+ $method}-#{$allowed-spacing-key} {
-            #{$method}: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-vertical-#{$allowed-spacing-key} {
-            #{$method}-top: $allowed-spacing-value;
-            #{$method}-bottom: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-horizontal-#{$allowed-spacing-key} {
-            #{$method}-left: $allowed-spacing-value;
-            #{$method}-right: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-top-#{$allowed-spacing-key} {
-            #{$method}-top: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-bottom-#{$allowed-spacing-key} {
-            #{$method}-bottom: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-left-#{$allowed-spacing-key} {
-            #{$method}-left: $allowed-spacing-value;
-        }
-        #{'.'+ $method}-right-#{$allowed-spacing-key} {
-            #{$method}-right: $allowed-spacing-value;
-        }
-    }   
-}
+@each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+    #{'.pd'}-#{$allowed-spacing-key} {
+        padding: $allowed-spacing-value;
+    }
+    #{'.pd'}-y-#{$allowed-spacing-key} {
+        padding-top: $allowed-spacing-value;
+        padding-bottom: $allowed-spacing-value;
+    }
+    #{'.pd'}-x-#{$allowed-spacing-key} {
+        padding-left: $allowed-spacing-value;
+        padding-right: $allowed-spacing-value;
+    }
+    #{'.pd'}-top-#{$allowed-spacing-key} {
+        padding-top: $allowed-spacing-value;
+    }
+    #{'.pd'}-bottom-#{$allowed-spacing-key} {
+        padding-bottom: $allowed-spacing-value;
+    }
+    #{'.pd'}-left-#{$allowed-spacing-key} {
+        padding-left: $allowed-spacing-value;
+    }
+    #{'.pd'}-right-#{$allowed-spacing-key} {
+        padding-right: $allowed-spacing-value;
+    }
+} 
+
+@each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+    #{'.mg'}-#{$allowed-spacing-key} {
+        margin: $allowed-spacing-value;
+    }
+    #{'.mg'}-y-#{$allowed-spacing-key} {
+        margin-top: $allowed-spacing-value;
+        margin-bottom: $allowed-spacing-value;
+    }
+    #{'.mg'}-x-#{$allowed-spacing-key} {
+        margin-left: $allowed-spacing-value;
+        margin-right: $allowed-spacing-value;
+    }
+    #{'.mg'}-top-#{$allowed-spacing-key} {
+        margin-top: $allowed-spacing-value;
+    }
+    #{'.mg'}-bottom-#{$allowed-spacing-key} {
+        margin-bottom: $allowed-spacing-value;
+    }
+    #{'.mg'}-left-#{$allowed-spacing-key} {
+        margin-left: $allowed-spacing-value;
+    }
+    #{'.mg'}-right-#{$allowed-spacing-key} {
+        margin-right: $allowed-spacing-value;
+    }
+} 

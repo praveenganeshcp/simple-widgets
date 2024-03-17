@@ -7,8 +7,8 @@
 	width: 50%;
 
 	td {
-		@extend .padding-vertical-1;
-		@extend .padding-horizontal-2;
+		@extend .pd-y-1;
+		@extend .pd-x-2;
 	}	
 
 	thead {
@@ -23,11 +23,11 @@
 	         flex: var(--sw-table-cell-flex);
 
 	         &:nth-child(1) {
-	             @extend .border-top-left-radius-1;
+	             @extend .btlr-1;
 	         }
 
 	         &:last-child {
-	             @extend .border-top-right-radius-1;
+	             @extend .btrr-1;
 	         }
 	     }
 	 }
@@ -43,11 +43,11 @@
 
          &:last-child td {
              &:nth-child(1) {
-                 @extend .border-bottom-left-radius-1;
+                 @extend .bblr-1;
              }
 
              &:last-child {
-                 @extend .border-bottom-right-radius-1;
+                 @extend .bbrr-1;
              }
          }
      }

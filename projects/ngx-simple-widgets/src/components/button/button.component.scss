@@ -2,9 +2,9 @@
 @import "../../assets/styles/styles.scss";
 
 :host {
-     @extend .border-radius-1;
+     @extend .br-1;
      @extend .border-none;
-     @extend .padding-1;
+     @extend .pd-1;
      @extend .font-weight-500;
      outline: none;
      background: none;

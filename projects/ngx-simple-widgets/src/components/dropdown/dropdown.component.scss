@@ -32,7 +32,7 @@ $sw-dropdown-width: 21vw;
 		background-color: white;
 		@include add-border(1px, map.get($primary-color, 500));
 		box-shadow: 2px 2px 4px 4px map.get($secondary-color, 300);
-		@extend .border-radius-1;
+		@extend .br-1;
 		overflow-y: auto;
 		z-index: 1000;
 	}
@@ -40,8 +40,8 @@ $sw-dropdown-width: 21vw;
 
 .sw-dropdown-panel-option {
 	&.cdk-option {
-    	@extend .padding-horizontal-2;
-    	@extend .padding-vertical-1;
+    	@extend .pd-x-2;
+    	@extend .pd-y-1;
 	   	@include add-bottom-border(1px, map.get($primary-color, 500));
 
 	   	&:hover {
