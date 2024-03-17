@@ -8,10 +8,10 @@
     justify-content: space-between;
     background-color: map.get($primary-color, 600);
     color: map.get($secondary-color, 50);
-    @extend .padding-1;
+    @extend .pd-1;
     box-sizing: border-box;
-    @extend .border-top-left-radius-1;
-    @extend .border-top-right-radius-1;
+    @extend .btlr-1;
+    @extend .btrr-1;
 
     div > button {
         display: inline;

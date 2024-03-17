@@ -27,7 +27,7 @@
     }
 
     .sw-calendar-month__week_date {
-        @extend .padding-1;
+        @extend .pd-1;
 
         &:hover {
             outline: 1px solid map.get($secondary-color, 700);

@@ -13,8 +13,8 @@
             background-color: map.get($primary-color, 500);
             color: map.get($primary-color, 50);
             box-sizing: border-box;
-            @extend .padding-vertical-1;
-            @extend .padding-horizontal-2;
+            @extend .pd-y-1;
+            @extend .pd-x-2;
             @extend .font-weight-600;
         }
 
@@ -35,8 +35,8 @@
             width: 100%;
             display: var(--sw-accordion-body-display);
             box-sizing: border-box;
-            @extend .padding-horizontal-2;
-            @extend .padding-vertical-1;
+            @extend .pd-x-2;
+            @extend .pd-y-1;
         }
     }
 }
