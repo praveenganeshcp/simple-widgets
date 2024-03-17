@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
 
+:host {
+    --sw-icon-size: initial;
+}
+
 $sw-icon-sizes: (
     "small": 16px,
     "medium": 20px,
@@ -8,8 +12,8 @@ $sw-icon-sizes: (
 
 @each $icon-size, $icon-size-value in $sw-icon-sizes {
     .sw-#{$icon-size}-icon {
-        height: $icon-size-value;
-        width: $icon-size-value;
-        font-size: $icon-size-value;
+        height: var(--sw-icon-size, #{$icon-size-value});
+        width: var(--sw-icon-size, #{$icon-size-value});
+        font-size: var(--sw-icon-size, #{$icon-size-value});
     }
 }
