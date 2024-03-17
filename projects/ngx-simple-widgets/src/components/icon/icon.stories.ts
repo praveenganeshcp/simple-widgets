@@ -24,12 +24,18 @@ export default {
       description:
         'Name of the icon. NOTE: Only material icons names are valid',
     },
+    iconSize: {
+      control: 'text',
+      name: '--sw-icon-size',
+      description:
+        'CSS variable to control size of the icon',
+    },
   },
 } as Meta;
 
 const IconTemplate: Story = (args) => ({
   template: `
-        <sw-icon [name]="name" [size]="size"></sw-icon>
+        <sw-icon [name]="name" [style.--sw-icon-size]="iconSize" [size]="size"></sw-icon>
     `,
   props: {
     ...args,
