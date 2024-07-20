@@ -15,30 +15,18 @@
 	align-items: center;
 	justify-content: flex-start;
 	flex-direction: column;
-	border: 1px solid map.get($primary-color, 900);
-	border-radius: 4px;
 
 	&.sw-bottom-tab-view {
 		flex-direction: column-reverse;
 	}
 
 	.sw-tab-view__titles {
-		border: 0px solid map.get($primary-color, 900);
+		border: 1px solid map.get($primary-color, 900);
 		width: 100%;
 		height: var(--sw-tab-view-title-height);
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
-		border-bottom-width: 1px;
-		border-top-width: 0px;
-		background-color: map.get($secondary-color, 300);
-
-
-		&.bottom-tab-view-titles {
-			border-bottom-width: 0px;
-			border-top-width: 1px;
-			justify-content: space-evenly;
-		}
 
 		.sw-tab-title {
 			height: 100%;
@@ -55,13 +43,13 @@
 			}
 
 			&:hover {
-				background-color: map.get($primary-color, 500);
+				background-color: map.get($primary-color, 200);
 				color: map.get($secondary-color, 50);
 			}
 
 			&.sw-active-tab-title {
-				background-color: map.get($primary-color, 700);
-				color: map.get($secondary-color, 50);
+				background-color: map.get($primary-color, 50);
+				color: map.get($primary-color, 800);
 			}
 		}
 	}

@@ -19,21 +19,22 @@
 	thead {
 
 	     tr {
-	         color: map.get($primary-color, 50);
+	         color: map.get($secondary-color, 900);
 	     }
 
 	     td {
 	         @extend .font-weight-bold;
-	         background-color: map.get($primary-color, 500);
+	         background-color: map.get($secondary-color, 200);
 	         flex: var(--sw-table-cell-flex);
+			 @include add-top-border(1px, map.get($secondary-color, 300));
 
-	         &:nth-child(1) {
-	             @extend .btlr-1;
-	         }
+			 &:first-child {
+				@include add-left-border(1px, map.get($secondary-color, 300));
+			}
 
-	         &:last-child {
-	             @extend .btrr-1;
-	         }
+			&:last-child {
+				@include add-right-border(1px, map.get($secondary-color, 300));
+			}
 	     }
 	 }
 
@@ -41,20 +42,23 @@
 
      tr {
          td {
-             flex: var(--sw-table-cell-flex);
-             background-color: map.get($secondary-color, 200);
-            @include add-bottom-border(1px, map.get($secondary-color, 500));
+            flex: var(--sw-table-cell-flex);
+            @include add-bottom-border(1px, map.get($secondary-color, 300));
+
+			&:first-child {
+				@include add-left-border(1px, map.get($secondary-color, 300));
+			}
+
+			&:last-child {
+				@include add-right-border(1px, map.get($secondary-color, 300));
+			}
          }
 
-         &:last-child td {
-             &:nth-child(1) {
-                 @extend .bblr-1;
-             }
-
-             &:last-child {
-                 @extend .bbrr-1;
-             }
-         }
+		 &:nth-child(even) {
+			td {
+				background-color: map.get($secondary-color, 50);
+			}
+		}
      }
 	}
 }
