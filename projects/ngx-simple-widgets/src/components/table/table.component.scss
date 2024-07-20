@@ -1,10 +1,15 @@
 @use "sass:map";
 @import "../../assets/styles/styles.scss";
 
+:host {
+	--sw-table-width: 50%;
+	--sw-table-cell-alignment: left;
+}
+
 .sw-table {
 
-	text-align: left;
-	width: 50%;
+	text-align: var(--sw-table-cell-alignment);
+	width: var(--sw-table-width);
 
 	td {
 		@extend .pd-y-1;
