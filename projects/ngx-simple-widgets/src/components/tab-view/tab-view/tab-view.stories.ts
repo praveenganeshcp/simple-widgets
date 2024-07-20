@@ -1,8 +1,5 @@
 import { Meta, moduleMetadata, Story } from '@storybook/angular';
 import { SwTabViewComponent } from './tab-view.component';
-import { SwTabComponent } from '../tab/tab.component';
-import { SwTabTitleComponent } from '../tab-title/tab-title.component';
-import { SwTabContentComponent } from '../tab-content/tab-content.component';
 
 export default {
   title: 'Simple Widgets/Tab view',
@@ -10,9 +7,6 @@ export default {
     moduleMetadata({
       imports: [
         SwTabViewComponent,
-        SwTabComponent,
-        SwTabTitleComponent,
-        SwTabContentComponent,
       ],
     }),
   ],
@@ -65,6 +59,14 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    tabNames: {
+      name: 'tabNames',
+      description: 'List of tab names',
+      control: 'array',
+      table: {
+        defaultValue: { summary: "[]" },
+      },
+    },
   },
 } as Meta;
 
@@ -77,19 +79,9 @@ const TabViewTemplate: Story = (args) => ({
 			[style.--sw-tab-view-content-height]="contentHeight"
 			[activeTabIndex]="activeTabIndex" 
 			[showTabsInBottom]="showTabsInBottom"
+      [tabNames]="tabNames"
 		>
-        <sw-tab>
-            <sw-tab-title>tab 1</sw-tab-title>
-            <sw-tab-content>tab 1 content</sw-tab-content>
-        </sw-tab>
-        <sw-tab>
-            <sw-tab-title>tab 2</sw-tab-title>
-            <sw-tab-content>tab 2 content</sw-tab-content>
-        </sw-tab>
-        <sw-tab>
-            <sw-tab-title>tab 3</sw-tab-title>
-            <sw-tab-content>tab 3 content</sw-tab-content>
-        </sw-tab>
+      <h1>Hello</h1>
    </sw-tab-view>
 	`,
   props: {
@@ -105,4 +97,5 @@ TabView.args = {
   height: '50vh',
   titleHeight: '15%',
   contentHeight: '85%',
+  tabNames: ['Tab1', 'Tab2', 'Tab3']
 };

@@ -1,18 +1,18 @@
 <div class="sw-tab-view" [class.sw-bottom-tab-view]="showTabsInBottom">
 	<div class="sw-tab-view__titles" [class.bottom-tab-view-titles]="showTabsInBottom">
 		<ng-container 
-			*ngFor="let swTabTitleTemplate of swTabTitleTemplates; let tabIndex=index; trackBy: trackTitleTemplatesByIndex"
+			*ngFor="let tabName of tabNames; let tabIndex=index;"
 		>
 			<div
 				class="sw-tab-title"
 				[class.sw-active-tab-title]="activeTabIndex === tabIndex"
 				(click)="onTabClick(tabIndex)"
 			>
-				<ng-container *ngTemplateOutlet="swTabTitleTemplate"></ng-container>
+				{{ tabName }}
 			</div>
 		</ng-container>
 	</div>
 	<div class="sw-tab-view__content">
-		<ng-container *ngTemplateOutlet="activeTabContentTemplate"></ng-container>
+		<ng-content></ng-content>
 	</div>
 </div>
