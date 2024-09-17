@@ -27,7 +27,7 @@ jobs:
       - name: Build library
         run: npm run build:lib
       - name: Upload library build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: lib-build-artifacts
           path: ./dist
