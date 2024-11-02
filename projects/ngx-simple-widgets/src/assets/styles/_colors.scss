@@ -66,4 +66,12 @@ $info-color: (
     @each $primary-color-key, $primary-color-value in $primary-color {
         --sw-primary-color-#{$primary-color-key}: #{$primary-color-value};
     }
+
+    @each $secondary-color-key, $secondary-color-value in $secondary-color {
+        --sw-secondary-color-#{$secondary-color-key}: #{$secondary-color-value};
+    }
+
+    @each $info-color-key, $info-color-value in $info-color {
+        --sw-info-color-#{$info-color-key}: #{$info-color-value};
+    }
   }

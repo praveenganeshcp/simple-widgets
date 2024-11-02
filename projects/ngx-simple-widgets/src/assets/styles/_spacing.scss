@@ -58,3 +58,13 @@ $allowed-spacing-values: (
         margin-right: $allowed-spacing-value;
     }
 } 
+
+@each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+    #{'.row-gap'}-#{$allowed-spacing-key} {
+        row-gap: $allowed-spacing-value;
+    }
+
+    #{'.column-gap'}-#{$allowed-spacing-key} {
+        column-gap: $allowed-spacing-value;
+    }
+}
