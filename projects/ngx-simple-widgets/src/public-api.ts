@@ -56,3 +56,7 @@ export { SW_TOOLTIP_POSITION } from "./components/tooltip/tooltip.constants";
 // shared
 export { SwAllowedSizes } from "./shared/constants";
 export { CanBeNull } from "./shared/types";
+
+// side panel menu
+export { SwSidePanelMenuComponent } from "./components/side-panel-menu/side-panel-menu.component";
+export { SwSidepanelMenuItem } from "./components/side-panel-menu/types";
