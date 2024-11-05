@@ -1,0 +1,18 @@
+<div class="list-view">
+  <div
+    class="list-view-heading flex align-items-center justify-space-evenly sw-secondary-bg-color-50 pd-1"
+  >
+    <h4 class="medium-font pd-1 mg-0 font-weight-500">{{ title }}</h4>
+  </div>
+  <div
+    *ngFor="let item of items; trackBy: trackItems"
+    [class.sw-primary-bg-color-50]="selectedItemId === item.id"
+    (click)="selectItem.emit(item)"
+    class="list-item flex align-items-center pd-1 column-gap-1"
+  >
+    <sw-icon *ngIf="item.icon" [size]="'lg'" [name]="item.icon"></sw-icon>
+    <span class="small-font">
+      {{ item.text }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+@use "sass:map";
+@import "../../assets/styles/styles.scss";
+
+.list-view {
+  border: 0.5px solid map.get($secondary-color, 400);
+
+  .list-item {
+    cursor: pointer;
+
+    &:hover {
+      background-color: map.get($secondary-color, 50);
+    }
+  }
+
+  .list-item,
+  .list-view-heading {
+    border-bottom: 0.25px solid map.get($secondary-color, 300);
+  }
+}
