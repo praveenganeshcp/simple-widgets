@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 import {
   Component,
   Input,
@@ -7,12 +7,12 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-} from '@angular/core';
+} from "@angular/core";
 
 @Component({
-  selector: 'sw-month-calendar',
-  templateUrl: './month.component.html',
-  styleUrls: ['./month.component.scss'],
+  selector: "sw-month-calendar",
+  templateUrl: "./month.component.html",
+  styleUrls: ["./month.component.scss"],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule],
@@ -28,7 +28,7 @@ export class SwMonthCalendarComponent implements OnInit, OnChanges {
 
   calendar: number[][] = [];
 
-  weekDays: string[] = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  weekDays: string[] = ["S", "M", "T", "W", "T", "F", "S"];
 
   currentMonthStartDate: Date | null = null;
 

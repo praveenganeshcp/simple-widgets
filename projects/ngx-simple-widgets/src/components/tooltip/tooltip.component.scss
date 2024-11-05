@@ -2,10 +2,10 @@
 @import "../../assets/styles/styles.scss";
 
 .sw-tooltip-text {
-    max-width: 12rem;
-    background-color: map.get($secondary-color, 800);
-    color: map.get($secondary-color, 50);
-    @extend .pd-1;
-    @extend .br-1;
-    font-size: 12px;
+  max-width: 12rem;
+  background-color: map.get($secondary-color, 800);
+  color: map.get($secondary-color, 50);
+  @extend .pd-1;
+  @extend .br-1;
+  font-size: 12px;
 }

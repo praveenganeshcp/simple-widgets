@@ -2,16 +2,16 @@
 @import "../../assets/styles/styles.scss";
 
 :host {
-	--sw-loader-height: 18px;
-	--sw-loader-width: 18px;
+  --sw-loader-height: 18px;
+  --sw-loader-width: 18px;
 }
 
 .sw-loader {
-	height: var(--sw-loader-height);
-	width: var(--sw-loader-width);
-	display: inline-block;
-	@include add-border(3px, map.get($primary-color, 900));
-	border-top-color: map.get($secondary-color, 200);
-	border-bottom-color: map.get($secondary-color, 200);
-	border-radius: 50%;
+  height: var(--sw-loader-height);
+  width: var(--sw-loader-width);
+  display: inline-block;
+  @include add-border(3px, map.get($primary-color, 900));
+  border-top-color: map.get($secondary-color, 200);
+  border-bottom-color: map.get($secondary-color, 200);
+  border-radius: 50%;
 }

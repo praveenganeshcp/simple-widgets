@@ -1,1 +1,1 @@
-export type SwAllowedSizes = 'sm' | 'md' | 'lg';
+export type SwAllowedSizes = "sm" | "md" | "lg";

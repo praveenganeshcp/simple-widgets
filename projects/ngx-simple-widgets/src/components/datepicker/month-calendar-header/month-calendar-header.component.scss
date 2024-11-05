@@ -2,23 +2,24 @@
 @import "../../../assets/styles/styles.scss";
 
 .sw-month-calendar-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: map.get($primary-color, 600);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: map.get($primary-color, 600);
+  color: map.get($secondary-color, 50);
+  @extend .pd-1;
+  box-sizing: border-box;
+  @extend .btlr-1;
+  @extend .btrr-1;
+
+  div > button {
+    display: inline;
     color: map.get($secondary-color, 50);
-    @extend .pd-1;
-    box-sizing: border-box;
-    @extend .btlr-1;
-    @extend .btrr-1;
 
-    div > button {
-        display: inline;
-        color: map.get($secondary-color, 50);
-
-        &:hover, &:focus {
-            color: initial;
-        }
+    &:hover,
+    &:focus {
+      color: initial;
     }
+  }
 }

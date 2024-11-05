@@ -4,10 +4,6 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "assets": [
-    "./styles.css"
-  ],
-  "allowedNonPeerDependencies": [
-    "@angular/cdk"
-  ]
+  "assets": ["./styles.css"],
+  "allowedNonPeerDependencies": ["@angular/cdk"]
 }

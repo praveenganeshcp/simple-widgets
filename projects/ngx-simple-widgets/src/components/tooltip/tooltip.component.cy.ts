@@ -1,6 +1,6 @@
-import { SwTooltipComponent } from './tooltip.component';
+import { SwTooltipComponent } from "./tooltip.component";
 
-describe('tooltip component should', () => {
+describe("tooltip component should", () => {
   function mountComponent() {
     cy.mount(
       `
@@ -18,23 +18,23 @@ describe('tooltip component should', () => {
     mountComponent();
   });
 
-  it('render tooltip when hovered on host element', () => {
-    cy.get('#host').trigger('mouseenter');
-    cy.get('.cdk-overlay-container .sw-tooltip').should('be.visible');
+  it("render tooltip when hovered on host element", () => {
+    cy.get("#host").trigger("mouseenter");
+    cy.get(".cdk-overlay-container .sw-tooltip").should("be.visible");
   });
 
-  it('hide tooltip when hovered away from host element', () => {
-    cy.get('#host').trigger('mouseenter');
-    cy.get('.cdk-overlay-container .sw-tooltip').should('be.visible');
-    cy.get('#host').trigger('mouseleave');
-    cy.get('.cdk-overlay-container .sw-tooltip').should('not.exist');
+  it("hide tooltip when hovered away from host element", () => {
+    cy.get("#host").trigger("mouseenter");
+    cy.get(".cdk-overlay-container .sw-tooltip").should("be.visible");
+    cy.get("#host").trigger("mouseleave");
+    cy.get(".cdk-overlay-container .sw-tooltip").should("not.exist");
   });
 
-  it('render input text in tooltip when hovered on host element', () => {
-    cy.get('#host').trigger('mouseenter');
-    cy.get('.cdk-overlay-container .sw-tooltip').should(
-      'contains.text',
-      'hello',
+  it("render input text in tooltip when hovered on host element", () => {
+    cy.get("#host").trigger("mouseenter");
+    cy.get(".cdk-overlay-container .sw-tooltip").should(
+      "contains.text",
+      "hello",
     );
   });
 });

@@ -1,13 +1,13 @@
-import { Component, Inject } from '@angular/core';
-import { SwDialogModule } from '../../dialog.module';
-import { SwDialogService } from '../../services/dialog.service';
-import { SwDialogRef } from '../../models/dialog.ref';
-import { SW_DIALOG_DATA } from '../../dialog.constant';
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
+import { Component, Inject } from "@angular/core";
+import { SwDialogModule } from "../../dialog.module";
+import { SwDialogService } from "../../services/dialog.service";
+import { SwDialogRef } from "../../models/dialog.ref";
+import { SW_DIALOG_DATA } from "../../dialog.constant";
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
 
 @Component({
   standalone: true,
-  selector: 'sw-dialog-demo',
+  selector: "sw-dialog-demo",
   template: `<sw-dialog size="sm">
     <h2>Welcome to {{ data.libName }}</h2>
     <button (click)="closeModal()">close</button>
@@ -21,13 +21,13 @@ class DialogDemoComponent {
   ) {}
 
   public closeModal() {
-    this.dialogRef.close('Congrats!');
+    this.dialogRef.close("Congrats!");
   }
 }
 
 @Component({
   standalone: true,
-  selector: 'sw-dialog-demo-host',
+  selector: "sw-dialog-demo-host",
   template: `<button (click)="openDialog()">Open Dialog</button>`,
   imports: [SwDialogModule],
 })
@@ -36,7 +36,7 @@ class DialogDemoHostComponent {
 
   public openDialog() {
     const ref = this.dialog.open(DialogDemoComponent, {
-      data: { libName: 'Simple Widgets' },
+      data: { libName: "Simple Widgets" },
     });
     // prints "Congrats!"
     ref.afterClosed$.subscribe(console.log);
@@ -44,13 +44,13 @@ class DialogDemoHostComponent {
 }
 
 export default {
-  title: 'Simple Widgets/Dialog',
+  title: "Simple Widgets/Dialog",
   decorators: [
     moduleMetadata({
       imports: [DialogDemoHostComponent],
     }),
   ],
-  tags: ['docs'],
+  tags: ["docs"],
 } as Meta;
 
 export const Dialog: Story = (args) => ({

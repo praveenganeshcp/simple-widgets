@@ -1,10 +1,9 @@
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { SwInputComponent } from './input.component';
-import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
-
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
+import { SwInputComponent } from "./input.component";
+import { ReactiveFormsModule, FormControl, Validators } from "@angular/forms";
 
 export default {
-  title: 'Simple Widgets/Input',
+  title: "Simple Widgets/Input",
   decorators: [
     moduleMetadata({
       imports: [SwInputComponent, ReactiveFormsModule],
@@ -12,21 +11,21 @@ export default {
   ],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-      name: 'Size',
-      description: 'Controls input font-size',
+      control: "select",
+      options: ["sm", "md", "lg"],
+      name: "Size",
+      description: "Controls input font-size",
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: "md" },
       },
     },
     theme: {
-      control: 'select',
-      options: ['normal', 'underlined'],
-      name: 'Theme',
-      description: 'Controls input theme',
+      control: "select",
+      options: ["normal", "underlined"],
+      name: "Theme",
+      description: "Controls input theme",
       table: {
-        defaultValue: { summary: 'normal' },
+        defaultValue: { summary: "normal" },
       },
     },
   },
@@ -50,7 +49,7 @@ const InputTemplate: Story = (args) => ({
 
 export const Input = InputTemplate.bind({});
 Input.args = {
-  size: 'md',
-  theme: 'normal',
-  control: new FormControl(null, Validators.required)
+  size: "md",
+  theme: "normal",
+  control: new FormControl(null, Validators.required),
 };

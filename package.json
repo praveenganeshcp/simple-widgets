@@ -13,7 +13,8 @@
     "storybook": "ng run ngx-simple-widgets:storybook",
     "build-storybook": "ng run ngx-simple-widgets:build-storybook",
     "commit": "cz",
-    "semantic-release": "semantic-release --branches main"
+    "semantic-release": "semantic-release --branches main",
+    "prettier": "prettier . --write"
   },
   "private": true,
   "dependencies": {

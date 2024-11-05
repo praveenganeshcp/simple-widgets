@@ -1,6 +1,6 @@
-import { SwIconComponent } from './icon.component';
+import { SwIconComponent } from "./icon.component";
 
-describe('SwIconComponent', () => {
+describe("SwIconComponent", () => {
   function mountComponent(iconName?: string) {
     cy.mount(SwIconComponent, {
       componentProperties: {
@@ -10,12 +10,12 @@ describe('SwIconComponent', () => {
   }
 
   it("should render home icon if 'home' is passed as icon name", () => {
-    mountComponent('home');
-    cy.get('mat-icon').should('have.text', 'home');
+    mountComponent("home");
+    cy.get("mat-icon").should("have.text", "home");
   });
 
-  it('should not render the icon if name is not specified', () => {
+  it("should not render the icon if name is not specified", () => {
     mountComponent();
-    cy.get('mat-icon').should('have.text', '');
+    cy.get("mat-icon").should("have.text", "");
   });
 });

@@ -3,14 +3,14 @@ import {
   Component,
   Input,
   TemplateRef,
-} from '@angular/core';
-import { SwColumnDef, SwPagination } from './types';
-import { CommonModule } from '@angular/common';
+} from "@angular/core";
+import { SwColumnDef, SwPagination } from "./types";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'sw-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  selector: "sw-table",
+  templateUrl: "./table.component.html",
+  styleUrls: ["./table.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule],

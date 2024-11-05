@@ -1,10 +1,14 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { ReactiveFormsModule, FormControl as AngularFormControl, Validators } from '@angular/forms';
-import { SwFormControlComponent } from './form-control.component';
+import { Meta, moduleMetadata, Story } from "@storybook/angular";
+import {
+  ReactiveFormsModule,
+  FormControl as AngularFormControl,
+  Validators,
+} from "@angular/forms";
+import { SwFormControlComponent } from "./form-control.component";
 import { SwInputComponent } from "../input/input.component";
 
 export default {
-  title: 'Simple Widgets/Form control',
+  title: "Simple Widgets/Form control",
   decorators: [
     moduleMetadata({
       imports: [SwFormControlComponent, SwInputComponent, ReactiveFormsModule],
@@ -25,7 +29,7 @@ const FormControlTemplate: Story = (args) => ({
 
 export const FormControl = FormControlTemplate.bind({});
 FormControl.args = {
-  control: new AngularFormControl('', [Validators.required]),
+  control: new AngularFormControl("", [Validators.required]),
   label: "Username",
-  errorMessagesMap: {}
+  errorMessagesMap: {},
 };

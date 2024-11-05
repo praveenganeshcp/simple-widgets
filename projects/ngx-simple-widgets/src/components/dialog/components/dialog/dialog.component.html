@@ -1,14 +1,11 @@
-<div 
-	class="sw-dialog"
-	(click)="onCloseModal()"
-	
->
-	<div (click)="onPreventPropagation($event)"
-		class="sw-dialog-content"
-		[class.sw-dialog-small-size]="isSmallSize"
-		[class.sw-dialog-medium-size]="isMediumSize"
-		[class.sw-dialog-large-size]="isLargeSize"
-	>
-		<ng-content></ng-content>
-	</div>
+<div class="sw-dialog" (click)="onCloseModal()">
+  <div
+    (click)="onPreventPropagation($event)"
+    class="sw-dialog-content"
+    [class.sw-dialog-small-size]="isSmallSize"
+    [class.sw-dialog-medium-size]="isMediumSize"
+    [class.sw-dialog-large-size]="isLargeSize"
+  >
+    <ng-content></ng-content>
+  </div>
 </div>

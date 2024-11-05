@@ -2,68 +2,60 @@
 @import "../../assets/styles/styles.scss";
 
 :host {
-	--sw-table-width: 50%;
-	--sw-table-cell-alignment: left;
+  --sw-table-width: 50%;
+  --sw-table-cell-alignment: left;
 }
 
 .sw-table {
+  text-align: var(--sw-table-cell-alignment);
+  width: var(--sw-table-width);
 
-	text-align: var(--sw-table-cell-alignment);
-	width: var(--sw-table-width);
+  td {
+    @extend .pd-y-1;
+    @extend .pd-x-2;
+  }
 
-	td {
-		@extend .pd-y-1;
-		@extend .pd-x-2;
-	}	
+  thead {
+    tr {
+      color: map.get($secondary-color, 900);
+    }
 
-	thead {
+    td {
+      @extend .font-weight-bold;
+      background-color: map.get($secondary-color, 200);
+      flex: var(--sw-table-cell-flex);
+      @include add-top-border(1px, map.get($secondary-color, 300));
 
-	     tr {
-	         color: map.get($secondary-color, 900);
-	     }
+      &:first-child {
+        @include add-left-border(1px, map.get($secondary-color, 300));
+      }
 
-	     td {
-	         @extend .font-weight-bold;
-	         background-color: map.get($secondary-color, 200);
-	         flex: var(--sw-table-cell-flex);
-			 @include add-top-border(1px, map.get($secondary-color, 300));
+      &:last-child {
+        @include add-right-border(1px, map.get($secondary-color, 300));
+      }
+    }
+  }
 
-			 &:first-child {
-				@include add-left-border(1px, map.get($secondary-color, 300));
-			}
+  tbody {
+    tr {
+      td {
+        flex: var(--sw-table-cell-flex);
+        @include add-bottom-border(1px, map.get($secondary-color, 300));
 
-			&:last-child {
-				@include add-right-border(1px, map.get($secondary-color, 300));
-			}
-	     }
-	 }
+        &:first-child {
+          @include add-left-border(1px, map.get($secondary-color, 300));
+        }
 
-	tbody {
+        &:last-child {
+          @include add-right-border(1px, map.get($secondary-color, 300));
+        }
+      }
 
-     tr {
-         td {
-            flex: var(--sw-table-cell-flex);
-            @include add-bottom-border(1px, map.get($secondary-color, 300));
-
-			&:first-child {
-				@include add-left-border(1px, map.get($secondary-color, 300));
-			}
-
-			&:last-child {
-				@include add-right-border(1px, map.get($secondary-color, 300));
-			}
-         }
-
-		 &:nth-child(even) {
-			td {
-				background-color: map.get($secondary-color, 50);
-			}
-		}
-     }
-	}
+      &:nth-child(even) {
+        td {
+          background-color: map.get($secondary-color, 50);
+        }
+      }
+    }
+  }
 }
-
-
-
-
-

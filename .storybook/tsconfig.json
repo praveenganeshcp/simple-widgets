@@ -1,9 +1,7 @@
 {
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
-    "types": [
-      "node"
-    ],
+    "types": ["node"],
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
@@ -13,11 +11,6 @@
     "../projects/**/*.cy.ts",
     "../projects/**/*.spec.ts"
   ],
-  "include": [
-    "../src/**/*.ts",
-    "../projects/**/*.ts"
-  ],
-  "files": [
-    "./typings.d.ts"
-  ]
+  "include": ["../src/**/*.ts", "../projects/**/*.ts"],
+  "files": ["./typings.d.ts"]
 }

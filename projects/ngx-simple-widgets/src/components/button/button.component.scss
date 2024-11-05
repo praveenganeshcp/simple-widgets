@@ -2,144 +2,139 @@
 @import "../../assets/styles/styles.scss";
 
 :host {
-     @extend .br-1;
-     @extend .border-none;
-     @extend .pd-1;
-     @extend .font-weight-500;
-     outline: none;
-     background: none;
-     display: flex; 
-     justify-content: space-evenly;
-     align-items: center;
+  @extend .br-1;
+  @extend .border-none;
+  @extend .pd-1;
+  @extend .font-weight-500;
+  outline: none;
+  background: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 
-    &[showing-loader=true] {
-        sw-loader {
-            --sw-loader-height: 12px;
-            --sw-loader-width: 12px;
-        }
+  &[showing-loader="true"] {
+    sw-loader {
+      --sw-loader-height: 12px;
+      --sw-loader-width: 12px;
+    }
+  }
+
+  &[sw-primary-button] {
+    background-color: map.get($primary-color, 500);
+    color: map.get($primary-color, 50);
+
+    &:hover,
+    &:focus {
+      background-color: map.get($primary-color, 900);
     }
 
-     &[sw-primary-button] {
-         background-color: map.get($primary-color, 500);
-         color: map.get($primary-color, 50);
+    &[disabled] {
+      background-color: map.get($secondary-color, 400);
 
-         &:hover, &:focus {
-	         background-color: map.get($primary-color, 900);
-         }
+      &:hover,
+      &:focus {
+        background-color: map.get($secondary-color, 400);
+      }
+    }
 
-         &[disabled] {
-            background-color: map.get($secondary-color, 400);
+    &[showing-loader="true"] {
+      background-color: map.get($primary-color, 100);
 
-            &:hover, &:focus {
-                background-color: map.get($secondary-color, 400);
-            }
-         }
+      &:hover,
+      &:focus {
+        background-color: map.get($primary-color, 100);
+      }
+    }
+  }
 
-         &[showing-loader=true] {
-            background-color: map.get($primary-color, 100);
+  &[sw-bordered-button] {
+    border: 1px solid map.get($primary-color, 600);
+    color: map.get($primary-color, 600);
 
-            &:hover, &:focus {
-                background-color: map.get($primary-color, 100);
-            }
-         }
+    &:hover,
+    &:focus {
+      background-color: map.get($primary-color, 900);
+      color: map.get($primary-color, 50);
+    }
 
-     }
+    &[disabled] {
+      border: 1px solid map.get($secondary-color, 400);
+      color: map.get($secondary-color, 400);
 
-     &[sw-bordered-button] {
-         border: 1px solid map.get($primary-color, 600);
-         color: map.get($primary-color, 600);
+      &:hover,
+      &:focus {
+        background-color: map.get($secondary-color, 50);
+      }
+    }
+  }
 
-         &:hover, &:focus {
-        	background-color: map.get($primary-color, 900);
-         	color: map.get($primary-color, 50);
-         }
+  &[sw-danger-button] {
+    background-color: map.get($info-color, "error");
+    color: map.get($secondary-color, 50);
 
-         &[disabled] {
-            border: 1px solid map.get($secondary-color, 400);
-            color: map.get($secondary-color, 400);
+    &[disabled] {
+      background-color: map.get($secondary-color, 400);
 
-            &:hover, &:focus {
-                background-color: map.get($secondary-color, 50);
-            }
-         }
-     }
+      &:hover,
+      &:focus {
+        background-color: map.get($secondary-color, 400);
+      }
+    }
+  }
 
+  &[sw-text-button] {
+    color: map.get($primary-color, 500);
 
-     &[sw-danger-button] {
-         background-color: map.get($info-color, "error");
-         color: map.get($secondary-color, 50);
+    &:hover,
+    &:focus {
+      background-color: map.get($secondary-color, 200);
+      color: map.get($primary-color, 900);
+    }
 
-        &[disabled] {
-            background-color: map.get($secondary-color, 400);
+    &[disabled] {
+      color: map.get($secondary-color, 400);
+    }
+  }
 
-            &:hover, &:focus {
-                background-color: map.get($secondary-color, 400);
-            }
-        }
-     }
+  &[sw-bordered-icon-button] {
+    border: 1px solid map.get($primary-color, 900);
+    color: map.get($primary-color, 900);
 
-     &[sw-text-button] {
-         color: map.get($primary-color, 500);
+    &:hover,
+    &:focus {
+      background-color: map.get($secondary-color, 200);
+    }
 
-         &:hover, &:focus {
-         	background-color: map.get($secondary-color, 200);
-         	color: map.get($primary-color, 900);
-         }
-        
-        &[disabled] {
-            color: map.get($secondary-color, 400);
-        }
-           
-     }
+    &[disabled] {
+      color: map.get($secondary-color, 500);
+      border-color: map.get($secondary-color, 600);
+      background-color: map.get($secondary-color, 200);
+    }
+  }
 
-     &[sw-bordered-icon-button] {
-     	border: 1px solid map.get($primary-color, 900);
-        color: map.get($primary-color, 900);
+  &[sw-icon-button] {
+    color: map.get($primary-color, 500);
 
-     	&:hover, &:focus {
-         	background-color: map.get($secondary-color, 200);
-        }
+    &:hover,
+    &:focus {
+      color: map.get($primary-color, 900);
+      background-color: map.get($secondary-color, 200);
+    }
 
-         &[disabled] {
-            color: map.get($secondary-color, 500);
-            border-color: map.get($secondary-color, 600);
-            background-color: map.get($secondary-color, 200);
-         }
-     }
+    &[disabled] {
+      color: map.get($secondary-color, 500);
+    }
+  }
 
-     &[sw-icon-button] {
-         color: map.get($primary-color, 500);
+  &.sw-large-button {
+    font-size: 1.25rem;
+  }
 
-         &:hover, &:focus {
-        	color: map.get($primary-color, 900);
-         	background-color: map.get($secondary-color, 200);
-         }
+  &.sw-medium-button {
+    font-size: 1rem;
+  }
 
-         &[disabled] {
-            color: map.get($secondary-color, 500);
-         }
-     }
-
-     &.sw-large-button {
-         font-size: 1.25rem;
-     }
-
-     &.sw-medium-button {
-         font-size: 1rem;
-     }
-    
-     &.sw-small-button {
-         font-size: 0.75rem
-     }
-
+  &.sw-small-button {
+    font-size: 0.75rem;
+  }
 }
-
-
-
-
-
-
-
-
-    
-

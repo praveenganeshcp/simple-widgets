@@ -9,27 +9,37 @@ import * as AccordionStories from "./accordion.stories";
 The `sw-accordion` is an Angular UI component that provides an accordion-style interface for displaying collapsible content. It consists of three main components: `sw-accordion`, `sw-accordion-title`, and `sw-accordion-body`. The `sw-accordion-title` projects content as the title of the accordion in its closed state. Clicking the title reveals the content inside `sw-accordion-body`. All these templates are encapsulated within the top-level `sw-accordion` component.
 
 **Inputs:**
+
 - `expanded` (boolean): Allows you to control whether the accordion is initially expanded (open) or collapsed (closed).
 - `disabled` (boolean): Enables or disables the accordion interaction.
 
 **Events:**
+
 - `toggled` (event): Emits a boolean value indicating whether the accordion body is shown or hidden whenever the accordion state changes.
 
 **Usage:**
+
 1. Import the `SwAccordionComponent`, `SwAccordionTitleComponent` and `SwAccordionBodyComponent` into your Angular module.
 2. Implement the `sw-accordion` component in your template.
 3. Utilize the `expanded` and `disabled` inputs to customize the accordion's behavior.
 4. Listen to the `toggled` event to respond to accordion state changes.
 
 **Example:**
+
 ```html
-<sw-accordion [expanded]="expanded" [disabled]="disabled" (toggled)="onToggled($event)">
-    <sw-accordion-title>What is Simple Widgets ?</sw-accordion-title>
-    <sw-accordion-body>
-        <p>Simple Widgets is a minimal UI component library built for Angular.<p>
-    </sw-accordion-body>
+<sw-accordion
+  [expanded]="expanded"
+  [disabled]="disabled"
+  (toggled)="onToggled($event)"
+>
+  <sw-accordion-title>What is Simple Widgets ?</sw-accordion-title>
+  <sw-accordion-body>
+    <p>Simple Widgets is a minimal UI component library built for Angular.</p>
+    <p></p
+  ></sw-accordion-body>
 </sw-accordion>
 ```
 
 **Output**:
+
 <Primary />

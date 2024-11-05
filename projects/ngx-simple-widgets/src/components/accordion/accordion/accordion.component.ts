@@ -1,4 +1,4 @@
-import { CdkAccordionItem, CdkAccordionModule } from '@angular/cdk/accordion';
+import { CdkAccordionItem, CdkAccordionModule } from "@angular/cdk/accordion";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -6,17 +6,17 @@ import {
   ViewChild,
   Output,
   EventEmitter,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SwIconComponent } from '../../icon/icon.component';
+} from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { SwIconComponent } from "../../icon/icon.component";
 
 /**
  * Renders the accordion title and body.
  */
 @Component({
-  selector: 'sw-accordion',
-  templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.scss'],
+  selector: "sw-accordion",
+  templateUrl: "./accordion.component.html",
+  styleUrls: ["./accordion.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwAccordionComponent {

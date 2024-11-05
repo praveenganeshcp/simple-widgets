@@ -18,16 +18,20 @@ The Form Control Component takes the following inputs:
 3. control: An instance of Angular's Reactive Form Control. This is the control that manages the input's validation state.
 
 **Usage:**
+
 1. Import the `SwFormControlComponent` into your Angular module.
 2. Wrap the `sw-form-control` component around the `input` elements binding it to a `formControl` instance.
 3. Pass the form control instance as input to `control` prop, provide the label for the control in
-`label` prop and provide the map of custom error message if needed.
+   `label` prop and provide the map of custom error message if needed.
 
 **Example:**
 
 ```html
- <sw-form-control [label]="label" [control]="control" [errorMessagesMap]="errorMessagesMap">
-        <input type="text" sw-input [formControl]="control"  />
+<sw-form-control
+  [label]="label"
+  [control]="control"
+  [errorMessagesMap]="errorMessagesMap"
+>
+  <input type="text" sw-input [formControl]="control" />
 </sw-form-control>
 ```
-

@@ -1,28 +1,27 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../projects/**/*.stories.ts",
     "../projects/**/*.stories.mdx",
     "../projects/**/*.mdx",
   ],
 
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
     "storybook-dark-mode",
     "@storybook/addon-mdx-gfm",
     "@storybook/addon-docs",
-    "@storybook/addon-actions"
-
+    "@storybook/addon-actions",
   ],
 
-  "framework": {
+  framework: {
     name: "@storybook/angular",
-    options: {}
+    options: {},
   },
 
   docs: {
     autodocs: true,
-    enabled: true
-  }
+    enabled: true,
+  },
 };

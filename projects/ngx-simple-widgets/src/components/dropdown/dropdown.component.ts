@@ -1,26 +1,26 @@
 import {
   CdkListboxModule,
   ListboxValueChangeEvent,
-} from '@angular/cdk/listbox';
+} from "@angular/cdk/listbox";
 import {
   Component,
   forwardRef,
   Input,
   ViewEncapsulation,
   ChangeDetectionStrategy,
-} from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DropdownOptions } from './dropdown.types';
-import { CommonModule } from '@angular/common';
-import { ConnectedPosition, OverlayModule } from '@angular/cdk/overlay';
-import { SwIconComponent } from '../icon/icon.component';
-import { SwInputComponent } from '../input/input.component';
-import { SwAllowedSizes } from '../../shared/constants';
+} from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { DropdownOptions } from "./dropdown.types";
+import { CommonModule } from "@angular/common";
+import { ConnectedPosition, OverlayModule } from "@angular/cdk/overlay";
+import { SwIconComponent } from "../icon/icon.component";
+import { SwInputComponent } from "../input/input.component";
+import { SwAllowedSizes } from "../../shared/constants";
 
 @Component({
-  selector: 'sw-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss'],
+  selector: "sw-dropdown",
+  templateUrl: "./dropdown.component.html",
+  styleUrls: ["./dropdown.component.scss"],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -54,9 +54,9 @@ export class SwDropdownComponent implements ControlValueAccessor {
     return this._options;
   }
 
-  @Input() placeholder: string = '';
+  @Input() placeholder: string = "";
 
-  @Input() size: SwAllowedSizes = 'md';
+  @Input() size: SwAllowedSizes = "md";
 
   private _valueLabelMap: Map<unknown, string> = new Map();
 
@@ -70,9 +70,9 @@ export class SwDropdownComponent implements ControlValueAccessor {
 
   public readonly position: ConnectedPosition = {
     originX: "center",
-    originY: 'bottom',
-    overlayX: 'center',
-    overlayY: 'top',
+    originY: "bottom",
+    overlayX: "center",
+    overlayY: "top",
     offsetY: 5,
   };
 
@@ -86,8 +86,8 @@ export class SwDropdownComponent implements ControlValueAccessor {
     return this.selectedValues
       ? this.selectedValues
           .map((selectedValue) => this._valueLabelMap.get(selectedValue))
-          .join(', ')
-      : '';
+          .join(", ")
+      : "";
   }
 
   public writeValue(value: string[]): void {

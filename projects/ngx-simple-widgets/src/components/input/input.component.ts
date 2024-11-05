@@ -3,11 +3,11 @@ import {
   Component,
   Input,
   HostBinding,
-} from '@angular/core';
-import { SwAllowedSizes } from '../../shared/constants';
-import { CanBeNull } from '../../shared/types';
+} from "@angular/core";
+import { SwAllowedSizes } from "../../shared/constants";
+import { CanBeNull } from "../../shared/types";
 
-type SwInputTheme = 'normal' | 'underlined';
+type SwInputTheme = "normal" | "underlined";
 
 @Component({
   selector: `
@@ -16,28 +16,28 @@ type SwInputTheme = 'normal' | 'underlined';
         input[type="password"][sw-input],
         input[type="email"][sw-input],
     `,
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
+  templateUrl: "./input.component.html",
+  styleUrls: ["./input.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
 export class SwInputComponent {
-  @Input() size: CanBeNull<SwAllowedSizes> = 'md';
+  @Input() size: CanBeNull<SwAllowedSizes> = "md";
 
-  @Input() theme: CanBeNull<SwInputTheme> = 'normal';
+  @Input() theme: CanBeNull<SwInputTheme> = "normal";
 
   private sizeCssClassMap: Record<SwAllowedSizes, string> = {
-    sm: 'sw-small-input',
-    md: 'sw-medium-input',
-    lg: 'sw-large-input',
+    sm: "sw-small-input",
+    md: "sw-medium-input",
+    lg: "sw-large-input",
   };
 
   constructor() {}
 
-  @HostBinding('class') get inputClass(): string {
+  @HostBinding("class") get inputClass(): string {
     return (
       this.sizeCssClassMap[this.size as SwAllowedSizes] +
-      `${this.theme === 'underlined' ? ' sw-input-underlined' : ''}`
+      `${this.theme === "underlined" ? " sw-input-underlined" : ""}`
     );
   }
 }

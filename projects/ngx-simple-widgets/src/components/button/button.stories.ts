@@ -1,7 +1,7 @@
-import { Meta, moduleMetadata, Story } from '@storybook/angular';
-import { SwButtonComponent } from './button.component';
-import { action } from '@storybook/addon-actions';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Meta, moduleMetadata, Story } from "@storybook/angular";
+import { SwButtonComponent } from "./button.component";
+import { action } from "@storybook/addon-actions";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export default {
   decorators: [
@@ -9,28 +9,28 @@ export default {
       imports: [SwButtonComponent, BrowserAnimationsModule],
     }),
   ],
-  title: 'Simple Widgets/Button',
+  title: "Simple Widgets/Button",
   argTypes: {
     disabled: {
-      control: 'boolean',
-      name: 'Disable button',
-      description: 'Whether to disable the button',
+      control: "boolean",
+      name: "Disable button",
+      description: "Whether to disable the button",
     },
     showLoader: {
-      control: 'boolean',
-      name: 'Show Loader',
-      description: 'Whether to show loader',
+      control: "boolean",
+      name: "Show Loader",
+      description: "Whether to show loader",
     },
     size: {
-      control: 'inline-radio',
-      options: ['sm', 'md', 'lg'],
-      name: 'Size',
-      description: 'Size of the button',
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+      name: "Size",
+      description: "Size of the button",
     },
     iconName: {
-      control: 'text',
-      name: 'Icon Name',
-      description: 'Name of the icon to be rendered as label',
+      control: "text",
+      name: "Icon Name",
+      description: "Name of the icon to be rendered as label",
     },
   },
 } as Meta;
@@ -53,7 +53,7 @@ const PrimaryButtonTemplate: Story = (args) => ({
 
 export const Primary = PrimaryButtonTemplate.bind({});
 Primary.args = {
-  size: 'md',
+  size: "md",
   showLoader: false,
   disabled: false,
 };
@@ -119,7 +119,7 @@ const BorderedIconButtonTemplate: Story = (args) => ({
 export const BorderedIcon = BorderedIconButtonTemplate.bind({});
 BorderedIcon.args = {
   ...Primary.args,
-  iconName: 'person',
+  iconName: "person",
 };
 
 const TextButtonTemplate: Story = (args) => ({
@@ -163,5 +163,5 @@ export const Icon = IconButtonTemplate.bind({});
 
 Icon.args = {
   ...Primary.args,
-  iconName: 'person',
+  iconName: "person",
 };

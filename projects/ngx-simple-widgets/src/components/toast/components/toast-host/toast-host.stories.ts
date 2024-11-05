@@ -1,38 +1,35 @@
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { SwToastService } from '../../services/toast.service';
-import { SwToastModule } from '../../toast.module';
-import {
-  Component,
-  ChangeDetectionStrategy,
-} from '@angular/core';
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
+import { SwToastService } from "../../services/toast.service";
+import { SwToastModule } from "../../toast.module";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 
 @Component({
   standalone: true,
-  selector: 'sw-toast-demo',
+  selector: "sw-toast-demo",
   template: `<button (click)="openDialog()">Open toast</button>`,
   imports: [SwToastModule],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 class ToastDemoHostComponent {
   constructor(private swToastService: SwToastService) {}
 
   openDialog() {
     this.swToastService.error({
-      title: 'Toast demo',
-      message: 'Toast message shown for demo',
+      title: "Toast demo",
+      message: "Toast message shown for demo",
     });
   }
 }
 
 export default {
-  title: 'Simple Widgets/Toast',
+  title: "Simple Widgets/Toast",
   component: ToastDemoHostComponent,
   decorators: [
     moduleMetadata({
       imports: [ToastDemoHostComponent],
     }),
   ],
-  tags: ['docs'],
+  tags: ["docs"],
 } as Meta;
 
 export const Toast: Story = (args) => ({

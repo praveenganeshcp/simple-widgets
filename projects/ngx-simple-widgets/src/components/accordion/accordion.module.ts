@@ -7,10 +7,16 @@ import { SwAccordionBodyComponent } from "./accordion-body/accordion-body.compon
 import { SwAccordionTitleComponent } from "./accordion-title/accordion-title.component";
 
 @NgModule({
-    declarations: [SwAccordionComponent, SwAccordionBodyComponent, SwAccordionTitleComponent],
-    imports: [
-        CommonModule, CdkAccordionModule, SwIconComponent
-    ],
-    exports: [SwAccordionBodyComponent, SwAccordionComponent, SwAccordionTitleComponent]
+  declarations: [
+    SwAccordionComponent,
+    SwAccordionBodyComponent,
+    SwAccordionTitleComponent,
+  ],
+  imports: [CommonModule, CdkAccordionModule, SwIconComponent],
+  exports: [
+    SwAccordionBodyComponent,
+    SwAccordionComponent,
+    SwAccordionTitleComponent,
+  ],
 })
 export class SwAccordionModule {}

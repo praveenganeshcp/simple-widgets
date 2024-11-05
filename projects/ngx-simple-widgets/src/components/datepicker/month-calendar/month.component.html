@@ -1,27 +1,27 @@
-<div class="sw-calendar-month" style="width: 100%;">
-    <p *ngIf="currentMonthStartDate">
-        {{ currentMonthStartDate | date: 'MMMM' }}
-    </p>
-    <div class="sw-calendar-month__view" style="width: 100%; padding: 0.5rem;">
-        <div class="sw-calendar-month__days">
-            <span *ngFor="let day of weekDays">{{ day }}</span>
-            <hr>
-        </div>
-        <div class="sw-calendar-month__week" *ngFor="let weeks of calendar">
-            <ng-container *ngFor="let dateInWeek of weeks">
-                <ng-container *ngIf="dateInWeek !== null; else emptyDateCell">
-                    <span 
-                        (click)="onSelectDate(dateInWeek)" 
-                        class="sw-calendar-month__week_date" 
-                        [class.selected-date]="isSelectedDate(dateInWeek)" 
-                    >
-                        {{ dateInWeek }}
-                    </span>
-                </ng-container>
-                <ng-template #emptyDateCell>
-                    <span></span>
-                </ng-template>
-            </ng-container>
-        </div>
+<div class="sw-calendar-month" style="width: 100%">
+  <p *ngIf="currentMonthStartDate">
+    {{ currentMonthStartDate | date: "MMMM" }}
+  </p>
+  <div class="sw-calendar-month__view" style="width: 100%; padding: 0.5rem">
+    <div class="sw-calendar-month__days">
+      <span *ngFor="let day of weekDays">{{ day }}</span>
+      <hr />
     </div>
+    <div class="sw-calendar-month__week" *ngFor="let weeks of calendar">
+      <ng-container *ngFor="let dateInWeek of weeks">
+        <ng-container *ngIf="dateInWeek !== null; else emptyDateCell">
+          <span
+            (click)="onSelectDate(dateInWeek)"
+            class="sw-calendar-month__week_date"
+            [class.selected-date]="isSelectedDate(dateInWeek)"
+          >
+            {{ dateInWeek }}
+          </span>
+        </ng-container>
+        <ng-template #emptyDateCell>
+          <span></span>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
 </div>

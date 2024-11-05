@@ -1,7 +1,7 @@
-import { SwCalendarComponent } from './calendar.component';
-import { FormsModule, FormControl } from '@angular/forms';
+import { SwCalendarComponent } from "./calendar.component";
+import { FormsModule, FormControl } from "@angular/forms";
 
-describe('calendar component should', () => {
+describe("calendar component should", () => {
   function mountComponent() {
     const dateControl = new FormControl(new Date());
     cy.mount(
@@ -12,7 +12,7 @@ describe('calendar component should', () => {
     );
   }
 
-  it('should render calendar component', () => {
+  it("should render calendar component", () => {
     mountComponent();
   });
 });

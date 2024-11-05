@@ -1,77 +1,75 @@
 $primary-color: (
-    900: #0003af,
-    800: #3316b9,
-    700: #451cbf,
-    600: #5625c8,
-    500: #6b2ed4,
-    400: #8350db,
-    300: #9b71e2,
-    200: #b89bea,
-    100: #d4c3f2,
-    50: #efe7fa
+  900: #0003af,
+  800: #3316b9,
+  700: #451cbf,
+  600: #5625c8,
+  500: #6b2ed4,
+  400: #8350db,
+  300: #9b71e2,
+  200: #b89bea,
+  100: #d4c3f2,
+  50: #efe7fa,
 );
 
 $secondary-color: (
-    900: #1c1c1c,
-    800: #3c3c3c,
-    700: #5b5b5b,
-    600: #6f6f6f,
-    500: #979797,
-    400: #b7b7b7,
-    300: #dadada,
-    200: #eaeaea,
-    100: #f3f3f3,
-    50: #f9f9f9
+  900: #1c1c1c,
+  800: #3c3c3c,
+  700: #5b5b5b,
+  600: #6f6f6f,
+  500: #979797,
+  400: #b7b7b7,
+  300: #dadada,
+  200: #eaeaea,
+  100: #f3f3f3,
+  50: #f9f9f9,
 );
 
 $info-color: (
-    error: #B00020,
-    warning: #FF9800,
-    success: #00C853
+  error: #b00020,
+  warning: #ff9800,
+  success: #00c853,
 );
 
 @each $primary-color-key, $primary-color-value in $primary-color {
-    .sw-primary-color-#{$primary-color-key} {
-        color: $primary-color-value;
-    }
+  .sw-primary-color-#{$primary-color-key} {
+    color: $primary-color-value;
+  }
 
-    .sw-primary-bg-color-#{$primary-color-key} {
-        background-color: $primary-color-value;
-    }
+  .sw-primary-bg-color-#{$primary-color-key} {
+    background-color: $primary-color-value;
+  }
 }
-
 
 @each $secondary-color-key, $secondary-color-value in $secondary-color {
-    .sw-secondary-color-#{$secondary-color-key} {
-        color: $secondary-color-value;
-    }
+  .sw-secondary-color-#{$secondary-color-key} {
+    color: $secondary-color-value;
+  }
 
-    .sw-secondary-bg-color-#{$secondary-color-key} {
-        background-color: $secondary-color-value;
-    }
+  .sw-secondary-bg-color-#{$secondary-color-key} {
+    background-color: $secondary-color-value;
+  }
 }
 
-
 @each $info-color-key, $info-color-value in $info-color {
-    .sw-info-color-#{$info-color-key} {
-        color: $info-color-value;
-    }
+  .sw-info-color-#{$info-color-key} {
+    color: $info-color-value;
+  }
 
-    .sw-info-bg-color-#{$info-color-key} {
-        background-color: $info-color-value;
-    }
+  .sw-info-bg-color-#{$info-color-key} {
+    background-color: $info-color-value;
+  }
 }
 
 :root {
-    @each $primary-color-key, $primary-color-value in $primary-color {
-        --sw-primary-color-#{$primary-color-key}: #{$primary-color-value};
-    }
-
-    @each $secondary-color-key, $secondary-color-value in $secondary-color {
-        --sw-secondary-color-#{$secondary-color-key}: #{$secondary-color-value};
-    }
-
-    @each $info-color-key, $info-color-value in $info-color {
-        --sw-info-color-#{$info-color-key}: #{$info-color-value};
-    }
+  @each $primary-color-key, $primary-color-value in $primary-color {
+    --sw-primary-color-#{$primary-color-key}: #{$primary-color-value};
   }
+
+  @each $secondary-color-key, $secondary-color-value in $secondary-color {
+    --sw-secondary-color-#{$secondary-color-key}: #{$secondary-color-value};
+  }
+
+  @each $info-color-key, $info-color-value in $info-color {
+    --sw-info-color-#{$info-color-key}: #{$info-color-value};
+  }
+}

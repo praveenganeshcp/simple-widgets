@@ -1,18 +1,16 @@
 <div class="sw-tab-view" [class.sw-bottom-tab-view]="showTabsInBottom">
-	<div class="sw-tab-view__titles">
-		<ng-container 
-			*ngFor="let tabName of tabNames; let tabIndex=index;"
-		>
-			<div
-				class="sw-tab-title"
-				[class.sw-active-tab-title]="activeTabIndex === tabIndex"
-				(click)="onTabClick(tabIndex)"
-			>
-				{{ tabName }}
-			</div>
-		</ng-container>
-	</div>
-	<div class="sw-tab-view__content">
-		<ng-content></ng-content>
-	</div>
+  <div class="sw-tab-view__titles">
+    <ng-container *ngFor="let tabName of tabNames; let tabIndex = index">
+      <div
+        class="sw-tab-title"
+        [class.sw-active-tab-title]="activeTabIndex === tabIndex"
+        (click)="onTabClick(tabIndex)"
+      >
+        {{ tabName }}
+      </div>
+    </ng-container>
+  </div>
+  <div class="sw-tab-view__content">
+    <ng-content></ng-content>
+  </div>
 </div>

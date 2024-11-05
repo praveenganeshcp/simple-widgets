@@ -1,47 +1,54 @@
-$allowed-border-radius: ("0": 0px, "1": 4px, "2": 8px, "3": 12px, "4": 16px, "5": 20px);
+$allowed-border-radius: (
+  "0": 0px,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 16px,
+  "5": 20px,
+);
 
-@each $border-radius-key, $border-radius-value  in $allowed-border-radius {
-    .br-#{$border-radius-key} {
-        border-radius: $border-radius-value;
-    }
+@each $border-radius-key, $border-radius-value in $allowed-border-radius {
+  .br-#{$border-radius-key} {
+    border-radius: $border-radius-value;
+  }
 
-    .bblr-#{$border-radius-key} {
-        border-bottom-left-radius: $border-radius-value;
-    }
-    
-    .bbrr-#{$border-radius-key} {
-        border-bottom-right-radius: $border-radius-value;
-    }
-    
-    .btlr-#{$border-radius-key} {
-        border-top-left-radius: $border-radius-value;
-    }
+  .bblr-#{$border-radius-key} {
+    border-bottom-left-radius: $border-radius-value;
+  }
 
-    .btrr-#{$border-radius-key} {
-        border-top-right-radius: $border-radius-value;
-    }
+  .bbrr-#{$border-radius-key} {
+    border-bottom-right-radius: $border-radius-value;
+  }
+
+  .btlr-#{$border-radius-key} {
+    border-top-left-radius: $border-radius-value;
+  }
+
+  .btrr-#{$border-radius-key} {
+    border-top-right-radius: $border-radius-value;
+  }
 }
 
 .border-none {
-    border: none;
+  border: none;
 }
 
 @mixin add-border($width, $color) {
-    border: $width solid $color;
+  border: $width solid $color;
 }
 
 @mixin add-bottom-border($width, $color) {
-    border-bottom: $width solid $color;
+  border-bottom: $width solid $color;
 }
 
 @mixin add-left-border($width, $color) {
-    border-left: $width solid $color;
+  border-left: $width solid $color;
 }
 
 @mixin add-right-border($width, $color) {
-    border-right: $width solid $color;
+  border-right: $width solid $color;
 }
 
 @mixin add-top-border($width, $color) {
-    border-top: $width solid $color;
+  border-top: $width solid $color;
 }

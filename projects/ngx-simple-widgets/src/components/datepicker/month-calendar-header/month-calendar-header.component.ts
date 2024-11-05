@@ -4,14 +4,14 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-} from '@angular/core';
-import { SwIconComponent } from '../../icon/icon.component';
-import { SwButtonComponent } from '../../button/button.component';
+} from "@angular/core";
+import { SwIconComponent } from "../../icon/icon.component";
+import { SwButtonComponent } from "../../button/button.component";
 
 @Component({
-  selector: 'sw-month-calendar-header',
-  templateUrl: './month-calendar-header.component.html',
-  styleUrls: ['./month-calendar-header.component.scss'],
+  selector: "sw-month-calendar-header",
+  templateUrl: "./month-calendar-header.component.html",
+  styleUrls: ["./month-calendar-header.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [SwIconComponent, SwButtonComponent],

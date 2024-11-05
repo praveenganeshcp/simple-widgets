@@ -1,33 +1,33 @@
-import { ConnectionPositionPair } from '@angular/cdk/overlay';
+import { ConnectionPositionPair } from "@angular/cdk/overlay";
 import {
   ChangeDetectionStrategy,
   Component,
   Input,
   ViewEncapsulation,
-} from '@angular/core';
+} from "@angular/core";
 import {
   SW_TOOLTIP_CONNECTED_POSITIONS,
   SW_TOOLTIP_POSITION,
-} from './tooltip.constants';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { CommonModule } from '@angular/common';
-import { CanBeNull } from '../../shared/types';
+} from "./tooltip.constants";
+import { OverlayModule } from "@angular/cdk/overlay";
+import { CommonModule } from "@angular/common";
+import { CanBeNull } from "../../shared/types";
 
 export const DEFAULT_TOOLTIP_POSITION = SW_TOOLTIP_POSITION.TOP;
 
 @Component({
-  selector: 'sw-tooltip',
+  selector: "sw-tooltip",
   standalone: true,
-  templateUrl: './tooltip.component.html',
+  templateUrl: "./tooltip.component.html",
   imports: [CommonModule, OverlayModule],
-  styleUrls: ['./tooltip.component.scss'],
+  styleUrls: ["./tooltip.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class SwTooltipComponent {
   private isMouseHoveredOnElement: boolean = false;
 
-  @Input() text: CanBeNull<string> = '';
+  @Input() text: CanBeNull<string> = "";
 
   @Input() disable: CanBeNull<boolean> = false;
 

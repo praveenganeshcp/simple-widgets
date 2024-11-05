@@ -2,38 +2,39 @@
 @import "../../assets/styles/styles.scss";
 
 :host {
-    @include add-border(2px, map.get($primary-color, 300));
-    @extend .br-1;
-    padding: 0.6rem 0.4rem;
-    outline: none;
-    color: map.get($secondary-color, 700);
+  @include add-border(2px, map.get($primary-color, 300));
+  @extend .br-1;
+  padding: 0.6rem 0.4rem;
+  outline: none;
+  color: map.get($secondary-color, 700);
 
-    &::placeholder {
-        color: map.get($secondary-color, 800);
-    }
+  &::placeholder {
+    color: map.get($secondary-color, 800);
+  }
 
-    &.sw-input-underlined {
-    	border-width: 0 0 2px 0;
-    	border-radius: 0;
-    }
+  &.sw-input-underlined {
+    border-width: 0 0 2px 0;
+    border-radius: 0;
+  }
 
-    &:focus, &:hover {
-    	border-color: map.get($primary-color, 900);
-    }
+  &:focus,
+  &:hover {
+    border-color: map.get($primary-color, 900);
+  }
 
-    &.ng-invalid.ng-dirty {
-        @include add-border(2px, map.get($info-color, error));
-    }
+  &.ng-invalid.ng-dirty {
+    @include add-border(2px, map.get($info-color, error));
+  }
 
-    &.sw-small-input {
-        font-size: 0.75rem;
-    }
+  &.sw-small-input {
+    font-size: 0.75rem;
+  }
 
-    &.sw-medium-input {
-        font-size: 1rem;
-    }
-    
-    &.sw-large-input {
-        font-size: 1.5rem;
-    }    
+  &.sw-medium-input {
+    font-size: 1rem;
+  }
+
+  &.sw-large-input {
+    font-size: 1.5rem;
+  }
 }

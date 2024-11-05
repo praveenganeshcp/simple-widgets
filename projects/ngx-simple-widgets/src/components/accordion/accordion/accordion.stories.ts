@@ -1,36 +1,34 @@
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { action } from '@storybook/addon-actions';
-import { SwAccordionModule } from '../accordion.module';
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
+import { action } from "@storybook/addon-actions";
+import { SwAccordionModule } from "../accordion.module";
 
 export default {
-  title: 'Simple Widgets/Accordion',
+  title: "Simple Widgets/Accordion",
   decorators: [
     moduleMetadata({
-      imports: [
-        SwAccordionModule
-      ],
+      imports: [SwAccordionModule],
     }),
   ],
   argTypes: {
     expanded: {
-      control: 'boolean',
-      name: 'Is Expanded',
-      description: 'Whether to expand the accordion',
+      control: "boolean",
+      name: "Is Expanded",
+      description: "Whether to expand the accordion",
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: "false" },
       },
     },
     onToggled: {
-      control: 'function',
-      name: 'On Toggled',
-      description: 'Event triggered when accordion panel view is toggled',
+      control: "function",
+      name: "On Toggled",
+      description: "Event triggered when accordion panel view is toggled",
     },
     disabled: {
-      control: 'boolean',
-      name: 'Disabled',
-      description: 'Whether to disable accordion',
+      control: "boolean",
+      name: "Disabled",
+      description: "Whether to disable accordion",
       table: {
-        defaultValue: { summary: 'false' },
+        defaultValue: { summary: "false" },
       },
     },
   },
@@ -55,6 +53,6 @@ const AccordionTemplate: Story = (args) => ({
 export const Accordion = AccordionTemplate.bind({});
 Accordion.args = {
   expanded: false,
-  onToggled: action('toggled'),
+  onToggled: action("toggled"),
   disabled: false,
 };

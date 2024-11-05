@@ -1,6 +1,6 @@
-import { InjectionToken } from '@angular/core';
+import { InjectionToken } from "@angular/core";
 
-export const SW_TOAST_DATA = new InjectionToken('SW_TOAST_DATA');
+export const SW_TOAST_DATA = new InjectionToken("SW_TOAST_DATA");
 
 export interface SwToastConfig {
   message: string;
@@ -9,9 +9,9 @@ export interface SwToastConfig {
 }
 
 export enum SwToastStatus {
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR',
-  WARN = 'WARN',
+  SUCCESS = "SUCCESS",
+  ERROR = "ERROR",
+  WARN = "WARN",
 }
 
 export interface SwToastOverlayConfig extends SwToastConfig {

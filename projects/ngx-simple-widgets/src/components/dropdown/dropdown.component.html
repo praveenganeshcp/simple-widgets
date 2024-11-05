@@ -1,52 +1,52 @@
-<div 
-    class="sw-dropdown-input" 
-    cdkOverlayOrigin 
-    tabindex="0"
-    #swDropdownPanelOrigin="cdkOverlayOrigin"
+<div
+  class="sw-dropdown-input"
+  cdkOverlayOrigin
+  tabindex="0"
+  #swDropdownPanelOrigin="cdkOverlayOrigin"
 >
-    <input 
-        sw-input 
-        [size]="size" 
-        (click)="isOpen = !isOpen"
-        type="text" 
-        [placeholder]="placeholder" 
-        [readonly]="true"
-        [value]="selectedValueLabel" 
-    />
-    <!-- <sw-icon 
+  <input
+    sw-input
+    [size]="size"
+    (click)="isOpen = !isOpen"
+    type="text"
+    [placeholder]="placeholder"
+    [readonly]="true"
+    [value]="selectedValueLabel"
+  />
+  <!-- <sw-icon 
         class="sw-dropdown-clear-icon"
         name="clear"
         (click)="onClearValue($event)"
         *ngIf="selectedValueLabel"
     >
     </sw-icon> -->
-    <sw-icon 
-        class="sw-dropdown-toggle-icon"
-        (click)="isOpen = !isOpen"
-        [name]="isOpen ? 'expand_less' : 'expand_more'"
-    >
-    </sw-icon>
+  <sw-icon
+    class="sw-dropdown-toggle-icon"
+    (click)="isOpen = !isOpen"
+    [name]="isOpen ? 'expand_less' : 'expand_more'"
+  >
+  </sw-icon>
 </div>
 
-
 <ng-template
-    cdkConnectedOverlay
-    [cdkConnectedOverlayOrigin]="swDropdownPanelOrigin"
-    [cdkConnectedOverlayOpen]="isOpen"
-    (backdropClick)="onClickOutside()"
-    [cdkConnectedOverlayHasBackdrop]="true"
-    [cdkConnectedOverlayPositions]="[position]"
-    [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="swDropdownPanelOrigin"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (backdropClick)="onClickOutside()"
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayPositions]="[position]"
+  [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
 >
-    <div cdkListbox
-        [cdkListboxValue]="selectedValues"
-        class="sw-dropdown-panel"
-        (cdkListboxValueChange)="onValueChange($event)"
-    >
-        <ng-container *ngFor="let option of options; trackBy: trackDropdownOption">
-            <div class="sw-dropdown-panel-option" [cdkOption]="option.value">
-                {{ option.label }}
-            </div>
-        </ng-container>
-    </div>
+  <div
+    cdkListbox
+    [cdkListboxValue]="selectedValues"
+    class="sw-dropdown-panel"
+    (cdkListboxValueChange)="onValueChange($event)"
+  >
+    <ng-container *ngFor="let option of options; trackBy: trackDropdownOption">
+      <div class="sw-dropdown-panel-option" [cdkOption]="option.value">
+        {{ option.label }}
+      </div>
+    </ng-container>
+  </div>
 </ng-template>

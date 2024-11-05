@@ -1,5 +1,5 @@
-import { OverlayRef } from '@angular/cdk/overlay';
-import { Subject, Observable } from 'rxjs';
+import { OverlayRef } from "@angular/cdk/overlay";
+import { Subject, Observable } from "rxjs";
 
 export class SwDialogRef<O> {
   constructor(private readonly ref: OverlayRef) {}

@@ -2,38 +2,38 @@
 @import "../../../../assets/styles/styles.scss";
 
 .sw-toast {
-	z-index: 1000;
-	position: fixed;
-	right: 3%;
-	bottom: 5%;
-	background-color: rgba(0, 0, 0, 0.2); 
-	@extend .pd-2;
-	display: flex;
-	@extend .br-1;
-	box-sizing: border-box;
+  z-index: 1000;
+  position: fixed;
+  right: 3%;
+  bottom: 5%;
+  background-color: rgba(0, 0, 0, 0.2);
+  @extend .pd-2;
+  display: flex;
+  @extend .br-1;
+  box-sizing: border-box;
 
-	&.info-success-bg {
-		background-color: map.get($info-color, "success");
-	}
+  &.info-success-bg {
+    background-color: map.get($info-color, "success");
+  }
 
-	&.info-warn-bg {
-		background-color: map.get($info-color, "warning");
-	}
+  &.info-warn-bg {
+    background-color: map.get($info-color, "warning");
+  }
 
-	&.info-error-bg {
-		background-color: map.get($info-color, "error");
-		color: map.get($secondary-color, 50);
-	}
+  &.info-error-bg {
+    background-color: map.get($info-color, "error");
+    color: map.get($secondary-color, 50);
+  }
 
-	.sw-toast__message {
-		@extend .pd-left-2;
-		@extend .pd-right-1;
-		display: flex;
-		flex-direction: column;
-		row-gap: 10px;
+  .sw-toast__message {
+    @extend .pd-left-2;
+    @extend .pd-right-1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 
-		span:last-child {
-			font-size: 14px;
-		}
-	}
+    span:last-child {
+      font-size: 14px;
+    }
+  }
 }

@@ -1,4 +1,4 @@
-describe('table component should', () => {
+describe("table component should", () => {
   function mountComponent(
     isLoading: boolean = false,
     renderTemplateForIconCol: boolean = false,
@@ -31,118 +31,118 @@ describe('table component should', () => {
     );
   }
 
-  it('render given columns', () => {
+  it("render given columns", () => {
     mountComponent();
-    cy.get('table > thead > tr > td').should('have.length', 3);
-    cy.get('table > thead > tr > td:nth-child(1)').should(
-      'contain.text',
-      'Brand',
+    cy.get("table > thead > tr > td").should("have.length", 3);
+    cy.get("table > thead > tr > td:nth-child(1)").should(
+      "contain.text",
+      "Brand",
     );
-    cy.get('table > thead > tr > td:nth-child(2)').should(
-      'contain.text',
-      'Car',
+    cy.get("table > thead > tr > td:nth-child(2)").should(
+      "contain.text",
+      "Car",
     );
-    cy.get('table > thead > tr > td:nth-child(3)').should(
-      'contain.text',
-      'Is SUV',
+    cy.get("table > thead > tr > td:nth-child(3)").should(
+      "contain.text",
+      "Is SUV",
     );
   });
 
-  it('render given rows', () => {
+  it("render given rows", () => {
     mountComponent();
-    cy.get('table > tbody > tr').should('have.length', 3);
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(1)').should(
-      'contain.text',
-      'Toyota',
+    cy.get("table > tbody > tr").should("have.length", 3);
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(1)").should(
+      "contain.text",
+      "Toyota",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(2)').should(
-      'contain.text',
-      'Innova',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(2)").should(
+      "contain.text",
+      "Innova",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(3)').should(
-      'contain.text',
-      'false',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(3)").should(
+      "contain.text",
+      "false",
     );
   });
 
-  it('render loading text in all the cells, when input isLoading param is set to true', () => {
+  it("render loading text in all the cells, when input isLoading param is set to true", () => {
     mountComponent(true);
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(1)').should(
-      'contain.text',
-      'Loading ...',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(1)").should(
+      "contain.text",
+      "Loading ...",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(2)').should(
-      'contain.text',
-      'Loading ...',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(2)").should(
+      "contain.text",
+      "Loading ...",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(3)').should(
-      'contain.text',
-      'Loading ...',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(3)").should(
+      "contain.text",
+      "Loading ...",
     );
   });
 
-  it('render header rows cells with primary color background', () => {
+  it("render header rows cells with primary color background", () => {
     mountComponent();
-    cy.get('table > thead > tr:nth-child(1) > td:nth-child(1)').should(
-      'have.css',
-      'background-color',
-      'rgb(105, 48, 195)',
+    cy.get("table > thead > tr:nth-child(1) > td:nth-child(1)").should(
+      "have.css",
+      "background-color",
+      "rgb(105, 48, 195)",
     );
-    cy.get('table > thead > tr:nth-child(1) > td:nth-child(2)').should(
-      'have.css',
-      'background-color',
-      'rgb(105, 48, 195)',
+    cy.get("table > thead > tr:nth-child(1) > td:nth-child(2)").should(
+      "have.css",
+      "background-color",
+      "rgb(105, 48, 195)",
     );
-    cy.get('table > thead > tr:nth-child(1) > td:nth-child(3)').should(
-      'have.css',
-      'background-color',
-      'rgb(105, 48, 195)',
+    cy.get("table > thead > tr:nth-child(1) > td:nth-child(3)").should(
+      "have.css",
+      "background-color",
+      "rgb(105, 48, 195)",
     );
   });
 
-  it('render even rows cells with dark color background', () => {
+  it("render even rows cells with dark color background", () => {
     mountComponent();
-    cy.get('table > tbody > tr:nth-child(2) > td:nth-child(1)').should(
-      'have.css',
-      'background-color',
-      'rgb(214, 218, 219)',
+    cy.get("table > tbody > tr:nth-child(2) > td:nth-child(1)").should(
+      "have.css",
+      "background-color",
+      "rgb(214, 218, 219)",
     );
-    cy.get('table > tbody > tr:nth-child(2) > td:nth-child(2)').should(
-      'have.css',
-      'background-color',
-      'rgb(214, 218, 219)',
+    cy.get("table > tbody > tr:nth-child(2) > td:nth-child(2)").should(
+      "have.css",
+      "background-color",
+      "rgb(214, 218, 219)",
     );
-    cy.get('table > tbody > tr:nth-child(2) > td:nth-child(3)').should(
-      'have.css',
-      'background-color',
-      'rgb(214, 218, 219)',
+    cy.get("table > tbody > tr:nth-child(2) > td:nth-child(3)").should(
+      "have.css",
+      "background-color",
+      "rgb(214, 218, 219)",
     );
   });
 
-  it('render odd rows cells with white color background', () => {
+  it("render odd rows cells with white color background", () => {
     mountComponent();
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(1)').should(
-      'have.css',
-      'background-color',
-      'rgb(255, 255, 255)',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(1)").should(
+      "have.css",
+      "background-color",
+      "rgb(255, 255, 255)",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(2)').should(
-      'have.css',
-      'background-color',
-      'rgb(255, 255, 255)',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(2)").should(
+      "have.css",
+      "background-color",
+      "rgb(255, 255, 255)",
     );
-    cy.get('table > tbody > tr:nth-child(1) > td:nth-child(3)').should(
-      'have.css',
-      'background-color',
-      'rgb(255, 255, 255)',
+    cy.get("table > tbody > tr:nth-child(1) > td:nth-child(3)").should(
+      "have.css",
+      "background-color",
+      "rgb(255, 255, 255)",
     );
   });
 
-  it('render top left and right border rounded', () => {});
+  it("render top left and right border rounded", () => {});
 
-  it('render bottom left and right border rounded', () => {});
+  it("render bottom left and right border rounded", () => {});
 
-  it('render custom template based on column definition', () => {});
+  it("render custom template based on column definition", () => {});
 
-  it('render column based on flex provided', () => {});
+  it("render column based on flex provided", () => {});
 });

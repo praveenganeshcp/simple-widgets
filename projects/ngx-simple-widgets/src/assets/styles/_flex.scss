@@ -2,34 +2,35 @@ $flex-directions: row, column;
 
 $flex-alignment-values: "center", "flex-start", "flex-end";
 
-$flex-justify-content-values: "center", "flex-start", "flex-end", "space-evenly", "space-between", "space-around";
+$flex-justify-content-values: "center", "flex-start", "flex-end", "space-evenly",
+  "space-between", "space-around";
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .inline-flex {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 @each $flex-direction in $flex-directions {
-    #{'.flex-'+ $flex-direction } {
-        flex-direction: $flex-direction;
-    }
+  #{".flex-" + $flex-direction } {
+    flex-direction: $flex-direction;
+  }
 }
 
 @each $alignment in $flex-alignment-values {
-    .align-items-#{$alignment} {
-        align-items: #{$alignment};
-    }
+  .align-items-#{$alignment} {
+    align-items: #{$alignment};
+  }
 }
 
 @each $justify-content in $flex-justify-content-values {
-    .justify-#{$justify-content} {
-        justify-content: #{$justify-content};
-    }
+  .justify-#{$justify-content} {
+    justify-content: #{$justify-content};
+  }
 }

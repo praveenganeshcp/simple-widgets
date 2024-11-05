@@ -1,4 +1,4 @@
-import { Meta, Primary } from "@storybook/blocks"
+import { Meta, Primary } from "@storybook/blocks";
 
 import * as ButtonStories from "./button.stories";
 
@@ -8,6 +8,7 @@ import * as ButtonStories from "./button.stories";
 
 **Description:**
 The Button component in this Angular library provides a versatile range of button variants to suit different use cases. These variants include:
+
 - `sw-primary-button`: For defining primary call-to-action buttons.
 - `sw-bordered-button` and `sw-text-button`: Suitable for secondary call-to-action buttons.
 - `sw-danger-button`: Intended for actions requiring user attention.
@@ -15,27 +16,31 @@ The Button component in this Angular library provides a versatile range of butto
 - `sw-bordered-icon-button`: Offers a bordered UI for icon buttons.
 
 **Inputs:**
+
 - `size` (string): Specifies the button size with allowed values of "sm" (small), "lg" (large), and "md" (medium).
 - `showLoader` (boolean): When set to `true`, displays a loader UI, replacing the button label to indicate that an action is in progress.
 - `iconName` (string): Renders the specified icon as the button label.
 
 **Usage:**
+
 1. Import the `SwButtonComponent` into your Angular module.
 2. Implement the desired button variant in your template using the appropriate selector.
 3. Utilize the `size` input to adjust the button's size.
 4. Set `showLoader` to `true` to display a loader UI during actions in progress.
 
 **Example:**
+
 ```html
-<button 
-    [size]='size' 
-    [showLoader]='showLoader' 
-    [disabled]='disabled' 
-    sw-primary-button
+<button
+  [size]="size"
+  [showLoader]="showLoader"
+  [disabled]="disabled"
+  sw-primary-button
 >
-    Create Account
+  Create Account
 </button>
 ```
 
 **Output:**
+
 <Primary />

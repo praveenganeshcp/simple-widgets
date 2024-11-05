@@ -3,13 +3,13 @@ import {
   Component,
   HostBinding,
   Input,
-} from '@angular/core';
-import { SwAllowedSizes } from '../../shared/constants';
-import { CanBeNull } from '../../shared/types';
-import { Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { SwLoaderComponent } from '../loader/loader.component';
-import { SwIconComponent } from '../icon/icon.component';
+} from "@angular/core";
+import { SwAllowedSizes } from "../../shared/constants";
+import { CanBeNull } from "../../shared/types";
+import { Subscription } from "rxjs";
+import { CommonModule } from "@angular/common";
+import { SwLoaderComponent } from "../loader/loader.component";
+import { SwIconComponent } from "../icon/icon.component";
 
 @Component({
   selector: ` 
@@ -20,45 +20,45 @@ import { SwIconComponent } from '../icon/icon.component';
     button[sw-bordered-icon-button],
     button[sw-icon-button],
   `,
-  templateUrl: './button.component.html',
+  templateUrl: "./button.component.html",
   standalone: true,
   imports: [CommonModule, SwIconComponent, SwLoaderComponent],
-  styleUrls: ['./button.component.scss'],
+  styleUrls: ["./button.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwButtonComponent {
-  @Input() size: CanBeNull<SwAllowedSizes> = 'md';
+  @Input() size: CanBeNull<SwAllowedSizes> = "md";
 
   @Input() showLoader: CanBeNull<boolean> = false;
 
   @Input() disabled: CanBeNull<boolean> = false;
 
-  @Input() iconName: CanBeNull<string> = '';
+  @Input() iconName: CanBeNull<string> = "";
 
   private readonly buttonSizeCSSClasses: Record<SwAllowedSizes, string> = {
-    sm: 'sw-small-button',
-    md: 'sw-medium-button',
-    lg: 'sw-large-button',
+    sm: "sw-small-button",
+    md: "sw-medium-button",
+    lg: "sw-large-button",
   };
 
-  @HostBinding('disabled')
+  @HostBinding("disabled")
   get isDisabled() {
     return this.disabled || this.showLoader;
   }
 
-  @HostBinding('attr.showing-loader')
+  @HostBinding("attr.showing-loader")
   get showingLoader() {
     return this.showLoader;
   }
 
-  @HostBinding('attr.size')
+  @HostBinding("attr.size")
   get buttonSize() {
     return this.size;
   }
 
   constructor() {}
 
-  @HostBinding('class')
+  @HostBinding("class")
   get buttonClass() {
     return this.buttonSizeCSSClasses[<SwAllowedSizes>this.size];
   }

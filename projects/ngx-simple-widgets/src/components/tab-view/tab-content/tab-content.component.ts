@@ -1,7 +1,7 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from "@angular/core";
 
 @Component({
-  selector: 'sw-tab-content',
+  selector: "sw-tab-content",
   template: `
     <ng-template #swTabContentTemplate>
       <ng-content></ng-content>
@@ -10,7 +10,7 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
   standalone: true,
 })
 export class SwTabContentComponent {
-  @ViewChild('swTabContentTemplate', { read: TemplateRef })
+  @ViewChild("swTabContentTemplate", { read: TemplateRef })
   public swTabContentTemplate!: TemplateRef<unknown>;
 
   constructor() {}

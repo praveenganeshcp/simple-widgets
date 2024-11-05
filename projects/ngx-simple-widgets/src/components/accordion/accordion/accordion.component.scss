@@ -2,42 +2,41 @@
 @import "../../../assets/styles/styles.scss";
 
 .sw-accordion {
+  width: 100%;
+
+  .sw-accordion-panel {
     width: 100%;
+    outline: 1px solid map.get($primary-color, 900);
 
-    .sw-accordion-panel {
-        width: 100%;
-        outline: 1px solid map.get($primary-color, 900);
-
-        .sw-accordion-title {
-            width: 100%;
-            background-color: map.get($primary-color, 500);
-            color: map.get($primary-color, 50);
-            box-sizing: border-box;
-            @extend .pd-y-1;
-            @extend .pd-x-2;
-            @extend .font-weight-600;
-        }
-
-        &:hover {
-            .sw-accordion-title {
-                background-color: map.get($primary-color, 900);
-            }
-        }
-
-        &.sw-accordion-disabled {
-            outline-color: map.get($secondary-color, 500);
-            .sw-accordion-title {
-                background-color: map.get($secondary-color, 500);
-            }
-        }
-
-        .sw-accordion-body {
-            width: 100%;
-            display: var(--sw-accordion-body-display);
-            box-sizing: border-box;
-            @extend .pd-x-2;
-            @extend .pd-y-1;
-        }
+    .sw-accordion-title {
+      width: 100%;
+      background-color: map.get($primary-color, 500);
+      color: map.get($primary-color, 50);
+      box-sizing: border-box;
+      @extend .pd-y-1;
+      @extend .pd-x-2;
+      @extend .font-weight-600;
     }
-}
 
+    &:hover {
+      .sw-accordion-title {
+        background-color: map.get($primary-color, 900);
+      }
+    }
+
+    &.sw-accordion-disabled {
+      outline-color: map.get($secondary-color, 500);
+      .sw-accordion-title {
+        background-color: map.get($secondary-color, 500);
+      }
+    }
+
+    .sw-accordion-body {
+      width: 100%;
+      display: var(--sw-accordion-body-display);
+      box-sizing: border-box;
+      @extend .pd-x-2;
+      @extend .pd-y-1;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import * as dropdownStories from "./dropdown.stories";
 The "sw-dropdown" component is a versatile dropdown input element for your Angular application. It allows you to create customizable dropdown menus with ease. This component accepts an array of `DropdownOption` as input, where each `DropdownOption` object consists of a `label` for the option label and a `value` to hold the option value. You can use it as a form control in your Angular forms, seamlessly integrating it with `ngModel` or `formControl`.
 
 **Usage:**
+
 1. Import the `SwDropdownComponent` into your Angular module.
 2. Implement the `sw-dropdown` element in your template, binding it to `[(ngModel)]` or a `formControl` instance.
 3. The selected value will be automatically reflected when the dropdown is opened, and users can interact with the dropdown to select options.
@@ -15,11 +16,13 @@ The "sw-dropdown" component is a versatile dropdown input element for your Angul
 **Example:**
 
 ```html
-<sw-dropdown [items]="[
+<sw-dropdown
+  [items]="[
         { key: 'Option 1', value: 'value 1' },
         { key: 'Option 2', value: 'value 2' },
         { key: 'Option 3', value: 'value 3' },
         { key: 'Option 4', value: 'value 4' },
-]" [formControl]="selectedOptions"></sw-dropdown>
+]"
+  [formControl]="selectedOptions"
+></sw-dropdown>
 ```
-

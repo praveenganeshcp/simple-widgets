@@ -1,70 +1,69 @@
 $allowed-spacing-values: (
-    "1": 0.4rem,
-    "2": 0.8rem,
-    "3": 1.2rem,
-    "4": 1.6rem,
-    "5": 2rem
+  "1": 0.4rem,
+  "2": 0.8rem,
+  "3": 1.2rem,
+  "4": 1.6rem,
+  "5": 2rem,
 );
 
+@each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+  #{".pd"}-#{$allowed-spacing-key} {
+    padding: $allowed-spacing-value;
+  }
+  #{".pd"}-y-#{$allowed-spacing-key} {
+    padding-top: $allowed-spacing-value;
+    padding-bottom: $allowed-spacing-value;
+  }
+  #{".pd"}-x-#{$allowed-spacing-key} {
+    padding-left: $allowed-spacing-value;
+    padding-right: $allowed-spacing-value;
+  }
+  #{".pd"}-top-#{$allowed-spacing-key} {
+    padding-top: $allowed-spacing-value;
+  }
+  #{".pd"}-bottom-#{$allowed-spacing-key} {
+    padding-bottom: $allowed-spacing-value;
+  }
+  #{".pd"}-left-#{$allowed-spacing-key} {
+    padding-left: $allowed-spacing-value;
+  }
+  #{".pd"}-right-#{$allowed-spacing-key} {
+    padding-right: $allowed-spacing-value;
+  }
+}
 
 @each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
-    #{'.pd'}-#{$allowed-spacing-key} {
-        padding: $allowed-spacing-value;
-    }
-    #{'.pd'}-y-#{$allowed-spacing-key} {
-        padding-top: $allowed-spacing-value;
-        padding-bottom: $allowed-spacing-value;
-    }
-    #{'.pd'}-x-#{$allowed-spacing-key} {
-        padding-left: $allowed-spacing-value;
-        padding-right: $allowed-spacing-value;
-    }
-    #{'.pd'}-top-#{$allowed-spacing-key} {
-        padding-top: $allowed-spacing-value;
-    }
-    #{'.pd'}-bottom-#{$allowed-spacing-key} {
-        padding-bottom: $allowed-spacing-value;
-    }
-    #{'.pd'}-left-#{$allowed-spacing-key} {
-        padding-left: $allowed-spacing-value;
-    }
-    #{'.pd'}-right-#{$allowed-spacing-key} {
-        padding-right: $allowed-spacing-value;
-    }
-} 
+  #{".mg"}-#{$allowed-spacing-key} {
+    margin: $allowed-spacing-value;
+  }
+  #{".mg"}-y-#{$allowed-spacing-key} {
+    margin-top: $allowed-spacing-value;
+    margin-bottom: $allowed-spacing-value;
+  }
+  #{".mg"}-x-#{$allowed-spacing-key} {
+    margin-left: $allowed-spacing-value;
+    margin-right: $allowed-spacing-value;
+  }
+  #{".mg"}-top-#{$allowed-spacing-key} {
+    margin-top: $allowed-spacing-value;
+  }
+  #{".mg"}-bottom-#{$allowed-spacing-key} {
+    margin-bottom: $allowed-spacing-value;
+  }
+  #{".mg"}-left-#{$allowed-spacing-key} {
+    margin-left: $allowed-spacing-value;
+  }
+  #{".mg"}-right-#{$allowed-spacing-key} {
+    margin-right: $allowed-spacing-value;
+  }
+}
 
 @each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
-    #{'.mg'}-#{$allowed-spacing-key} {
-        margin: $allowed-spacing-value;
-    }
-    #{'.mg'}-y-#{$allowed-spacing-key} {
-        margin-top: $allowed-spacing-value;
-        margin-bottom: $allowed-spacing-value;
-    }
-    #{'.mg'}-x-#{$allowed-spacing-key} {
-        margin-left: $allowed-spacing-value;
-        margin-right: $allowed-spacing-value;
-    }
-    #{'.mg'}-top-#{$allowed-spacing-key} {
-        margin-top: $allowed-spacing-value;
-    }
-    #{'.mg'}-bottom-#{$allowed-spacing-key} {
-        margin-bottom: $allowed-spacing-value;
-    }
-    #{'.mg'}-left-#{$allowed-spacing-key} {
-        margin-left: $allowed-spacing-value;
-    }
-    #{'.mg'}-right-#{$allowed-spacing-key} {
-        margin-right: $allowed-spacing-value;
-    }
-} 
+  #{".row-gap"}-#{$allowed-spacing-key} {
+    row-gap: $allowed-spacing-value;
+  }
 
-@each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
-    #{'.row-gap'}-#{$allowed-spacing-key} {
-        row-gap: $allowed-spacing-value;
-    }
-
-    #{'.column-gap'}-#{$allowed-spacing-key} {
-        column-gap: $allowed-spacing-value;
-    }
+  #{".column-gap"}-#{$allowed-spacing-key} {
+    column-gap: $allowed-spacing-value;
+  }
 }

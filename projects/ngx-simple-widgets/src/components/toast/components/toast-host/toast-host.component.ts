@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from "@angular/core";
 import {
   SwToastOverlayConfig,
   SwToastStatus,
   SW_TOAST_DATA,
-} from '../../toast.constants';
+} from "../../toast.constants";
 
 @Component({
-  selector: 'sw-toast-host',
-  templateUrl: './toast-host.component.html',
-  styleUrls: ['./toast-host.component.scss'],
+  selector: "sw-toast-host",
+  templateUrl: "./toast-host.component.html",
+  styleUrls: ["./toast-host.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwToastHostComponent {
@@ -21,15 +21,15 @@ export class SwToastHostComponent {
   }
 
   initializeCssClasses() {
-    this.cssClassMap.set(SwToastStatus.SUCCESS, 'info-success-bg');
-    this.cssClassMap.set(SwToastStatus.WARN, 'info-warn-bg');
-    this.cssClassMap.set(SwToastStatus.ERROR, 'info-error-bg');
+    this.cssClassMap.set(SwToastStatus.SUCCESS, "info-success-bg");
+    this.cssClassMap.set(SwToastStatus.WARN, "info-warn-bg");
+    this.cssClassMap.set(SwToastStatus.ERROR, "info-error-bg");
   }
 
   initializeIconNameMap() {
-    this.iconNameMap.set(SwToastStatus.SUCCESS, 'done');
-    this.iconNameMap.set(SwToastStatus.WARN, 'warning');
-    this.iconNameMap.set(SwToastStatus.ERROR, 'error');
+    this.iconNameMap.set(SwToastStatus.SUCCESS, "done");
+    this.iconNameMap.set(SwToastStatus.WARN, "warning");
+    this.iconNameMap.set(SwToastStatus.ERROR, "error");
   }
 
   get title() {
@@ -45,11 +45,11 @@ export class SwToastHostComponent {
   }
 
   get toastCssClass() {
-    return this.cssClassMap.get(this.toastConfig.status) || '';
+    return this.cssClassMap.get(this.toastConfig.status) || "";
   }
 
   get iconName() {
-    return this.iconNameMap.get(this.toastConfig.status) || '';
+    return this.iconNameMap.get(this.toastConfig.status) || "";
   }
 
   readonly toastStatus = SwToastStatus;

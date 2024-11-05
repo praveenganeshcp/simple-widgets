@@ -1,12 +1,12 @@
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { SW_TOOLTIP_POSITION } from './tooltip.constants';
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
+import { SW_TOOLTIP_POSITION } from "./tooltip.constants";
 import {
   DEFAULT_TOOLTIP_POSITION,
   SwTooltipComponent,
-} from './tooltip.component';
+} from "./tooltip.component";
 
 export default {
-  title: 'Simple Widgets/Tooltip',
+  title: "Simple Widgets/Tooltip",
   decorators: [
     moduleMetadata({
       imports: [SwTooltipComponent],
@@ -14,21 +14,21 @@ export default {
   ],
   argTypes: {
     text: {
-      description: 'Text to be shown on tooltip',
+      description: "Text to be shown on tooltip",
       table: {
         defaultValue: {
-          summary: '',
+          summary: "",
         },
       },
     },
     position: {
-      description: 'Tooltip position relative to the element',
+      description: "Tooltip position relative to the element",
       table: {
         defaultValue: {
           summary: DEFAULT_TOOLTIP_POSITION,
         },
       },
-      control: 'select',
+      control: "select",
       options: [
         SW_TOOLTIP_POSITION.BOTTOM,
         SW_TOOLTIP_POSITION.TOP,
@@ -37,13 +37,13 @@ export default {
       ],
     },
     disable: {
-      description: 'Tooltip text will not be shown on hover in disabled state',
+      description: "Tooltip text will not be shown on hover in disabled state",
       table: {
         defaultValue: {
           summary: false,
         },
       },
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } as Meta;
@@ -62,7 +62,7 @@ const TooltipTemplate: Story = (args) => ({
 export const Tooltip = TooltipTemplate.bind({});
 
 Tooltip.args = {
-  text: 'This action is disabled',
+  text: "This action is disabled",
   position: DEFAULT_TOOLTIP_POSITION,
   disable: false,
 };

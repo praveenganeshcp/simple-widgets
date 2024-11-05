@@ -2,11 +2,11 @@
 @import "../../../assets/styles/styles.scss";
 
 .sw-calendar-host {
-    border: 1px solid map.get($secondary-color, 600);
-    width: 25vw;
-    @extend .br-1;
+  border: 1px solid map.get($secondary-color, 600);
+  width: 25vw;
+  @extend .br-1;
 
-     .sw-month-calendar {
-         width: 100%;
-     }
- }
+  .sw-month-calendar {
+    width: 100%;
+  }
+}

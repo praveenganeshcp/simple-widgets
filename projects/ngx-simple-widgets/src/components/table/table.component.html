@@ -1,45 +1,45 @@
 <table class="sw-table">
-    <thead>
-        <tr class="flex">
-            <td 
-                *ngFor="let column of activeColumns; trackBy: trackByIndex" 
-                [style.--sw-table-cell-flex]="column.flex"
+  <thead>
+    <tr class="flex">
+      <td
+        *ngFor="let column of activeColumns; trackBy: trackByIndex"
+        [style.--sw-table-cell-flex]="column.flex"
+      >
+        {{ column.label }}
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows; trackBy: trackByIndex" class="flex">
+      <td
+        *ngFor="let column of activeColumns; trackBy: trackByIndex"
+        [style.--sw-table-cell-flex]="column.flex"
+      >
+        <ng-container *ngIf="isLoading; else cellContent">
+          Loading ...
+        </ng-container>
+        <ng-template #cellContent>
+          <ng-container
+            *ngIf="
+              column.renderTemplate && customCellTemplate;
+              else defaultCellTemplate
+            "
+          >
+            <ng-container
+              [ngTemplateOutlet]="customCellTemplate"
+              [ngTemplateOutletContext]="{
+                row: row,
+                column: column,
+                value: row[column.fieldName]
+              }"
             >
-                {{ column.label }}
-            </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr 
-            *ngFor="let row of rows; trackBy: trackByIndex" 
-            class="flex">
-            <td 
-                *ngFor="let column of activeColumns; trackBy: trackByIndex" 
-                [style.--sw-table-cell-flex]="column.flex"
-            >
-                <ng-container *ngIf="isLoading; else cellContent">
-                    Loading ...
-                </ng-container>
-                <ng-template #cellContent>
-                    <ng-container 
-                        *ngIf="column.renderTemplate && customCellTemplate; else defaultCellTemplate"
-                    >
-                        <ng-container
-                            [ngTemplateOutlet]="customCellTemplate"
-                            [ngTemplateOutletContext]="{
-                                'row': row,
-                                'column': column,
-                                'value': row[column.fieldName]
-                            }"
-                        >
-                        </ng-container>
-                    </ng-container>
-                    <ng-template #defaultCellTemplate>
-                        {{ row[column.fieldName] }}
-                    </ng-template>
-                </ng-template>
-            </td>
-        </tr>
-    </tbody>
+            </ng-container>
+          </ng-container>
+          <ng-template #defaultCellTemplate>
+            {{ row[column.fieldName] }}
+          </ng-template>
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
 </table>
-

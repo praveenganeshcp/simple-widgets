@@ -9,26 +9,30 @@ import * as inputStories from "./input.stories";
 The `sw-input` component provides a versatile input element for Angular applications, supporting various input types such as text, number, password, and email. It offers customization options for size and theme to cater to different UI requirements.
 
 **Inputs:**
+
 - `size` (string): Specifies the size of the input with allowed values of "sm" (small), "md" (medium), and "lg" (large).
 - `theme` (string): Defines the input's visual theme with two options:
   - "normal": Renders a simple and rounded bordered input element.
   - "underlined": Renders the input with just a bottom border.
 
 **Usage:**
+
 1. Import the `SwInputComponent` component into your Angular module.
 2. Implement the `sw-input` element in your template, specifying the desired `size` and `theme` inputs.
 3. Utilize the `type` attribute to set the input type (text, number, password, email) as needed.
 
 **Example:**
+
 ```html
- <input 
-    type="text" 
-    placeholder="Username" 
-    sw-input 
-    size="md" 
-    theme="underlined"
+<input
+  type="text"
+  placeholder="Username"
+  sw-input
+  size="md"
+  theme="underlined"
 />
 ```
 
 **Output:**
+
 <Primary />

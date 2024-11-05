@@ -1,22 +1,19 @@
-<span 
-    (mouseleave)="onMouseLeave()" 
-    (mouseenter)="onMouseEnter()" 
-    cdkOverlayOrigin 
-    #swTooltipOrigin="cdkOverlayOrigin"
+<span
+  (mouseleave)="onMouseLeave()"
+  (mouseenter)="onMouseEnter()"
+  cdkOverlayOrigin
+  #swTooltipOrigin="cdkOverlayOrigin"
 >
-    <ng-content></ng-content>
+  <ng-content></ng-content>
 </span>
 
-<ng-template 
-    cdkConnectedOverlay 
-    [cdkConnectedOverlayOrigin]="swTooltipOrigin" 
-    [cdkConnectedOverlayOpen]="showTooltip"
-    [cdkConnectedOverlayPositions]="[connectedPositionStrategy]"
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="swTooltipOrigin"
+  [cdkConnectedOverlayOpen]="showTooltip"
+  [cdkConnectedOverlayPositions]="[connectedPositionStrategy]"
 >
-    <span 
-        *ngIf="text" 
-        class="sw-tooltip-text"
-    >
-        {{ text }}
-    </span>
+  <span *ngIf="text" class="sw-tooltip-text">
+    {{ text }}
+  </span>
 </ng-template>

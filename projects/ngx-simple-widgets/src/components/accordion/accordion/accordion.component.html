@@ -1,20 +1,24 @@
 <cdk-accordion class="sw-accordion">
-    <cdk-accordion-item 
-        class="sw-accordion-panel" 
-        [class.sw-accordion-disabled]="disabled"
+  <cdk-accordion-item
+    class="sw-accordion-panel"
+    [class.sw-accordion-disabled]="disabled"
+  >
+    <div
+      (click)="toggleAccordionBody()"
+      class="sw-accordion-title flex align-items-center justify-space-between"
     >
-        <div 
-            (click)="toggleAccordionBody()" 
-            class="sw-accordion-title flex align-items-center justify-space-between"
-        >
-            <ng-content select="sw-accordion-title"></ng-content>
-            <sw-icon size="lg" [name]="isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'">
-            </sw-icon>
-        </div>
-        <div class="sw-accordion-body" 
-            [style.--sw-accordion-body-display]="isExpanded ? 'block' : 'none'"
-        >
-            <ng-content select="sw-accordion-body"></ng-content>
-        </div>
-    </cdk-accordion-item>
+      <ng-content select="sw-accordion-title"></ng-content>
+      <sw-icon
+        size="lg"
+        [name]="isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
+      >
+      </sw-icon>
+    </div>
+    <div
+      class="sw-accordion-body"
+      [style.--sw-accordion-body-display]="isExpanded ? 'block' : 'none'"
+    >
+      <ng-content select="sw-accordion-body"></ng-content>
+    </div>
+  </cdk-accordion-item>
 </cdk-accordion>

@@ -2,10 +2,10 @@
 @import "./colors";
 
 @mixin add-focus-outline() {
-    @include add-border(2px, $primary-color);
-    outline: 1px solid $primary-color;
+  @include add-border(2px, $primary-color);
+  outline: 1px solid $primary-color;
 }
 
 @mixin remove-focus-outline() {
-    outline: none;
+  outline: none;
 }

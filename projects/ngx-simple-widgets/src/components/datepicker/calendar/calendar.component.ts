@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, Component, forwardRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { SwMonthCalendarComponent } from '../month-calendar/month.component';
-import { SwMonthCalendarHeaderComponent } from '../month-calendar-header/month-calendar-header.component';
+import { ChangeDetectionStrategy, Component, forwardRef } from "@angular/core";
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { SwMonthCalendarComponent } from "../month-calendar/month.component";
+import { SwMonthCalendarHeaderComponent } from "../month-calendar-header/month-calendar-header.component";
 
 @Component({
-  selector: 'sw-calendar',
-  styleUrls: ['./calendar.component.scss'],
-  templateUrl: './calendar.component.html',
+  selector: "sw-calendar",
+  styleUrls: ["./calendar.component.scss"],
+  templateUrl: "./calendar.component.html",
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -69,6 +69,6 @@ export class SwCalendarComponent implements ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    throw new Error("Method not implemented.");
   }
 }

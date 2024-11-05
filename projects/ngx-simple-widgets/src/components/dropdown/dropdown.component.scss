@@ -4,58 +4,59 @@
 $sw-dropdown-width: 21vw;
 
 .sw-dropdown-input {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-	sw-icon {
-		cursor: pointer;
-	}
+  sw-icon {
+    cursor: pointer;
+  }
 
-	.sw-dropdown-toggle-icon {
-		position: absolute;
-		right: 5px;
-	}
+  .sw-dropdown-toggle-icon {
+    position: absolute;
+    right: 5px;
+  }
 
-	.sw-dropdown-clear-icon {
-		position: absolute;
-		right: 25px;
-	}
+  .sw-dropdown-clear-icon {
+    position: absolute;
+    right: 25px;
+  }
 }
 
 .sw-dropdown-panel {
-	&.cdk-listbox {
-		max-height: 25vh;
-		overflow-y: auto;
-		width: $sw-dropdown-width;
-		background-color: white;
-		@include add-border(1px, map.get($primary-color, 500));
-		box-shadow: 2px 2px 4px 4px map.get($secondary-color, 300);
-		@extend .br-1;
-		overflow-y: auto;
-		z-index: 1000;
-	}
+  &.cdk-listbox {
+    max-height: 25vh;
+    overflow-y: auto;
+    width: $sw-dropdown-width;
+    background-color: white;
+    @include add-border(1px, map.get($primary-color, 500));
+    box-shadow: 2px 2px 4px 4px map.get($secondary-color, 300);
+    @extend .br-1;
+    overflow-y: auto;
+    z-index: 1000;
+  }
 }
 
 .sw-dropdown-panel-option {
-	&.cdk-option {
-    	@extend .pd-x-2;
-    	@extend .pd-y-1;
-	   	@include add-bottom-border(1px, map.get($primary-color, 500));
+  &.cdk-option {
+    @extend .pd-x-2;
+    @extend .pd-y-1;
+    @include add-bottom-border(1px, map.get($primary-color, 500));
 
-	   	&:hover {
-	         background-color: map.get($secondary-color, 200);
-	         color: map.get($primary-color, 900);
-	    }
-
-	    &[aria-selected=true], &.cdk-option-active {
-	     	background-color: map.get($primary-color, 50) !important;
-	    	color: map.get($primary-color, 900) !important;
-	    }
-	}
-
-    &:last-child {
-         border-bottom: none;
+    &:hover {
+      background-color: map.get($secondary-color, 200);
+      color: map.get($primary-color, 900);
     }
+
+    &[aria-selected="true"],
+    &.cdk-option-active {
+      background-color: map.get($primary-color, 50) !important;
+      color: map.get($primary-color, 900) !important;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }

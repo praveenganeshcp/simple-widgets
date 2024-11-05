@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { SwDialogService } from './services/dialog.service';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { SwDialogComponent } from './components/dialog/dialog.component';
+import { NgModule } from "@angular/core";
+import { SwDialogService } from "./services/dialog.service";
+import { OverlayModule } from "@angular/cdk/overlay";
+import { SwDialogComponent } from "./components/dialog/dialog.component";
 
 @NgModule({
   declarations: [SwDialogComponent],

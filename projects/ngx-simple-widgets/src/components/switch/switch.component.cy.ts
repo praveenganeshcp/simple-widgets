@@ -1,7 +1,7 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SwSwitchComponent } from './switch.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { SwSwitchComponent } from "./switch.component";
 
-describe('Switch component', () => {
+describe("Switch component", () => {
   function mountComponent(isOn: boolean = false) {
     cy.mount(SwSwitchComponent, {
       componentProperties: {
@@ -11,23 +11,23 @@ describe('Switch component', () => {
     });
   }
 
-  it('should mount', () => {
+  it("should mount", () => {
     mountComponent();
   });
 
-  it('should move to on state when clicked in off state', () => {
+  it("should move to on state when clicked in off state", () => {
     mountComponent();
-    cy.get('.sw-switch-thumb').click();
-    cy.get('.sw-switch-thumb')
-      .should('have.attr', 'style')
-      .should('contains', 'transform: translate(25px, 0px)');
+    cy.get(".sw-switch-thumb").click();
+    cy.get(".sw-switch-thumb")
+      .should("have.attr", "style")
+      .should("contains", "transform: translate(25px, 0px)");
   });
 
-  it('should move to off state when clicked in on state', () => {
+  it("should move to off state when clicked in on state", () => {
     mountComponent(true);
-    cy.get('.sw-switch-thumb').click();
-    cy.get('.sw-switch-thumb')
-      .should('have.attr', 'style')
-      .should('contains', 'transform: translate(0px, 0px)');
+    cy.get(".sw-switch-thumb").click();
+    cy.get(".sw-switch-thumb")
+      .should("have.attr", "style")
+      .should("contains", "transform: translate(0px, 0px)");
   });
 });

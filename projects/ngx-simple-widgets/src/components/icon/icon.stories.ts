@@ -1,8 +1,8 @@
-import { Meta, Story, moduleMetadata } from '@storybook/angular';
-import { SwIconComponent } from './icon.component';
+import { Meta, Story, moduleMetadata } from "@storybook/angular";
+import { SwIconComponent } from "./icon.component";
 
 export default {
-  title: 'Simple Widgets/Icon',
+  title: "Simple Widgets/Icon",
   decorators: [
     moduleMetadata({
       imports: [SwIconComponent],
@@ -10,25 +10,24 @@ export default {
   ],
   argTypes: {
     size: {
-      control: 'inline-radio',
-      options: ['sm', 'md', 'lg'],
-      name: 'Size',
-      description: 'Size of the icon',
+      control: "inline-radio",
+      options: ["sm", "md", "lg"],
+      name: "Size",
+      description: "Size of the icon",
       table: {
-        defaultValue: { summary: 'md' },
+        defaultValue: { summary: "md" },
       },
     },
     name: {
-      control: 'text',
-      name: 'Icon name',
+      control: "text",
+      name: "Icon name",
       description:
-        'Name of the icon. NOTE: Only material icons names are valid',
+        "Name of the icon. NOTE: Only material icons names are valid",
     },
     iconSize: {
-      control: 'text',
-      name: '--sw-icon-size',
-      description:
-        'CSS variable to control size of the icon',
+      control: "text",
+      name: "--sw-icon-size",
+      description: "CSS variable to control size of the icon",
     },
   },
 } as Meta;
@@ -44,6 +43,6 @@ const IconTemplate: Story = (args) => ({
 
 export const Icon = IconTemplate.bind({});
 Icon.args = {
-  name: 'home',
-  size: 'md',
+  name: "home",
+  size: "md",
 };
