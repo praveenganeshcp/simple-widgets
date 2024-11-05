@@ -1,0 +1,27 @@
+@use 'sass:map';
+@import '../../assets/styles/styles.scss';
+
+:host {
+  --sw-side-panel-width: 15vw;
+}
+
+aside {
+  min-width: var(--sw-side-panel-width);
+  border: 1px solid map.get($secondary-color, 300);
+
+  nav {
+    overflow: hidden;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:not(:last-child) {
+      border-bottom: 0.5px solid map.get($secondary-color, 400);
+    }
+  }
+
+  .active-menu {
+    background-color: map.get($secondary-color, 100);
+  }
+}
