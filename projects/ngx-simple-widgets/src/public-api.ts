@@ -60,3 +60,7 @@ export { CanBeNull } from "./shared/types";
 // side panel menu
 export { SwSidePanelMenuComponent } from "./components/side-panel-menu/side-panel-menu.component";
 export { SwSidepanelMenuItem } from "./components/side-panel-menu/types";
+
+// List view
+export { SwListViewComponent } from "./components/list-view/list-view.component";
+export { SwListViewItem } from "./components/list-view/types";
