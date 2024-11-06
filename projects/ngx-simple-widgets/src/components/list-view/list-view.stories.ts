@@ -56,6 +56,16 @@ ListView.args = {
       icon: "person",
       id: 2,
     },
+    {
+      text: "Home",
+      icon: "home",
+      id: 3,
+    },
+    {
+      text: "Profile",
+      icon: "person",
+      id: 4,
+    },
   ],
   selectedItemId: 2,
   title: "Title",

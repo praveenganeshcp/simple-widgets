@@ -2,7 +2,7 @@
 @import "../../assets/styles/styles.scss";
 
 .list-view {
-  border: 0.5px solid map.get($secondary-color, 400);
+  border: 1px solid map.get($secondary-color, 400);
 
   &.horizontal-view {
     display: flex;
@@ -12,16 +12,16 @@
     cursor: pointer;
 
     &:hover:not(.selected-item) {
-      outline: 1px solid map.get($primary-color, 200);
+      border: 1px solid map.get($primary-color, 300);
     }
 
     &.selected-item {
-      outline: 1px solid map.get($primary-color, 500);
+      border: 1.5px solid map.get($primary-color, 500);
     }
   }
 
   .list-item,
   .list-view-heading {
-    border-bottom: 0.25px solid map.get($secondary-color, 300);
+    border: 1px solid map.get($secondary-color, 300);
   }
 }

@@ -1,5 +1,5 @@
 export interface SwListViewItem {
-  id: number;
+  id: number | string;
   text: string;
   icon?: string;
 }
