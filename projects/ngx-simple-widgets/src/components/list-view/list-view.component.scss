@@ -4,11 +4,19 @@
 .list-view {
   border: 0.5px solid map.get($secondary-color, 400);
 
+  &.horizontal-view {
+    display: flex;
+  }
+
   .list-item {
     cursor: pointer;
 
-    &:hover {
-      background-color: map.get($secondary-color, 50);
+    &:hover:not(.selected-item) {
+      outline: 1px solid map.get($primary-color, 200);
+    }
+
+    &.selected-item {
+      outline: 1px solid map.get($primary-color, 500);
     }
   }
 

@@ -21,6 +21,8 @@ import { SwListViewItem } from "./types";
 export class SwListViewComponent {
   @Input() selectedItemId: CanBeNull<SwListViewItem["id"]> = null;
 
+  @Input() showAsHorizontalList: boolean = true;
+
   @Input() title: string = "";
 
   @Input() items: SwListViewItem[] = [];

@@ -19,6 +19,11 @@ export default {
       description: "Items to show as selected in list",
       control: "text",
     },
+    showAsHorizontalList: {
+      name: "showAsHorizontalList",
+      description: "Whether to show items in horizontal way",
+      control: "boolean",
+    },
   },
 } as Meta;
 
@@ -28,6 +33,7 @@ const ListViewTemplate: Story = (args) => ({
             [items]='items'
             [selectedItemId]='selectedItemId'
             [title]='title'
+            [showAsHorizontalList]='showAsHorizontalList'
         >
         </sw-list-view>
     `,
@@ -53,4 +59,5 @@ ListView.args = {
   ],
   selectedItemId: 2,
   title: "Title",
+  showAsHorizontalList: false
 };
