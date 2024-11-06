@@ -1,61 +1,84 @@
 @use "sass:map";
 @import "../../assets/styles/styles.scss";
 
-:host {
-  --sw-table-width: 50%;
-  --sw-table-cell-alignment: left;
-}
+$table-background: map.get($secondary-color, 50);
+$header-background: map.get($secondary-color, 200);
+$text-color: map.get($secondary-color, 900);
+$row-odd: map.get($secondary-color, 100);
+$row-even: map.get($secondary-color, 50);
+$shimmer-color: map.get($secondary-color, 300);
 
-.sw-table {
-  text-align: var(--sw-table-cell-alignment);
-  width: var(--sw-table-width);
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
 
-  td {
-    @extend .pd-y-1;
-    @extend .pd-x-2;
-  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $table-background;
 
-  thead {
-    tr {
-      color: map.get($secondary-color, 900);
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid map.get($secondary-color, 200);
+    }
+
+    th {
+      background-color: $header-background;
+      color: map.get($secondary-color, 900); 
+    }
+
+    tbody {
+      tr {
+        &:nth-child(odd) {
+          background-color: $row-odd;
+        }
+
+        &:nth-child(even) {
+          background-color: $row-even;
+        }
+      }
     }
 
     td {
-      @extend .font-weight-bold;
-      background-color: map.get($secondary-color, 200);
-      flex: var(--sw-table-cell-flex);
-      @include add-top-border(1px, map.get($secondary-color, 300));
+      color: $text-color;
+      position: relative;
 
-      &:first-child {
-        @include add-left-border(1px, map.get($secondary-color, 300));
-      }
+      .cell-content {
+        position: relative;
 
-      &:last-child {
-        @include add-right-border(1px, map.get($secondary-color, 300));
+        &.shimmer {
+          overflow: hidden;
+          background: $shimmer-color;
+          color: transparent;
+        }
+
+        &.shimmer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -200%;
+          width: 200%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            rgba($shimmer-color, 0.1) 0%,
+            rgba($shimmer-color, 0.4) 50%,
+            rgba($shimmer-color, 0.1) 100%
+          );
+          animation: shimmer 1.2s infinite linear;
+        }
       }
     }
   }
+}
 
-  tbody {
-    tr {
-      td {
-        flex: var(--sw-table-cell-flex);
-        @include add-bottom-border(1px, map.get($secondary-color, 300));
-
-        &:first-child {
-          @include add-left-border(1px, map.get($secondary-color, 300));
-        }
-
-        &:last-child {
-          @include add-right-border(1px, map.get($secondary-color, 300));
-        }
-      }
-
-      &:nth-child(even) {
-        td {
-          background-color: map.get($secondary-color, 50);
-        }
-      }
-    }
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }

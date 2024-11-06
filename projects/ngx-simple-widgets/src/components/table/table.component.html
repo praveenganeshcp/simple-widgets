@@ -1,24 +1,21 @@
-<table class="sw-table">
+
+<div class="table-container">
+  <table>
   <thead>
-    <tr class="flex">
-      <td
+    <tr>
+      <th
         *ngFor="let column of activeColumns; trackBy: trackByIndex"
-        [style.--sw-table-cell-flex]="column.flex"
       >
         {{ column.label }}
-      </td>
+      </th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of rows; trackBy: trackByIndex" class="flex">
+    <tr *ngFor="let row of rows; trackBy: trackByIndex">
       <td
         *ngFor="let column of activeColumns; trackBy: trackByIndex"
-        [style.--sw-table-cell-flex]="column.flex"
       >
-        <ng-container *ngIf="isLoading; else cellContent">
-          Loading ...
-        </ng-container>
-        <ng-template #cellContent>
+        <div class="cell-content" [ngClass]="{'shimmer': isLoading}">
           <ng-container
             *ngIf="
               column.renderTemplate && customCellTemplate;
@@ -38,8 +35,9 @@
           <ng-template #defaultCellTemplate>
             {{ row[column.fieldName] }}
           </ng-template>
-        </ng-template>
+        </div>
       </td>
     </tr>
   </tbody>
 </table>
+</div>
