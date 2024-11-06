@@ -17,6 +17,10 @@ $flex-justify-content-values: "center", "flex-start", "flex-end", "space-evenly"
   flex-wrap: wrap;
 }
 
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 @each $flex-direction in $flex-directions {
   #{".flex-" + $flex-direction } {
     flex-direction: $flex-direction;

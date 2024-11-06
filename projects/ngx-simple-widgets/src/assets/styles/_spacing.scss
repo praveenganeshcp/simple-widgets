@@ -68,3 +68,10 @@ $allowed-spacing-values: (
     column-gap: $allowed-spacing-value;
   }
 }
+
+
+:root {
+  @each $allowed-spacing-key, $allowed-spacing-value in $allowed-spacing-values {
+    --sw-space-#{$allowed-spacing-key}: #{$allowed-spacing-value};
+  }
+}
