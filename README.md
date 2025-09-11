@@ -1,6 +1,6 @@
 [![Publish package to NPM registry](https://github.com/praveenganeshcp/simple-widgets/actions/workflows/publish.yml/badge.svg)](https://github.com/praveenganeshcp/simple-widgets/actions/workflows/publish.yml)
 
-# Simple Widgets
+# Simple Widgets.
 
 Simple Widgets is a UI component library built using [**Angular**](https://angular.io) and it is available as a [**NPM package**](https://www.npmjs.com/package/ngx-simple-widgets) to download. Currently the library has a palette of 6 components and few more will be added in the future. All the components encapsulates the core logic and provides a simple API for the consumer to work with it.
 
